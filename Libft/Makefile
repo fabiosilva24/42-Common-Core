@@ -42,3 +42,7 @@ clean:
 
 fclean: clean
 	rm -f libft.a
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
