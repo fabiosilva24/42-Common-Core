@@ -1,5 +1,6 @@
-<h1 align="center">Hi 👋, I'm Fabio</h1>
 <img align="right" alt="Coding" width="400" src="https://media.tenor.com/QYcfJTtQfo8AAAAM/deku.gif">
+<h1 align="center">Hi 👋, I'm Fabio</h1>
+
 
 <h3 align="left">About Me</h3>
 
