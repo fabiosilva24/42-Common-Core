@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Fabio</h1>
-<h3 align="center">I'm new to coding, i'm currently a student at 42 Luxembourg.Feel free to connect with me and follow along on my coding adventures!</h3>
-<img align="right"> alt="Coding" width="400" src="https://media.tenor.com/QYcfJTtQfo8AAAAM/deku.gif">
+<h3 align="center">I'm new to coding, I'm currently a student at 42 Luxembourg. Feel free to connect with me and follow along on my coding adventures!</h3>
+<img align="right" alt="Coding" width="400" src="https://media.tenor.com/QYcfJTtQfo8AAAAM/deku.gif">
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fabiosilva24&label=Profile%20views&color=a5f3bc&style=flat" alt="fabiosilva24" /> </p>
 
