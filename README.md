@@ -6,8 +6,6 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fabiosilva24&label=Profile%20views&color=a5f3bc&style=flat" alt="fabiosilva24" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=fabiosilva24" alt="fabiosilva24" /></a> </p>
-
 <h3 align="left">Connect with me</h3>
 <p align="left">
 </p>
