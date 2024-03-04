@@ -1,5 +1,4 @@
-<h1 align="center">Hi 👋, I'm Fabio</h1>
-<img align="center" alt="Coding" width="400" src="https://media.tenor.com/QYcfJTtQfo8AAAAM/deku.gif">
+<h1 align="center">Hi 👋, I'm Fabio</h1> <img align="center" alt="Coding" width="400" src="https://media.tenor.com/QYcfJTtQfo8AAAAM/deku.gif">
 
 <h3 align="left">About Me</h3>
 
@@ -9,7 +8,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=fabiosilva24" alt="fabiosilva24" /></a> </p>
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Connect with me</h3>
 <p align="left">
 </p>
 
