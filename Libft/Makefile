@@ -24,7 +24,12 @@ ft_memchr.c\
 ft_calloc.c\
 ft_strnstr.c\
 ft_strdup.c\
-ft_substr.c
+ft_substr.c\
+ft_strjoin.c\
+ft_strtrim.c\
+ft_split.c\
+ft_itoa.c\
+ft_strmapi.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -42,7 +47,5 @@ clean:
 
 fclean: clean
 	rm -f libft.a
+.PHONY : all clean fclean re
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
