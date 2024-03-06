@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 16:41:02 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/03/06 18:01:48 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/03/06 16:12:59 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/03/06 18:04:11 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*cdest;
-	char	*csrc;
-	size_t	i;
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{	
+	unsigned int	i;
 
-	cdest = (char *)dest;
-	csrc = (char *)src;
 	i = 0;
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	if (cdest > csrc)
+	if (s == NULL || f == NULL)
+		return ;
+	while (s[i])
 	{
-		while (n-- > 0)
-			cdest[n] = csrc[n];
+		f(i, &s[i]);
+		i++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			cdest[i] = csrc[i];
-			i++;
-		}
-	}
-	return (dest);
 }

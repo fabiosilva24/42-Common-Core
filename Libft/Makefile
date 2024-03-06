@@ -30,6 +30,12 @@ ft_strtrim.c\
 ft_split.c\
 ft_itoa.c\
 ft_strmapi.c\
+ft_putchar_fd.c\
+ft_putstr_fd.c\
+ft_putendl_fd.c\
+ft_putnbr_fd.c\
+ft_striteri.c\
+ft_istnew.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -47,5 +53,11 @@ clean:
 
 fclean: clean
 	rm -f libft.a
+	
+	bonus: $(BONUS_OBJ) | libft.a
+	$(CC) $(CFLAGS) -c $(BONUS_SRC) -I$(INCLUDE_DIR)
+		ar rc $(LIBFT_A) $(BONUS_OBJ)
+
+
 .PHONY : all clean fclean re
 
