@@ -35,9 +35,11 @@ ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c\
 ft_striteri.c\
-ft_istnew.c\
+
+BONUS_SRCS = ft_lstnew.c\
 
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: libft.a
 
@@ -54,10 +56,9 @@ clean:
 fclean: clean
 	rm -f libft.a
 	
-	bonus: $(BONUS_OBJ) | libft.a
-	$(CC) $(CFLAGS) -c $(BONUS_SRC) -I$(INCLUDE_DIR)
-		ar rc $(LIBFT_A) $(BONUS_OBJ)
+bonus: $(BONUS_OBJS) |	libft.a
+		ar rc libft.a $(BONUS_OBJS)
 
 
-.PHONY : all clean fclean re
+.PHONY : bonus all clean fclean re
 
