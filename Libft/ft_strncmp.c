@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:50:55 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/02/22 16:11:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:42:50 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	if (!str1 && !str2)
-		return (0);
-	if (!str1 && str2)
-		return (-1);
-	if (str1 && !str2)
-		return (1);
 	if (n == 0)
 		return (0);
 	while (n--)

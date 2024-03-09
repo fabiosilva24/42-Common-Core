@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:36:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/02/27 15:38:12 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/09 15:04:58 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,14 @@ void	*ft_calloc(size_t nitems, size_t size)
 {	
 	size_t	total_size;
 	void	*ptr;
+	int		owcheck;
 
-	if (size == 0 || nitems == 0)
-	{	
-		return (malloc(1));
-	}
+	owcheck = nitems * size;
+	if (nitems != 0 && owcheck / nitems != size)
+		return (NULL);
 	total_size = nitems * size;
 	ptr = malloc(total_size);
-	if (SIZE_MAX / size < nitems)
-	{
-		return (NULL);
-	}
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-	memset(ptr, 0, total_size);
+	if (ptr != NULL)
+		ft_memset(ptr, 0, total_size);
 	return (ptr);
 }
-/*int main()
-{
-    int *ptr = ft_calloc(10, sizeof(int));
-    printf("Set  10 blocks to  0\n");
-    for (int i =  0; i <  10; i++)
-    {
-        printf("%d ", ptr[i]);
-    }
-    free(ptr); // Don't forget to free the allocated memory
-    return  0;
-}*/

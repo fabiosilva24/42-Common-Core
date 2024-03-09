@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:25:03 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/02/26 19:39:45 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/09 15:09:11 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	if (str == NULL)
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == (char)c)

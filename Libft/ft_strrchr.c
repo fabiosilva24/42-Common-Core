@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:24:47 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/02/26 19:37:29 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:41:40 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *str, int c)
 	cc = (char)c;
 	h = NULL;
 	i = 0;
-	while (str && str[i])
+	while (str[i])
 	{
 		if (str[i] == cc)
 		{
@@ -30,7 +30,7 @@ char	*ft_strrchr(const char *str, int c)
 		}
 		i++;
 	}
-	if (!h && str && str[i] == cc)
+	if (!h && str[i] == cc)
 	{
 		h = (char *)&str[i];
 	}

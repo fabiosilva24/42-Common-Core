@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:41:02 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/03/06 18:01:48 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:39:08 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	cdest = (char *)dest;
 	csrc = (char *)src;
 	i = 0;
-	if (dest == NULL || src == NULL)
+	if (!dest && !src)
 		return (NULL);
 	if (cdest > csrc)
 	{
