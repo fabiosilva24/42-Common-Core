@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/08 12:08:35 by fsilva-p          #+#    #+#              #
+#    Updated: 2024/03/08 20:04:15 by fsilva-p         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -37,6 +49,14 @@ ft_putnbr_fd.c\
 ft_striteri.c\
 
 BONUS_SRCS = ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -44,21 +64,22 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: libft.a
 
 libft.a : $(OBJS)
-	ar rc libft.a $(OBJS)
+	ar rcs libft.a $(OBJS)
 
 	
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+re: fclean all
+
 clean:
 	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS)
 
 fclean: clean
 	rm -f libft.a
 	
 bonus: $(BONUS_OBJS)
-		ar rc libft.a $(BONUS_OBJS)
+		ar rcs libft.a $(BONUS_OBJS)
 
-
-.PHONY : bonus all clean fclean re
-
+.PHONY: all fclean clean re bonus
