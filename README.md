@@ -3,13 +3,10 @@
 
 <h3 align="left">About Me</h3>
 
-<p align="left"> I'm a student at <a href="https://42luxembourg.lu/" target="_blank"> 42 Luxembourg</a> and I'm new to coding. Currently, I've finished working on the mandatory part of my own library called libft, and now I'm diving into the bonus part. Feel free to connect with me and follow along on my coding adventures!</p>
+<p align="left"> I'm a student at <a href="https://42luxembourg.lu/" target="_blank"> 42 Luxembourg</a> and I'm new to coding. I've finished working on the libft project and i did the bonus also. Feel free to connect with me and follow along on my coding adventures!</p>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fabiosilva24&label=Profile%20views&color=a5f3bc&style=flat" alt="fabiosilva24" /> </p>
 
-  </a> 
-    <span style="font-size: 20px;">libft in the making...</span> 
-    <img src="https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="loading" width="40" height="40"/> 
 </p>
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> 
