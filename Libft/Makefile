@@ -6,13 +6,13 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/08 12:08:35 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/03/09 15:22:53 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/03/11 17:25:26 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
+NAME = libft.a
 SRCS = ft_isalpha.c\
 ft_isdigit.c\
 ft_isalnum.c\
@@ -61,10 +61,10 @@ BONUS_SRCS = ft_lstnew.c\
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-all: libft.a
+all: $(NAME)
 
-libft.a : $(OBJS)
-	ar rcs libft.a $(OBJS)
+$(NAME) : $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 	
 %.o: %.c libft.h
@@ -77,9 +77,9 @@ clean:
 	rm -f $(BONUS_OBJS)
 
 fclean: clean
-	rm -f libft.a
+	rm -f $(NAME)
 	
 bonus: $(BONUS_OBJS)
-		ar rcs libft.a $(BONUS_OBJS)
+		ar rcs $(NAME) $(BONUS_OBJS)
 
 .PHONY: all fclean clean re bonus

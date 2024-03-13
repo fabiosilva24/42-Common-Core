@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:27:56 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/02/28 18:00:52 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:32:16 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		dlen;
 
 	i = 0;
-	dlen = ft_strlen(s + start);
-	if (len > dlen)
-		len = dlen;
 	if (start > ft_strlen(s))
 	{
 		substring = (char *)malloc(1);
 		substring[0] = 0;
 		return (substring);
 	}
+	dlen = ft_strlen(s + start);
+	if (len > dlen)
+		len = dlen;
 	substring = (char *)malloc((len + 1) * sizeof(char));
 	if (substring == NULL)
 		return (NULL);
@@ -39,11 +39,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substring[i] = '\0';
 	return (substring);
 }
-/*int main()
+/*#include "stdio.h"
+int main()
 {
-	const char	*string = "Hello, There!";
-	unsigned int	start = 7;
-	size_t	length = 5;
+	const char	*string = "tripouille";
+	unsigned int	start = 100;
+	size_t	length = 1;
 	char	*substring;
 	
 	substring = ft_substr(string, start, length);
