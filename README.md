@@ -20,3 +20,7 @@
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> 
     </a> 
 </p>
+
+### My libft Score:
+
+![Libft Score](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-03-13%2020-17-05.png?raw=true)
