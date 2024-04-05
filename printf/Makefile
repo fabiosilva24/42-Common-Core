@@ -1,15 +1,13 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRCS = print_char.c\
+SRCS = 
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	make -C libft
-	cp libft/libft.a libftprintf.a
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
