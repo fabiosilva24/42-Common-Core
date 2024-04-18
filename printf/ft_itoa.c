@@ -24,7 +24,7 @@ static size_t	ft_itoa_len(long nmbr)
 		len++;
 		nmbr = -nmbr;
 	}
-	while (nmbr >= 1)
+	while (nmbr > 0)
 	{
 		len++;
 		nmbr /= 10;
@@ -42,15 +42,12 @@ static char	*ft_nmbr_to_str(long nmbr, char *str, size_t len)
 		str[0] = '-';
 		nmbr = -nmbr;
 	}
-	len--;
-	while (len)
+
+	while (len > 0)
 	{
-		str[len] = (nmbr % 10) + '0';
+		str[--len] = (nmbr % 10) + '0';
 		nmbr /= 10;
-		len--;
 	}
-	if (str[0] != '-')
-		str[0] = (nmbr % 10) + '0';
 	return (str);
 }
 
@@ -63,7 +60,7 @@ char	*ft_itoa(int n)
 	nmbr = n;
 	len = ft_itoa_len(nmbr);
 	str = 0;
-	str = ft_nmbr_to_str(nmbr, str, len);
+	str = ft_nmbr_to_str(nmbr, len);
 	if (!str)
 		return (NULL);
 	return (str);

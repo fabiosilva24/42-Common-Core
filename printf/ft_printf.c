@@ -42,16 +42,16 @@ int ft_printf(const char *format, ...)
 	
 	i = 0;
 	print_length = 0;
-	va_start(args, str);
-	wihle (str[i])
+	va_start(args, format);
+	while (format[i])
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
-			print_length += ft_formats(args, str[i + 1]);
+			print_length += ft_formats(args, &format[i + 1]);
 			i++;
 		}
 		else
-			print_length += ft_putchar(str[i]);
+			print_length += ft_putchar(format[i]);
 		i++;
 	}
 	va_end(args);

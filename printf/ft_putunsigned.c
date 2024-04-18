@@ -14,7 +14,7 @@
 
 int	unsigned_length(unsigned int num)
 {
-	int length 
+	int length;
 	
 	length = 1;
 	while (num /= 10)
@@ -32,4 +32,15 @@ void	ft_putunsigned(unsigned int num)
 	
 	digit = num % 10 + '0';
 	write(1, &digit, 1);
+}
+
+int main() 
+{
+    unsigned int num = 12345;
+    ft_printf("Number: %u\n", num);
+    ft_printf("Length: %d\n", unsigned_length(num));
+    ft_printf("Printing digits: ");
+    ft_putunsigned(num);
+    ft_printf("\n");
+    return 0;
 }
