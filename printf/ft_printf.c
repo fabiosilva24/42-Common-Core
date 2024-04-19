@@ -10,27 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_formats(va_list args, const char *format)
 {
 	int print_length;
 	
 	print_length = 0;
-	if (format == 'c')
+	if (*format == 'c')
 		print_length += ft_putchar(va_arg(args, int));
-	else if (format == 's')
+	else if (*format == 's')
 		print_length += ft_putstr(va_arg(args, char *));
-	else if (format == 'd' || 'i')
+	else if (*format == 'd' || *format == 'i')
 		print_length += ft_putnbr(va_arg(args, int));
-	else if (format == 'p')
+	else if (*format == 'p')
 		print_length += ft_putptr(va_arg(args, unsigned long long));
-	else if (format == 'u')
+	else if (*format == 'u')
 		print_length += ft_putunsigned(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		print_length += ft_printhexa(va_arg(args, unsigned int), format);
-	else if (format == '%')
-		print_length += ft_printpercent ();
+	else if (*format == 'x' || *format == 'X')
+		print_length += ft_deci_to_hexa(va_arg(args, unsigned int));
+	else if (*format == '%')
+		print_length += ft_printpercent();
 	return (print_length);
 }
 

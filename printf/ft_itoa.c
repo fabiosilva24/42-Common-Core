@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	ft_itoa_len(long nmbr)
 {
@@ -34,7 +34,6 @@ static size_t	ft_itoa_len(long nmbr)
 
 static char	*ft_nmbr_to_str(long nmbr, char *str, size_t len)
 {
-	str = ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	if (nmbr < 0)
@@ -56,11 +55,11 @@ char	*ft_itoa(int n)
 	long	nmbr;
 	size_t	len;
 	char	*str;
-
+	
+	str = 0;
 	nmbr = n;
 	len = ft_itoa_len(nmbr);
-	str = 0;
-	str = ft_nmbr_to_str(nmbr, len);
+	str = ft_nmbr_to_str(nmbr, str, len);
 	if (!str)
 		return (NULL);
 	return (str);

@@ -10,31 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	unsigned_length(unsigned int num)
 {
 	int length;
 	
-	length = 1;
-	while (num /= 10)
+	length = 0;
+
+	if (num == 0)
+		return (1);
+
+	while (num > 0)
+	{
+		num /= 10;
 		length++;
+	}
 		return length;
 }
 
-void	ft_putunsigned(unsigned int num)
-{
+int	ft_putunsigned(unsigned int num)
+{	
+	int	count;
+
+	count = 0;
 	if (num >= 10)
 	{
-		ft_putunsigned(num / 10);
+		count += ft_putunsigned(num / 10);
 	}
 	char digit;
 	
 	digit = num % 10 + '0';
-	write(1, &digit, 1);
+	count += write(1, &digit, 1);
+
+	return (count);
 }
 
-int main() 
+/*int main() 
 {
     unsigned int num = 12345;
     ft_printf("Number: %u\n", num);
@@ -43,4 +55,4 @@ int main()
     ft_putunsigned(num);
     ft_printf("\n");
     return 0;
-}
+}*/

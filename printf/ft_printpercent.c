@@ -10,5 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
+int	ft_printpercent()
+{
+	write(1, "%", 1);
+	return 1;
+}

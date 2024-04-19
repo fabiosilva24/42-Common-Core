@@ -1,15 +1,15 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libftprintf.a
+NAME = ft_printf.a
 SRCS = 	ft_calloc.c\
 	ft_memset.c\
 	ft_itoa.c\
 	ft_printf.c\
-	ft_printhexa.c\
+	ft_deci_to_hexa.c\
 	ft_printpercent.c\
 	ft_putchar.c\
 	ft_putnbr.c\
-	ft_putpr.c\
+	ft_putptr.c\
 	ft_putstr.c\
 	ft_putunsigned.c\
 	

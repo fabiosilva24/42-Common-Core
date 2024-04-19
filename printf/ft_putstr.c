@@ -10,16 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void putstr(const char *str)
+int putstr(const char *str)
 {	
+	int count;
+
+	count = 0;
+
 	if (str == NULL)
-		return;
+		return (0);
 
 	while (*str != '\0')
 	{
-		ft_putchar(*str);
+	count += ft_putchar(*str);
 		str++;
 	}
+
+	return (count);
 }

@@ -1,15 +1,18 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putptr(void *ptr)
+int	ft_putptr(unsigned long long ptr)
 {
-	char *strptr;
+	int	count;
 	
-	if (ptr == NULL)
+	count = 0;
+	if (ptr == 0)
 	{
-		ft_putstr("(nil)");
-		return ;
+		count += ft_putstr("(nil)");
+		return (count);
 	}
 	
-	ft_putstr("0x");
-	ft_printhexa((unsigned long)ptr);
+	count += ft_putstr("0x");
+	count += ft_deci_to_hexa(ptr);
+
+	return (count);
 }	
