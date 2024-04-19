@@ -27,8 +27,10 @@ int	ft_formats(va_list args, const char *format)
 		print_length += ft_putptr(va_arg(args, unsigned long long));
 	else if (*format == 'u')
 		print_length += ft_putunsigned(va_arg(args, unsigned int));
-	else if (*format == 'x' || *format == 'X')
+	else if (*format == 'x')
 		print_length += ft_deci_to_hexa(va_arg(args, unsigned int));
+	else if (*format == 'X')
+		print_length += ft_deci_to_hexauppercase(va_arg(args, unsigned int));
 	else if (*format == '%')
 		print_length += ft_printpercent();
 	return (print_length);

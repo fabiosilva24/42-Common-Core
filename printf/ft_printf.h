@@ -18,6 +18,7 @@ void    *ft_calloc(size_t nitems, size_t size);
 void    *ft_memset(void *str, int c, size_t n);
 int     ft_putptr(unsigned long long ptr);
 int     ft_deci_to_hexa(long n);
+int	ft_deci_to_hexauppercase(long n);
 int     ft_printpercent();
 
 

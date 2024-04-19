@@ -12,14 +12,24 @@
 
 #include "ft_printf.h"
 
-int putstr(const char *str)
+int ft_putstr(const char *str)
 {	
 	int count;
+	const char *nullStr;
+	
+	nullStr = "(null)";
 
 	count = 0;
 
 	if (str == NULL)
-		return (0);
+		{	
+			while (*nullStr != '\0')
+		{
+			count += ft_putchar(*nullStr);
+			nullStr++;
+		}
+			return (count);
+		}
 
 	while (*str != '\0')
 	{
