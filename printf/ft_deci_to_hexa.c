@@ -8,10 +8,9 @@ int ft_deci_to_hexa(long n)
 
 	count = 0;
 
-	if (n == 0)
+	if (n <= 0)
 	{	
-		write(1, "0", 1);
-		return (1);
+		return (0);
 	}
 
 	count += ft_deci_to_hexa (n / 16);
