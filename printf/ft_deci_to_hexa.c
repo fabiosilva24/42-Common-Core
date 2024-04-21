@@ -8,12 +8,16 @@ int ft_deci_to_hexa(long n)
 
 	count = 0;
 
+<<<<<<< HEAD
+	if (n >= 16)
+	{
+		count += ft_deci_to_hexa(n / 16);
+=======
 	if (n <= 0)
 	{	
 		return (0);
+>>>>>>> refs/remotes/origin/main
 	}
-
-	count += ft_deci_to_hexa (n / 16);
 
 	hexa = "0123456789abcdef"[n % 16];
 

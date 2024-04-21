@@ -8,12 +8,10 @@ int ft_deci_to_hexauppercase(long n)
 
         count = 0;
 
-        if (n <= 0)
+        if (n >= 16)
         {
-                return (0);
+                count += ft_deci_to_hexauppercase(n / 16);
         }
-
-        count += ft_deci_to_hexauppercase (n / 16);
 
         hexa = "0123456789ABCDEF"[n % 16];
 
