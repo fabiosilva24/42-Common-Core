@@ -14,8 +14,8 @@
 
 int	ft_formats(va_list args, const char *format)
 {
-	int print_length;
-	
+	int	print_length;
+
 	print_length = 0;
 	if (*format == 'c')
 		print_length += ft_putchar(va_arg(args, int));
@@ -36,12 +36,12 @@ int	ft_formats(va_list args, const char *format)
 	return (print_length);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	int	i;
-	va_list args;
+	va_list	args;
 	int	print_length;
-	
+
 	i = 0;
 	print_length = 0;
 	va_start(args, format);

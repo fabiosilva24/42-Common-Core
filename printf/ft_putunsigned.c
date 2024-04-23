@@ -14,23 +14,21 @@
 
 int	unsigned_length(unsigned int num)
 {
-	int length;
-	
-	length = 0;
+	int	length;
 
+	length = 0;
 	if (num == 0)
 		return (1);
-
 	while (num > 0)
 	{
 		num /= 10;
 		length++;
 	}
-		return length;
+	return (length);
 }
 
 int	ft_putunsigned(unsigned int num)
-{	
+{
 	int	count;
 
 	count = 0;
@@ -38,11 +36,10 @@ int	ft_putunsigned(unsigned int num)
 	{
 		count += ft_putunsigned(num / 10);
 	}
-	char digit;
-	
+	char	digit;
+
 	digit = num % 10 + '0';
 	count += write(1, &digit, 1);
-
 	return (count);
 }
 

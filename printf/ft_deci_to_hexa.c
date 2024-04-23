@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_deci_to_hexa(long n)
+int ft_deci_to_hexa(unsigned long long n)
 {
 	char hexa;
 
