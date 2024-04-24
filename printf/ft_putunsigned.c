@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 12:29:05 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/10 12:31:24 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:27:19 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ int	unsigned_length(unsigned int num)
 
 int	ft_putunsigned(unsigned int num)
 {
-	int	count;
+	int		count;
+	char	digit;
 
 	count = 0;
 	if (num >= 10)
 	{
 		count += ft_putunsigned(num / 10);
 	}
-	char	digit;
-
 	digit = num % 10 + '0';
 	count += write(1, &digit, 1);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 11:42:01 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/10 11:42:21 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:58:36 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static char	*ft_nmbr_to_str(long nmbr, char *str, size_t len)
 		str[0] = '-';
 		nmbr = -nmbr;
 	}
-
 	while (len > 0)
 	{
 		str[--len] = (nmbr % 10) + '0';
@@ -55,7 +54,7 @@ char	*ft_itoa(int n)
 	long	nmbr;
 	size_t	len;
 	char	*str;
-	
+
 	str = 0;
 	nmbr = n;
 	len = ft_itoa_len(nmbr);
@@ -63,4 +62,4 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	return (str);
-}	
+}

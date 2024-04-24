@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:47:24 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/10 12:35:22 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:26:13 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	ft_formats(va_list args, const char *format)
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
+	int		i;
 	va_list	args;
-	int	print_length;
+	int		print_length;
 
 	i = 0;
 	print_length = 0;
