@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:49:31 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/24 18:58:40 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:49:50 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_list
 {
-	char	letter;
+	char	*str_buf;
 	struct s_list *next;
 }	t_list;
 
