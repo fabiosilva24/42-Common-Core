@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:49:31 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/25 19:49:50 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/29 19:34:13 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@
 # include <unistd.h>
 # include <stddef.h>
 
-typedef struct s_list
-{
-	char	*str_buf;
-	struct s_list *next;
-}	t_list;
-
 char *get_next_line(int fd);
+char 
 
 #endif
