@@ -6,7 +6,7 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:49:23 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/29 19:34:16 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:26:36 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,9 @@
 
 char	*get_next_line(int fd)
 {
+	int bytes_toread;
+	char *buffer;
+		
+	if (fd < 0 && BUFFER <= 0)
+		return (NULL);
 	
