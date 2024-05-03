@@ -6,55 +6,86 @@
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:50:01 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/29 19:34:09 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/05/03 18:51:41 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-size_t	ft_strlen(const char *str)
+
+char	*ft_strchr(const char *str, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	
-	while(str[i])
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (NULL);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	if (!s1 && !s2)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	if (s1)
+		while (s1[i])
+			str[j++] = s1[i++];
+	i = 0;
+	if (s2)
+		while (s2[i])
+			str[j++] = s2[i++];
+	str[j] = '\0';
+	return (str);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
 		i++;
 	return (i);
 }
-char	*ft_strjoin(char const *s1, const const *s2)
+
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	int i;
-	int j;
-	char *str;
-	size_t total_len;
-	
-	i = 0;
-	j = 0;
-	total_len = (ft_strlen(s1) + ft_strlen(s2));
-	str = (char *)malloc(sizeof(char) * (total_len + 1));
-	if (!str)
-	return (NULL);
-	while (s1 && s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2 && s2[j])
-	str[i++] = s2[j++];
-	str[i] = '\0';
-	return (str);
+	size_t	total_size;
+	void	*ptr;
+	int		owfcheck;
+
+	owfcheck = nitems * size;
+	if (nitems != 0 && owfcheck / nitems != size)
+		return (NULL);
+	total_size = nitems * size;
+	ptr = malloc(total_size);
+	if (ptr != NULL)
+		ft_memset(ptr, 0, total_size);
+	return (ptr);
 }
-char	*ft_strcpy(char *dest, const char *src)
-{	
-	int i;
-	
-	i = 0;
-	
-	while(src[i] != '\0')
+
+void	*ft_memset(void *str, int c, size_t n)
+{
+	unsigned char	*d;
+
+	d = str;
+	while (n--)
 	{
-		dest[i] = src[i];
-		i++;
+		*d++ = (unsigned char)c;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (str);
 }
