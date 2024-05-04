@@ -10,17 +10,7 @@ FILE	*g_fp;
 char	*get_next_line(int fd);
 
 int main()
-/**
-*	- Function main() opens a file in a file descriptor (fd / _fileno).
-*	- This file contains text meant to be read one line at a time by means
-*	of function get_next_line().
-*	- Each call must return a string of chars ended tied up with a '\n', so long
-*	as there is one. Empty lines are returned all the same (one single '\n' per call).
-*	- main() proceeds to print the resulting line read by get_next_line(),
-*	looping throughout the file.
-*	- Once EOF is reached, get_next_line() returns NULL and stops execution;
-*	main() closes the file, and the program comes to a halt.
-**/
+
 {
 	char	*linha;
 	int		i = 0;
