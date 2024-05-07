@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 16:49:23 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/05/07 16:46:16 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/05/07 14:40:08 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/05/07 17:01:22 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+
+#include "get_next_line_bonus.h"
 
 char	*ft_freejoin(char *buffer, char *buf)
 {
@@ -95,15 +96,15 @@ char	*read_file(int fd, char *result)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[FD_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= FD_MAX)
 		return (NULL);
-	buffer = read_file(fd, buffer);
-	if (!buffer)
+	buffer[fd] = read_file(fd, buffer[fd]);
+	if (!buffer[fd])
 		return (NULL);
-	line = checkfornewline(buffer);
-	buffer = ft_next(buffer);
+	line = checkfornewline(buffer[fd]);
+	buffer[fd] = ft_next(buffer[fd]);
 	return (line);
 }
