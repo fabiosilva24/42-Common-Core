@@ -24,3 +24,7 @@
 ### My libft Score:
 
 ![Libft Score](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-03-13%2020-17-05.png?raw=true)
+
+### My gnl Score:
+
+![Gnl Score](https://github.com/fabiosilva24/42-Common-Core/blob/main/get_next_line/Screenshot%20from%202024-05-23%2016-20-40.png)
