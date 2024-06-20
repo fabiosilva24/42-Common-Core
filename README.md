@@ -28,3 +28,7 @@
 ### My gnl Score:
 
 ![Gnl Score](https://github.com/fabiosilva24/42-Common-Core/blob/main/get_next_line/Screenshot%20from%202024-05-23%2016-20-40.png)
+
+### My ft_printf:
+
+![Ft_Printf](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-06-20%2019-46-48.png?raw=true)
