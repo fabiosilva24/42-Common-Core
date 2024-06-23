@@ -51,6 +51,10 @@ int	main(int argc, char **argv)
 	i = 0;
 
 	if (sigaction(SIGUSR1, &sa, NULL) == -1 || sigaction(SIGUSR2, &sa, NULL) == -1)
+	{
+		write(1, "error", 1);
+		return 1;
+	}
 	if (argc != 3)
 	{
 		ft_printf("Use: %s <server_pid> <message>", argv[0]);
