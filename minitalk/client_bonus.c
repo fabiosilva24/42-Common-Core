@@ -1,23 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 17:23:31 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/06/24 17:26:12 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "minitalk_bonus.h"
-void	handle_signal(int signal)
+
+static int	g_status;
+
+void	handle_signal(int signal, siginfo_t *info, void *context)
 {
-	static int	bits = 0;
-	static char	c = 0;
-
-	if (signal == SIGUSR1)
-		c |= (0 << bits);
-	else if (signal == SIGUSR2)
-		c |= (1 << bits);
-	bits++;
-	if (bits == 8)
-	{
-		write(1, &c, 1);
-		bits = 0;
-		c = 0;
-	}
+	(void)info;
+	(void)context;
+	(void)signal;
+	g_status = 1;
+	if (signal == SIGUSR2)
+		ft_printf("message acknowledged\n");
 }
-
 void	send_char(pid_t pid, char c)
 {
 	int	i;
@@ -25,14 +31,17 @@ void	send_char(pid_t pid, char c)
 	i = 0;
 	while (i < 8)
 	{
+		g_status = 0;
 		if (c & (1 << i))
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		while (g_status == 0)
+			usleep(10);
 		i++;
 	}
 }
+
 
 int	main(int argc, char **argv)
 {
@@ -40,16 +49,14 @@ int	main(int argc, char **argv)
 	char	*message;
 	int		i;
 	struct sigaction sa;
-	
-	sa.sa_handler = handle_signal;
-	sigemptyset(&sa.sa_mask);
-	sigaddset(&sa.sa_mask, SIGUSR1);
-	sa.sa_flags = SA_SIGINFO | SA_RESTART;
 
 	server_pid = ft_atoi(argv[1]);
 	message = argv[2];
 	i = 0;
-
+	sa.sa_sigaction = handle_signal;
+	sigemptyset(&sa.sa_mask);
+	sigaddset(&sa.sa_mask, SIGUSR1);
+	sa.sa_flags = SA_SIGINFO | SA_RESTART;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1 || sigaction(SIGUSR2, &sa, NULL) == -1)
 	{
 		write(1, "error", 1);
@@ -61,13 +68,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	while (message[i] != '\0')
-	{
-		send_char(server_pid, message[i]);
-		i++;
-	}
+		send_char(server_pid, message[i++]);
 	send_char(server_pid, '\0');
-
-	pause();
-
-	return (0);
 }
