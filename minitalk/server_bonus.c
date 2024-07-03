@@ -6,23 +6,34 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:23:43 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/06/24 17:23:47 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:24:12 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "minitalk_bonus.h"
 
+int	check_sigaction(struct sigaction *sa)
+{
+	if (sigaction(SIGUSR1, sa, NULL) == -1)
+	{
+		return (1);
+	}
+	if (sigaction(SIGUSR2, sa, NULL) == -1)
+	{
+		return (1);
+	}
+	return (0);
+}
 
 void	handle_signal(int signal, siginfo_t *info, void *context)
 {
 	static int	bits = 0;
 	static char	c = 0;
-	int pid;
+	int			pid;
 
 	(void)context;
 	pid = info->si_pid;
-
 	if (signal == SIGUSR1)
 		c |= (0 << bits);
 	else if (signal == SIGUSR2)
@@ -41,20 +52,17 @@ void	handle_signal(int signal, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	struct sigaction sa;
+	struct sigaction	sa;
+
 	sa.sa_sigaction = handle_signal;
 	sigemptyset(&sa.sa_mask);
 	sigaddset(&sa.sa_mask, SIGUSR1);
 	sa.sa_flags = SA_SIGINFO | SA_RESTART;
-
-	if (sigaction(SIGUSR1, &sa, NULL) == -1 || sigaction(SIGUSR2, &sa, NULL) == -1)
+	if (check_sigaction(&sa))
 	{
 		write(1, "error", 1);
-		return 1;
 	}
-
 	ft_printf("Server PID: %d\n", getpid());
-
 	while (1)
 	{
 		pause();

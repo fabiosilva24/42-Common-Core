@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:42:04 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/06/24 16:54:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:48:04 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	send_char(pid_t pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		usleep(400);
 		i++;
 	}
 }
