@@ -20,7 +20,6 @@
     </a> 
 </p>
 
-<h3 align="center">42 Common Core</h3>
 <p align="center">
     <img src="https://github.com/fabiosilva24/42-Common-Core/blob/main/Untitled.png?raw=true" alt="42 Common Core Banner" />
 </p>
