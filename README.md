@@ -3,11 +3,10 @@
 
 <h3 align="left">About Me</h3>
 
-<p align="left"> I'm a student at <a href="https://42luxembourg.lu/" target="_blank"> 42 Luxembourg</a> and I'm new to coding. I've finished working on the libft project and i did the bonus also. Feel free to connect with me and follow along on my coding adventures!</p>
+<p align="left"> I'm a student at <a href="https://42luxembourg.lu/" target="_blank">42 Luxembourg</a> and I'm new to coding. I've finished working on the libft project and I did the bonus also. Feel free to connect with me and follow along on my coding adventures!</p>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fabiosilva24&label=Profile%20views&color=a5f3bc&style=flat" alt="fabiosilva24" /> </p>
 
-</p>
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> 
     <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> 
@@ -21,6 +20,11 @@
     </a> 
 </p>
 
+<h3 align="center">42 Common Core</h3>
+<p align="center">
+    <img src="https://github.com/fabiosilva24/42-Common-Core/blob/main/Untitled.png?raw=true" alt="42 Common Core Banner" />
+</p>
+
 ### My libft Score:
 
 ![Libft Score](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-03-13%2020-17-05.png?raw=true)
@@ -32,3 +36,4 @@
 ### My ft_printf:
 
 ![Ft_Printf](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-06-20%2019-46-48.png?raw=true)
+
