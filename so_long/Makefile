@@ -10,30 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Program Name
 NAME = so_long
-CC == gcc
+
+# Compiler And CFlags
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I $(LIBFT) -I $(MLX)
+LIBS = -lXext -lX11 -lm
 MLX = ./minilibx-linux/libmlx.a
-LIBFT = libft/libft.a
-SRC_DIR = src
+LIBFT = ./libft/libft.a
 SRCS = so_long.c
 OBJS = $(SRCS:.c=.o)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(MLX)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBS) $(MLX) -o $(NAME)
 
 $(LIBFT):
-	make -C libft
+	make -C ./libft
+
+$(MLX):
+	make -C ./minilibx-linux
+
 
 clean:
 	rm -f $(OBJS)
-	make clean -C libft
+	make clean -C ./libft
+	make clean -C ./minilibx-linux
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C libft
+	make fclean -C ./libft
+	make clean -c ./minilibx-linux
 
 re: fclean all
 
