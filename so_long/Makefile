@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/05/21 16:41:50 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/07/23 16:54:53 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC == gcc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
-MLX = -Lminilibx-linux -lmlx - lXext -lX11 -lm
+CFLAGS = -Wall -Wextra -Werror -I $(LIBFT) -I $(MLX)
+MLX = ./minilibx-linux/libmlx.a
 LIBFT = libft/libft.a
 SRC_DIR = src
-SRCS = 
+SRCS = so_long.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

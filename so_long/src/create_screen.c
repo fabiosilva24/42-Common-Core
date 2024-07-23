@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   create_screen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/07/23 17:19:09 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/07/10 15:24:47 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/07/12 18:48:56 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
 
-# include "../minilibx-linux/mlx.h"
-# include "../minilibx-linux/mlx_int.h"
-# include "../libft/libft.h"
-
-typedef struct	s_vars
+#include "so_long.h"
+int main(void)
 {
 	void	*mlx;
-	void	*win;
-}				t_vars;
+	void	*mlx_win;
 
-int	key_hook(int keycode, t_vars *vars);
-
-#endif
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	mlx_loop(mlx);
+}
