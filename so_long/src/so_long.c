@@ -1,29 +1,46 @@
 #include "../include/so_long.h"
-#include <stdio.h>
 
-
-int	key_hook(int keycode, t_vars *vars)
+// Function to handle key events
+int key_hook(int keycode, t_vars *vars)
 {
-	if (keycode == 9)
-		exit(0);
-	if (keycode == 25)
-		printf("W key pressed\n");
-	if (keycode == 38)
-		printf("A key pressed\n");
-	if (keycode == 39)
-		printf("S key pressed\n");
-	if (keycode == 40)
-		printf("D key pressed\n");
-	
-	return 0;
+    if (keycode == 65307) // ESC key
+    {
+        mlx_destroy_window(vars->mlx, vars->win);
+        exit(0);
+    }
+    return (0);
 }
 
-int	main(void)
+int main(void)
 {
-	t_vars	vars;
+    t_vars vars;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_loop(vars.mlx);
+    // Initialize MiniLibX
+    vars.mlx = mlx_init();
+    if (!vars.mlx)
+        return (EXIT_FAILURE);
+
+    // Create a new window
+    vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "So Long Test");
+    if (!vars.win)
+    {
+        free(vars.mlx);
+        return (EXIT_FAILURE);
+    }
+
+    // Fill the window with a color (e.g., blue)
+    mlx_clear_window(vars.mlx, vars.win);
+    mlx_pixel_put(vars.mlx, vars.win, WIN_WIDTH / 2, WIN_HEIGHT / 2, 0x00FF0000); // Draw a red pixel in the center
+
+    // Set up the key hook
+    mlx_key_hook(vars.win, key_hook, &vars);
+
+    // Start the MiniLibX loop
+    mlx_loop(vars.mlx);
+
+    // Clean up (this line will never be reached in this simple example)
+    mlx_destroy_window(vars.mlx, vars.win);
+    free(vars.mlx);
+    return (EXIT_SUCCESS);
 }
+
