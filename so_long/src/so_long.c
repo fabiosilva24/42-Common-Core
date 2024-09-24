@@ -13,7 +13,7 @@ void initialize_game(t_game *game)
 
 void handle_input(t_game *game)
 {
-	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+
 }
 
 void render_game(t_game *game)
@@ -22,6 +22,11 @@ void render_game(t_game *game)
 }
 
 void cleanup_game(t_game *game)
+{
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+}
+
+int main(void)
 {
 	t_game game;
 
