@@ -1,46 +1,34 @@
-#include "../libs/minilibx-linux/mlx.h"
+#include "./src/so_long.h"
 
-// Function to handle key events
-int key_hook(int keycode, t_vars *vars)
+void initialize_game(t_game *game)
 {
-    if (keycode == 65307) // ESC key
-    {
-        mlx_destroy_window(vars->mlx, vars->win);
-        exit(0);
-    }
-    return (0);
+	game->mlx_ptr = mlx_inti();
+	if (!game->mlx_ptr)
+		exit (1);
+	game->win_ptr = mlx_new_window(game->mlx_ptr, 800, 600, "So Long");
+	if (!game->win_ptr)
+		exit(1);
+
 }
 
-int main(void)
+void handle_input(t_game *game)
 {
-    t_vars vars;
-
-    // Initialize MiniLibX
-    vars.mlx = mlx_init();
-    if (!vars.mlx)
-        return (EXIT_FAILURE);
-
-    // Create a new window
-    vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "So Long Test");
-    if (!vars.win)
-    {
-        free(vars.mlx);
-        return (EXIT_FAILURE);
-    }
-
-    // Fill the window with a color (e.g., blue)
-    mlx_clear_window(vars.mlx, vars.win);
-    mlx_pixel_put(vars.mlx, vars.win, WIN_WIDTH / 2, WIN_HEIGHT / 2, 0x00FF0000); // Draw a red pixel in the center
-
-    // Set up the key hook
-    mlx_key_hook(vars.win, key_hook, &vars);
-
-    // Start the MiniLibX loop
-    mlx_loop(vars.mlx);
-
-    // Clean up (this line will never be reached in this simple example)
-    mlx_destroy_window(vars.mlx, vars.win);
-    free(vars.mlx);
-    return (EXIT_SUCCESS);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 }
 
+void render_game(t_game *game)
+{
+
+}
+
+void cleanup_game(t_game *game)
+{
+	t_game game;
+
+	initialize_game(&game);
+
+
+
+	cleanup_game(&game);
+
+}
