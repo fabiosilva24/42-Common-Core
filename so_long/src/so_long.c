@@ -1,4 +1,4 @@
-#include "../include/so_long.h"
+#include "../libs/minilibx-linux/mlx.h"
 
 // Function to handle key events
 int key_hook(int keycode, t_vars *vars)
