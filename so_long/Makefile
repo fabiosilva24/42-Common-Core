@@ -6,17 +6,21 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/05/21 16:41:50 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/09/24 15:24:31 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-CC == gcc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
-MLX = -Lminilibx-linux -lmlx - lXext -lX11 -lm
-LIBFT = libft/libft.a
-SRC_DIR = src
-SRCS = 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_PATH) -I $(MLX_PATH)
+
+MLX_PATH = ./libs/minilibx-linux
+MLX = $(MLX_PATH)/libmlx.a
+
+LIBFT_PATH = ./libs/libft
+LIBFT = $(LIBFT_PATH)/libft.a
+
+SRCS = ./src/so_long.c 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

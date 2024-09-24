@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:23:43 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/07/03 14:24:12 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/07/18 16:31:01 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO | SA_RESTART;
 	if (check_sigaction(&sa))
 	{
-		write(1, "error", 1);
+		write(1, "error", 5);
 	}
 	ft_printf("Server PID: %d\n", getpid());
 	while (1)
