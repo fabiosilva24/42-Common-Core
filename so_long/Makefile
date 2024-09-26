@@ -6,7 +6,7 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/09/24 15:24:31 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/09/26 15:20:47 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_PATH) -I $(MLX_PATH)
 
 MLX_PATH = ./libs/minilibx-linux
+MLX_FLAGS = -L$(MLX_PATH) -lmlx -L/usr/lib/X11 -lX11 -lXext -lm
 MLX = $(MLX_PATH)/libmlx.a
 
 LIBFT_PATH = ./libs/libft
@@ -25,8 +26,8 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(MLX)
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS)
 
 $(LIBFT):
 	make -C libft
