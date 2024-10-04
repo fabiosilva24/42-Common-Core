@@ -13,6 +13,14 @@ void initialize_game(t_game *game)
 		exit(EXIT_FAILURE);
 	}
 
-	game->background_img = mlx_xpm_file_to_image(game->mlx_ptr, ""
+	game->background_img = mlx_xpm_file_to_image(game->mlx_ptr, "path_to_background.xpm", &game->bg_width, &game->bg_height);
+	if (!game->background_img)
+	{
+		write (2, "Error loading background image\n", 31);
+		exit(EXIT_FAILURE);
+	}
+
+	game->player.x = 100;
+	game->player.y = 100;
 
 }

@@ -29,6 +29,9 @@ typedef struct s_game
 	void *mlx_ptr; // pointer of connction mlx
 	void *win_ptr; // pointer to the window of the game
 	t_player player;
+	void *background_image;
+	int bg_width;
+	int bg_height;
 	
 } t_game;
 
