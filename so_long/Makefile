@@ -34,11 +34,13 @@ $(LIBFT):
 
 clean:
 	rm -f $(OBJS)
-	make clean -C libft
+	make clean -C $(LIBFT_PATH)
+	make clean  -C $(MLX_PATH)
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C libft
+	make fclean -C $(LIBFT_PATH)
+	make fclean -C $(MLX_PATH)
 
 re: fclean all
 

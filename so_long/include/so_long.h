@@ -13,10 +13,17 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+#define KEY_W 119
+#define KEY_A 97
+#define KEY_S 115
+#define KEY_D 100
+#define KEY_ESC 65307
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "mlx.h"
+# include "../libs/libft/libft.h"
+# include "../libs/minilibx-linux/mlx.h"
 
 typedef struct s_player
 {
