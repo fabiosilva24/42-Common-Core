@@ -45,7 +45,7 @@ typedef struct s_game
 
 void initialize_game(t_game *game);
 void handle_input(t_game *game);
-void render_game(t_game *game);
+int render_game(void *param);
 void cleanup_game(t_game *game);
 int handle_keypress(int keycode, t_game *game);
 
