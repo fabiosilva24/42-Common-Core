@@ -1,3 +1,5 @@
+#include "../include/so_long.h"
+
 int handle_keypress(int keycode, t_game *game)
 {
 	if (keycode == KEY_W)
@@ -9,7 +11,10 @@ int handle_keypress(int keycode, t_game *game)
 	else if (keycode == KEY_D)
 	game->player.x += 1;
 	else if (keycode == KEY_ESC)
-	exit(0);
+	{
+			cleanup_game(game);
+			exit(0);
+	}
 
 	render_game(game);
 	
