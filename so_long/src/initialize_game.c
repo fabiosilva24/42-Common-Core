@@ -15,10 +15,11 @@ void initialize_game(t_game *game)
 		exit(EXIT_FAILURE);
 	}
 
-	game->background_image = mlx_xpm_file_to_image(game->mlx_ptr, "../assets/sprites/background/B1013-6.xpm", &game->bg_width, &game->bg_height);
+	game->background_image = mlx_xpm_file_to_image(game->mlx_ptr, "../assets/sprites/background/Background.xpm", &game->bg_width, &game->bg_height);
 	if (!game->background_image)
 	{
 		write (2, "Error loading background image\n", 31);
+		free(game->mlx_ptr);
 		exit(EXIT_FAILURE);
 	}
 
