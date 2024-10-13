@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:07:19 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/04/24 16:16:02 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/13 23:45:08 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int		ft_deci_to_hexa(unsigned long n);
 char	*ft_itoa(int n);
 int		ft_deci_to_hexauppercase(unsigned long n);
 int		ft_printpercent(void);
+char	*ft_strchr(const char *s, int c);
+int		ft_deci_to_hexa_with_prefix(unsigned long n, int uppercase);
+
 
 #endif
