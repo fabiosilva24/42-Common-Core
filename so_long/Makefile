@@ -27,6 +27,7 @@ SRCS = ./src/so_long.c\
 	./src/initialize_game.c\
 	./src/render_game.c\
 	./src/cleanup_game.c
+	./src/map_draw.c
  
 OBJS = $(SRCS:.c=.o)
 
