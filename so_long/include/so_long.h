@@ -18,7 +18,6 @@
 #define KEY_S 115
 #define KEY_D 100
 #define KEY_ESC 65307
-#define WIDTH_MAX 18
 
 
 # include <unistd.h>
@@ -52,7 +51,7 @@ void handle_input(t_game *game);
 int render_game(void *param);
 void cleanup_game(t_game *game);
 int handle_keypress(int keycode, t_game *game);
-char **map_draw(t_game *game, char *file);
+int map_draw(t_game *game, char *file);
 
 
 #endif
