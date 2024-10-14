@@ -6,7 +6,7 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/14 15:11:16 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/10/14 18:40:33 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,17 @@ MLX = $(MLX_PATH)/libmlx.a
 LIBFT_PATH = ./libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-SRCS = ./src/so_long.c 
+SRCS = ./src/so_long.c\
+	./src/cleanup_game.c\
+	./src/flood_fill.c\
+	./src/handle_input.c\
+	./src/handle_keypress.c\
+	./src/initialize_game.c\
+	./src/map_check.c\
+	./src/map_draw.c\
+	./src/map_parse.c\
+	./src/render_game.c\
+ 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
