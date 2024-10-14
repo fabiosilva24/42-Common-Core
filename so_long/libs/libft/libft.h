@@ -14,6 +14,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <stddef.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -64,5 +67,14 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+int		ft_printf(const char *format, ...);
+int		ft_putchar(int c);
+int		ft_putstr(const char *str);
+int		ft_putnbr(int n);
+int		ft_putunsigned(unsigned int num);
+int		ft_putptr(unsigned long long ptr);
+int		ft_deci_to_hexa(unsigned long n);
+int		ft_deci_to_hexauppercase(unsigned long n);
+int		ft_printpercent(void);
 
 #endif

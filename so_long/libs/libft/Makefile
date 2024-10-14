@@ -47,6 +47,15 @@ ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c\
 ft_striteri.c\
+ft_printf.c\
+ft_deci_to_hexa.c\
+ft_deci_to_hexauppercase.c\
+ft_printpercent.c\
+ft_putchar.c\
+ft_putnbr.c\
+ft_putptr.c\
+ft_putstr.c\
+ft_putunsigned.c
 
 BONUS_SRCS = ft_lstnew.c\
 		ft_lstadd_front.c\
