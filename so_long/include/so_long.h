@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/14 16:22:40 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:33:33 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int check_top(t_game *game);
 int check_bottom(t_game *game);
 int check_sides(t_game *game);
 int is_closed_by_walls(t_game *game);
+void	flood_fill(t_game *game, t_player size, t_player cur, char to_fill);
+
 
 
 #endif
