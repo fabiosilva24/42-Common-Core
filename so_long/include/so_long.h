@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/15 13:39:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:54:11 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_player
 {
 	int x;
 	int y;
+	int player;
+	
 } t_player;
 
 typedef struct s_game
