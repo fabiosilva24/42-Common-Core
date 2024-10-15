@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:51 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/14 16:28:32 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:00:55 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_rectangle(t_game *game)
 {
 	int	i;
-	int	row_len;
+	size_t	row_len;
 
 	i = 1;
 	row_len = ft_strlen(game->map[0]);

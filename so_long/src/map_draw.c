@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/13 01:54:19 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:04:49 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int count_lines(char *file)
 	int count;
 	char *line;
 
-	fd = open_file(file);
+	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (NULL);
+		return (-1);
 	count = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -77,7 +77,7 @@ int map_draw(t_game *game, char *file)
 		return (0);
 	if (!allocate_map(game, line_count))
 		return (0);
-	fd = open_file(file);
+	fd = open(file, O_RDONLY);
 	if (fd < 0 || !read_map_lines(game, fd, line_count))
 	{
 		free_and_close(game, fd);
