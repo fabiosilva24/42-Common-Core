@@ -7,18 +7,21 @@
 int map_parse(t_game *game, t_player *player)
 {
 	char current;
+	int x;
+	int y;
 
+	x = player->x;
+	y = player->z;
 	if (!is_closed_by_walls)
-		ft_printf("error");
-
+		ft_printf("Map is not closed by wall\n");
+		return 0;
 	current = game->map[y][x];
 	if (player == 'E')
 		open()
-	while (player[x][y] && numb_rows)
-	{
-		numb_rows++;
-		player[x][y]++;
-	}
-	return game->map;
+	else if (current == 'C)
+		game->collectible++;
+	game->map[y][x] = 'P';
+			
+	return (1);
 	
 }
