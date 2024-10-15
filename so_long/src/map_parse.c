@@ -6,6 +6,16 @@
 
 int map_parse(t_game *game, t_player *player)
 {
+	int i;
+	int j;
+	int exit_count = 0;
+	int player_count = 0;
+	int collectible_count = 0;
+
+	
+}
+/*int map_parse(t_game *game, t_player *player)
+{
 	char current;
 	int x;
 	int y;
@@ -18,10 +28,10 @@ int map_parse(t_game *game, t_player *player)
 	current = game->map[y][x];
 	if (player == 'E')
 		open()
-	else if (current == 'C)
+	else if (current == 'C')
 		game->collectible++;
 	game->map[y][x] = 'P';
 			
 	return (1);
 	
-}
+}*/

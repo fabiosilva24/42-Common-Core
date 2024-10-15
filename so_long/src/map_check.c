@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:51 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/15 15:00:55 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/15 20:18:03 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_rectangle(t_game *game)
 	{
 		if (ft_strlen(game->map[i]) != row_len)
 		{
-			ft_printf("Map is not rectangle\n");
+			ft_printf("Error Map is not rectangle\n");
 			return (0);
 		}
 		i++;
@@ -42,7 +42,7 @@ int	check_top(t_game *game)
 	{
 		if (game->map[0][i] != '1')
 		{
-			ft_printf("Map is not closed by walls\n");
+			ft_printf("Error Map is not closed by walls\n");
 			return (0);
 		}
 		i++;
@@ -61,7 +61,7 @@ int	check_bottom(t_game *game)
 	{
 		if (game->map[game->numb_rows - 1][i] != '1')
 		{
-			ft_printf("map is not closed by walls\n");
+			ft_printf("Error map is not closed by walls\n");
 			return (0);
 		}
 		i++;
@@ -80,7 +80,7 @@ int	check_sides(t_game *game)
 	{
 		if (game->map[i][0] != '1' || game->map[i][row_len - 1] != '1')
 		{
-			ft_printf("map is not closed by walls\n");
+			ft_printf("Error map is not closed by walls\n");
 			return (0);
 		}
 		i++;
