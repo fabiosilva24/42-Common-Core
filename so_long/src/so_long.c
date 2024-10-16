@@ -10,11 +10,12 @@ int main(int argc, char **argv)
 		return (0);
 	}
 
-	initialize_game(&game);
-	if (!map_draw(&game, argv[1]) || !is_rectangle(&game) || !is_closed_by_walls(&game))
+	initialize_game(&game, argv[1]);
+	if (!map_draw(&game) || !is_rectangle(&game) || !is_closed_by_walls(&game))
 	{
 		cleanup_game(&game);
 		ft_printf("Invalid map\n");
+		return (0);
 	}
 
 	handle_input(&game);

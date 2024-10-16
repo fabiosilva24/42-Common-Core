@@ -1,18 +1,29 @@
 #include "../include/so_long.h"
 
-void initialize_game(t_game *game)
+void initialize_game(t_game *game, char *file)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
 	{
-		write(2, "Error initializing MLX\n", 23);
+		ft_printf("Error initializing MLX\n");
 		exit(EXIT_FAILURE);
 	}
-	game->win_ptr = mlx_new_window(game->mlx_ptr, 512, 256, "So Long");	
+	game->map_file = file;
+	if (!get_map_dimensions(game, &game->map_width, &game->map_height))
+	{
+		ft_printf("Error: failed to get the map dimensions\n");
+		exit(EXIT_FAILURE);
+	}
+	int window_width;
+	int window_height;
+
+	window_width = game->map_width * 24;
+	window_height = game->map_height * 24;
+	game->win_ptr = mlx_new_window(game->mlx_ptr, window_width, window_height, "So Long");
 	if (!game->win_ptr)
 	{
-		write(2, "Error creating the window\n", 23);
+		ft_printf("Error creating the window\n");
 		exit(EXIT_FAILURE);
 	}
-
+	load_images(game);
 }

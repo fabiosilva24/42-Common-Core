@@ -4,34 +4,26 @@
 
 #include "../include/so_long.h"
 
-int map_parse(t_game *game, t_player *player)
+void check_collectible(t_game *game, t_player *player)
 {
-	int i;
-	int j;
-	int exit_count = 0;
-	int player_count = 0;
-	int collectible_count = 0;
+	game->total_collectibles = 0;
+	game->collected_collectibles = 0;
+	game-> exit_open = 0;
 
-	
+
+	if (game->map[player->y][player->x] == 'C')
+	{
+		game->collected_collectibles++;
+		game->map[player->y][player->x] = 'P';
+	}
+	if (game->collected_collectibles == game->total_collectibles)
+		game->exit_open = 1;
 }
-/*int map_parse(t_game *game, t_player *player)
-{
-	char current;
-	int x;
-	int y;
 
-	x = player->x;
-	y = player->z;
-	if (!is_closed_by_walls)
-		ft_printf("Map is not closed by wall\n");
-		return 0;
-	current = game->map[y][x];
-	if (player == 'E')
-		open()
-	else if (current == 'C')
-		game->collectible++;
-	game->map[y][x] = 'P';
-			
-	return (1);
-	
-}*/
+void check_exit(t_game *game, t_player *player)
+{
+		if (game->map[player->y][player->x] == 'E' && game->exit_open)
+		{
+			ft_printf("Congratulations You Won :D, Opening The Exit\n");
+		}
+}

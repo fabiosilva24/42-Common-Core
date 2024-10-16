@@ -6,12 +6,12 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/08 12:08:35 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/03/11 17:25:26 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/10/16 20:26:58 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 NAME = libft.a
 SRCS = ft_isalpha.c\
 ft_isdigit.c\

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/15 19:10:06 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/16 20:17:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,48 @@ typedef struct s_game
 	void *mlx_ptr; // pointer of connction mlx
 	void *win_ptr; // pointer to the window of the game
 	void *mlx_win;
+	void *player_img;
+	void *floor_img;
+	void *wall_img;
+	void *exit_img;
+	void *collectible_img;
 	t_player player;
 	char  **map;
 	int collectible;
+	int total_collectibles;
+	int collected_collectibles;
+	int exit_open;
 	int numb_rows;
+	int move_count;
+	char *map_file;
+	int	map_width;
+    int	map_height;
 
 } t_game;
 
 
-void initialize_game(t_game *game);
-void handle_input(t_game *game);
+
 int render_game(void *param);
-void cleanup_game(t_game *game);
 int handle_keypress(int keycode, t_game *game);
-int map_draw(t_game *game, char *file);
+int map_draw(t_game *game);
 int is_rectangle(t_game *game);
 int check_top(t_game *game);
 int check_bottom(t_game *game);
 int check_sides(t_game *game);
 int is_closed_by_walls(t_game *game);
+int	is_valid_move(t_game *game, t_player next);
+int	get_map_dimensions(t_game *game, int *width, int *height);
+void	check_collectible(t_game *game, t_player *player);
+void	check_exit(t_game *game, t_player *player);
+void	flood_fill(t_game *game, t_player size, t_player cur, char to_fill);
+void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y);
+void	load_images(t_game *game);
+void	draw_tile(t_game *game, int x, int y);
+void 	cleanup_game(t_game *game);
+void 	initialize_game(t_game *game, char *file);
+void 	handle_input(t_game *game);
+
+
 
 
 

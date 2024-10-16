@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/14 18:40:33 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/10/16 20:30:21 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRCS = ./src/so_long.c\
 	./src/map_draw.c\
 	./src/map_parse.c\
 	./src/render_game.c\
+	./libs/get_next_line/get_next_line.c
+	
  
 OBJS = $(SRCS:.c=.o)
 
