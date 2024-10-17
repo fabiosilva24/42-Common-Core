@@ -55,7 +55,8 @@ typedef struct s_game
 	int move_count;
 	char *map_file;
 	int	map_width;
-    int	map_height;
+ int	map_height;
+ int should_end;
 
 } t_game;
 
