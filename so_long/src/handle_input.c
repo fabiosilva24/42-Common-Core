@@ -2,6 +2,6 @@
 
 void handle_input(t_game *game)
 {
-	  mlx_hook(game->win_ptr, 2, 1L<<0,          handle_keypress, game);  // 2 = key press event
+	  mlx_hook(game->win_ptr, 2, 1L<<0,handle_keypress, game);  // 2 = key press event
 
 }
