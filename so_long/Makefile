@@ -6,13 +6,13 @@
 #    By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/16 20:30:21 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/10/17 17:55:14 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_PATH) -I $(MLX_PATH)
+CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_PATH) -I $(MLX_PATH) -g
 
 MLX_PATH = ./libs/minilibx-linux
 MLX_FLAGS = -L$(MLX_PATH) -lmlx -L/usr/lib/X11 -lX11 -lXext -lm

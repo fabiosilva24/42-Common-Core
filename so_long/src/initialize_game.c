@@ -26,4 +26,20 @@ void initialize_game(t_game *game, char *file)
 		exit(EXIT_FAILURE);
 	}
 	load_images(game);
+	int i = 0, j = 0;
+	while(i  < game->map_width)
+	{
+		while (j < game->map_height)
+		{
+			if (game->map[i][j] == 'P')
+			{	
+				ft_printf("%c",game->map[i][j]);
+				game->player.x = i;
+				game->player.y = j;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
 }

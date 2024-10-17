@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/16 20:24:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:31:40 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ int map_draw(t_game *game)
 	int line_count;
 
 	line_count = count_lines(game->map_file);
+	game->numb_rows = line_count;
 	if (line_count <= 0)
 		return (0);
 	if (!allocate_map(game, line_count))

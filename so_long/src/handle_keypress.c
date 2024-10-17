@@ -28,6 +28,8 @@ int handle_keypress(int keycode, t_game *game)
 }
 void handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 {
+	player->player = 0;
+	ft_printf("player %d %c\n", player->player, game->map[0][0]); 
 	if (game->map[new_y][new_x] != '1')
 	{
 		t_player new_position = {new_x, new_y, player->player};
