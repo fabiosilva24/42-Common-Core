@@ -9,8 +9,6 @@ int handle_window_close(t_game *game)
 
 void handle_input(t_game *game)
 {
-	ft_printf("Setting up input handling\n");
 	mlx_hook(game->win_ptr, 2, 1L<<0, handle_keypress, game);  // Key press event
 	mlx_hook(game->win_ptr, 17, 1L<<17, handle_window_close, game);  // Window close event
-	ft_printf("Input handling set up complete\n");
 }

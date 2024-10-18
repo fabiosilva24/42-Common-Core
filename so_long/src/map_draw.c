@@ -6,13 +6,13 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/17 21:35:20 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:51:42 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int get_map_dimensions(t_game *game, int *width, int *height)
+int	get_map_dimensions(t_game *game, int *width, int *height)
 {
     int	fd;
     char	*line;
@@ -39,28 +39,8 @@ int get_map_dimensions(t_game *game, int *width, int *height)
     close(fd);
     return (1);
 }
-static int count_lines(char *file)
-{
-	int fd;
-	int count;
-	char *line;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (-1);
-	count = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		count++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return(count);
-}
-
-static int allocate_map(t_game *game, int line_count)
+int	allocate_map(t_game *game, int line_count)
 {
 	game->map = malloc((line_count + 1) * sizeof(char*));
 	if (game->map == NULL)
@@ -68,7 +48,7 @@ static int allocate_map(t_game *game, int line_count)
 	return (1);
 }
 
-static void free_and_close(t_game *game, int fd)
+void	free_and_close(t_game *game, int fd)
 {
 	if (game->map)
 	{
@@ -79,50 +59,10 @@ static void free_and_close(t_game *game, int fd)
 		close(fd);
 }
 
-static int read_map_lines(t_game *game, int fd, int line_count)
+int	map_draw(t_game *game)
 {
-	int i;
-
-	i = 0;
-	while (i < line_count)
-	{
-		game->map[i] = get_next_line(fd);
-		if (game->map[i] == NULL)
-			return (0);
-		i++;
-	}
-	game->map[i] = 0;
-	return (1);
-}
-
-void draw_tile(t_game *game, int x, int y)
-{
-	if (x < 0 || x >= game->map_width || y < 0 || y >= game->map_height)
-	{
-		ft_printf("Error: Attempted to draw tile out of bounds: x=%d, y=%d\n", x, y);
-		return;
-	}
-
-	char tile = game->map[y][x];
-
-	if (tile == '0')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor_img, x * 24, y * 24);
-	else if (tile == 'P')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, x * 24, y * 24);
-	else if (tile == '1')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall_img, x * 24, y * 24);
-	else if (tile == 'E')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, x * 24, y * 24);
-	else if (tile == 'C')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, x * 24, y * 24);
-	else
-		ft_printf("Unknown tile type: %c at x=%d, y=%d\n", tile, x, y);
-}
-
-int map_draw(t_game *game)
-{
-	int fd;
-	int line_count;
+	int	fd;
+	int	line_count;
 
 	line_count = count_lines(game->map_file);
 	game->numb_rows = line_count;
@@ -139,13 +79,5 @@ int map_draw(t_game *game)
 		return (0);
 	}
 	close(fd);
-
-	// Print the map for debugging
-	ft_printf("Map contents:\n");
-	for (int i = 0; i < game->numb_rows; i++)
-	{
-		ft_printf("%s\n", game->map[i]);
-	}
-
 	return (1);
 }

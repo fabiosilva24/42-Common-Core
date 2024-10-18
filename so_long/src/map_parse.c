@@ -1,6 +1,14 @@
-//check for exit if its E
-//exit only available when collecting all the coins
-//mark how manny times you clicked on the buttons
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_parse.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/18 18:13:09 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/10/18 18:13:12 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 

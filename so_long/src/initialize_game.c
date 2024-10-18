@@ -69,20 +69,12 @@ void initialize_game(t_game *game, char *file)
 		}
 		if (player_found) break;
 	}
-
 	if (!player_found)
 	{
 		ft_printf("Error: Player not found in the map\n");
 		exit(EXIT_FAILURE);
 	}
-
-	ft_printf("Setting up render loop\n");
 	mlx_loop_hook(game->mlx_ptr, render_game, game);
-	ft_printf("Render loop set up complete\n");
-
-	ft_printf("Setting up key hook\n");
 	mlx_key_hook(game->win_ptr, handle_keypress, game);
-	ft_printf("Key hook set up complete\n");
-
 	game->should_end = 0;
 }
