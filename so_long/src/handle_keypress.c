@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/18 23:50:48 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/10/19 00:21:47 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-int handle_keypress(int keycode, t_game *game)
+int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 {
 	ft_printf("Key pressed: %d\n", keycode);
-	int new_x = game->player.x;
-	int new_y = game->player.y;
 
-	if (keycode == KEY_W)
+	new_x = game->player.x;
+	new_y = game->player.y;
+	if (keycode == KEY_W || keycode == UP_ARROW)
 		new_y -= 1;
-	else if (keycode == KEY_A)
+	else if (keycode == KEY_A || keycode == LEFT_ARROW)
 		new_x -= 1;
-	else if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == DOWN_ARROW)
 		new_y += 1;
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_D || keycode == RIGHT_ARROW)
 		new_x += 1;
 	else if (keycode == KEY_ESC)
 	{
@@ -28,26 +40,32 @@ int handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
-void handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
+void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 {
-	if (new_x < 0 || new_x >= game->map_width || new_y < 0 || new_y >= game->map_height)
+	if (new_x < 0 || new_x >= game->map_width || new_y < 0 ||
+		new_y >= game->map_height)
 	{
 		ft_printf("Error: Attempted move out of map bounds\n");
-		return;
+		return ;
 	}
 	if (game->map[new_y][new_x] != '1')
 	{
-		game->map[player->y][player->x] = '0';  // Set old position to empty
+		if (game->map[new_y][new_x] == 'C')
+		{
+			game->collected_collectibles++;
+			game->map[player->y][player->x] = '0';
+		}
+		if (game->map[player->y][player->x] != 'E')
+			game->map[player->y][player->x] = '0';
 		player->x = new_x;
 		player->y = new_y;
-		game->map[new_y][new_x] = 'P';  // Set new position to player
+		if (game->map[new_y][new_x] != 'E')
+			game->map[new_y][new_x] = 'P';
 		game->move_count++;
 		ft_printf("Number of moves: %d\n", game->move_count);
 		check_collectible(game, player);
-		check_exit(game, player);  // Call this after updating player position
+		check_exit(game, player);
 	}
 	else
-	{
 		ft_printf("Blocked by walls\n");
-	}
 }

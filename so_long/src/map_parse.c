@@ -34,7 +34,7 @@ void check_exit(t_game *game, t_player *player)
 	}
 	if (game->map[player->y][player->x] == 'E' && game->collected_collectibles == game->total_collectibles)
 	{
-		ft_printf("Congratulations You Won :D");
+		ft_printf("Congratulations You Won \n:D\n");
 		game->should_end = 1;
 	}
 }

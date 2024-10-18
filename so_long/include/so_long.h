@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/17 21:52:41 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:57:14 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 #define KEY_S 115
 #define KEY_D 100
 #define KEY_ESC 65307
+
+#define UP_ARROW 65362
+#define DOWN_ARROW 65364
+#define RIGHT_ARROW 65363
+#define LEFT_ARROW 65361
 
 
 # include <unistd.h>
@@ -63,12 +68,14 @@ typedef struct s_game
 
 
 int render_game(void *param);
-int handle_keypress(int keycode, t_game *game);
+int	handle_keypress(int keycode, t_game *game, int new_x, int new_y);
 int map_draw(t_game *game);
 int is_rectangle(t_game *game);
 int check_top(t_game *game);
 int check_bottom(t_game *game);
 int check_sides(t_game *game);
+int count_lines(char *file);
+int     read_map_lines(t_game *game, int fd, int line_count);
 int is_closed_by_walls(t_game *game);
 int	is_valid_move(t_game *game, t_player next);
 int	get_map_dimensions(t_game *game, int *width, int *height);

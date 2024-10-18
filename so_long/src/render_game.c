@@ -1,8 +1,5 @@
 #include "../include/so_long.h"
 
-// Add this declaration
-extern void draw_tile(t_game *game, int x, int y);
-
 int render_game(void *param)
 {
 	t_game *game = (t_game *)param;

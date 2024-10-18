@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:51 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/17 16:46:43 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:59:10 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_top(t_game *game)
 	{
 		if (game->map[0][i] != '1')
 		{
-			ft_printf("Error Map is not closed by walls%d%c\n", i, game->map[0][i]);
+			ft_printf("Error Map is not closed by walls\n");
 			return (0);
 		}
 		i++;

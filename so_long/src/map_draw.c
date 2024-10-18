@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/18 17:51:42 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/19 00:00:07 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	get_map_dimensions(t_game *game, int *width, int *height)
     int	fd;
     char	*line;
 
-    fd = open(game->map_file, O_RDONLY);
-    if (fd < 0)
-    {
-        ft_printf("Error: could not open map file\n");
+	fd = open(game->map_file, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_printf("Error: could not open map file\n");
         return (0);
     }
     *height = 0;

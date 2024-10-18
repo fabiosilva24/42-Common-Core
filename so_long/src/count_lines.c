@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:54:07 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/18 17:56:07 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:43:01 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	count_lines(char *file)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	return(count);
+	return (count);
 }
 
 int	read_map_lines(t_game *game, int fd, int line_count)

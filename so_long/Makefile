@@ -31,6 +31,8 @@ SRCS = ./src/so_long.c\
 	./src/map_draw.c\
 	./src/map_parse.c\
 	./src/render_game.c\
+	./src/draw_tile.c\
+	./src/count_lines.c\
 	./libs/get_next_line/get_next_line.c\
 	./libs/get_next_line/get_next_line_utils.c\
 
