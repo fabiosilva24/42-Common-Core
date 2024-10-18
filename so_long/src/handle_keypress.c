@@ -21,19 +21,10 @@ int handle_keypress(int keycode, t_game *game)
 		cleanup_game(game);
 		exit(0);
 	}
-	else
-	{
-		ft_printf("Unhandled key pressed\n");
-		return (0);
-	}
 	handle_player_move(game, &game->player, new_x, new_y);
 	render_game(game);
-
 	if (game->should_end)
-	{
 		mlx_loop_end(game->mlx_ptr);
-	}
-
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 18:13:09 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/18 18:13:12 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 18:40:35 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void check_collectible(t_game *game, t_player *player)
 
 void check_exit(t_game *game, t_player *player)
 {
-	if (game->map[player->y][player->x] == 'E' && game->collected_collectibles == game->total_collectibles)
-	{
-		ft_printf("Congratulations! You've completed the game in %d moves.\n", game->move_count);
-		game->should_end = 1;
-	}
-	else if (game->map[player->y][player->x] == 'E')
+	if (game->map[player->y][player->x] == 'E' && game->collected_collectibles < game->total_collectibles)
 	{
 		ft_printf("You've reached the exit, but you haven't collected all items yet!\n");
-		ft_printf("Collected: %d / %d\n", game->collected_collectibles, game->total_collectibles);
+		return;
+	}
+	if (game->map[player->y][player->x] == 'E' && game->collected_collectibles == game->total_collectibles)
+	{
+		ft_printf("Congratulations You Won :D");
+		game->should_end = 1;
 	}
 }
