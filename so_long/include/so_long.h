@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/17 18:16:25 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:52:41 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct s_game
 	int move_count;
 	char *map_file;
 	int	map_width;
- int	map_height;
- int should_end;
+    int	map_height;
+	int should_end;
 
 } t_game;
 
@@ -81,6 +81,8 @@ void	draw_tile(t_game *game, int x, int y);
 void 	cleanup_game(t_game *game);
 void 	initialize_game(t_game *game, char *file);
 void 	handle_input(t_game *game);
+int handle_window_close(t_game *game);
+int render_game_wrapper(void *param);
 
 
 
@@ -88,3 +90,7 @@ void 	handle_input(t_game *game);
 
 
 #endif
+
+
+
+

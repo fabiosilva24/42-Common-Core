@@ -1,13 +1,16 @@
 #include "../include/so_long.h"
 
-int handle_close(t_game *game)
+int handle_window_close(t_game *game)
 {
-    game->should_end = 1;
+	ft_printf("Window close button clicked, exiting game\n");
+	game->should_end = 1;
+	return (0);
 }
+
 void handle_input(t_game *game)
 {
-	  mlx_hook(game->win_ptr, 2, 1L<<0,handle_keypress, game);  // 2 = key press event
-  mlx_hook(game->win_ptr, 17, 1L<<0, handle_close, game);
-  exit(0);
-
+	ft_printf("Setting up input handling\n");
+	mlx_hook(game->win_ptr, 2, 1L<<0, handle_keypress, game);  // Key press event
+	mlx_hook(game->win_ptr, 17, 1L<<17, handle_window_close, game);  // Window close event
+	ft_printf("Input handling set up complete\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/17 18:20:20 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:35:20 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,26 @@ static int read_map_lines(t_game *game, int fd, int line_count)
 
 void draw_tile(t_game *game, int x, int y)
 {
+	if (x < 0 || x >= game->map_width || y < 0 || y >= game->map_height)
+	{
+		ft_printf("Error: Attempted to draw tile out of bounds: x=%d, y=%d\n", x, y);
+		return;
+	}
+
 	char tile = game->map[y][x];
 
 	if (tile == '0')
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_ptr, game->floor_img, x * 24, y * 24);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor_img, x * 24, y * 24);
 	else if (tile == 'P')
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_ptr, game->player_img, x * 24, y * 24);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, x * 24, y * 24);
 	else if (tile == '1')
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_ptr, game->wall_img, x * 24, y * 24);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall_img, x * 24, y * 24);
 	else if (tile == 'E')
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_ptr, game->exit_img, x * 24, y * 24);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, x * 24, y * 24);
 	else if (tile == 'C')
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_ptr, game->collectible_img, x * 24, y * 24);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, x * 24, y * 24);
+	else
+		ft_printf("Unknown tile type: %c at x=%d, y=%d\n", tile, x, y);
 }
 
 int map_draw(t_game *game)
@@ -118,6 +126,7 @@ int map_draw(t_game *game)
 
 	line_count = count_lines(game->map_file);
 	game->numb_rows = line_count;
+	ft_printf("Number of rows: %d\n", line_count);
 	if (line_count <= 0)
 		return (0);
 	if (!allocate_map(game, line_count))
@@ -125,9 +134,18 @@ int map_draw(t_game *game)
 	fd = open(game->map_file, O_RDONLY);
 	if (fd < 0 || !read_map_lines(game, fd, line_count))
 	{
+		ft_printf("Error: Failed to open or read map file\n");
 		free_and_close(game, fd);
 		return (0);
 	}
 	close(fd);
+
+	// Print the map for debugging
+	ft_printf("Map contents:\n");
+	for (int i = 0; i < game->numb_rows; i++)
+	{
+		ft_printf("%s\n", game->map[i]);
+	}
+
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:00:07 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/16 19:41:26 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:30:41 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 void	flood_fill(t_game *game, t_player size, t_player cur, char to_fill)
 {
-	if (cur.x < 0 || cur.x >= size.x || cur.y < 0 || cur.y >= size.y
-		|| game->map[cur.y][cur.x] != to_fill)
-		return ;
+	ft_printf("Flood fill called: x=%d, y=%d, to_fill=%c\n", cur.x, cur.y, to_fill);
+	
+	if (cur.x < 0 || cur.x >= size.x || cur.y < 0 || cur.y >= size.y)
+	{
+		ft_printf("Flood fill out of bounds: x=%d, y=%d\n", cur.x, cur.y);
+		return;
+	}
+	
+	if (game->map[cur.y][cur.x] != to_fill)
+	{
+		ft_printf("Flood fill not matching: x=%d, y=%d, current=%c, to_fill=%c\n", 
+				  cur.x, cur.y, game->map[cur.y][cur.x], to_fill);
+		return;
+	}
+	
+	ft_printf("Flood filling: x=%d, y=%d\n", cur.x, cur.y);
 	game->map[cur.y][cur.x] = 'P';
+	
 	flood_fill(game, size, (t_player){cur.x - 1, cur.y, cur.player}, to_fill);
 	flood_fill(game, size, (t_player){cur.x + 1, cur.y, cur.player}, to_fill);
 	flood_fill(game, size, (t_player){cur.x, cur.y - 1, cur.player}, to_fill);
