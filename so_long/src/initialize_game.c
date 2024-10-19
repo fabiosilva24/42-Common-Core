@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialize_game.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/20 01:04:23 by fabiosilva        #+#    #+#             */
+/*   Updated: 2024/10/20 01:32:06 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-void initialize_game(t_game *game, char *file)
+static void init_mlx(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
@@ -8,73 +20,32 @@ void initialize_game(t_game *game, char *file)
 		ft_printf("Error initializing MLX\n");
 		exit(EXIT_FAILURE);
 	}
+}
+
+static void init_window(t_game *game, int width, int height)
+{
+	game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "So Long");
+	if (!game->win_ptr)
+	{
+		ft_printf("Error creating the window\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+void initialize_game(t_game *game, char *file)
+{
+	int window_width;
+	int window_height;
+
+	init_mlx(game);
 	game->map_file = file;
 	if (!get_map_dimensions(game, &game->map_width, &game->map_height))
 	{
 		ft_printf("Error: failed to get the map dimensions\n");
 		exit(EXIT_FAILURE);
 	}
-	int window_width;
-	int window_height;
-
 	window_width = game->map_width * 24;
 	window_height = game->map_height * 24;
-	game->win_ptr = mlx_new_window(game->mlx_ptr, window_width, window_height, "So Long");
-	if (!game->win_ptr)
-	{
-		ft_printf("Error creating the window\n");
-		exit(EXIT_FAILURE);
-	}
-	load_images(game);
-
-	if (!map_draw(game))
-	{
-		ft_printf("Error: Failed to load the map\n");
-		exit(EXIT_FAILURE);
-	}
-
-	game->move_count = 0;
-
-	game->total_collectibles = 0;
-	game->collected_collectibles = 0;
-
-	// Count total collectibles
-	for (int y = 0; y < game->map_height; y++)
-	{
-		for (int x = 0; x < game->map_width; x++)
-		{
-			if (game->map[y][x] == 'C')
-			{
-				game->total_collectibles++;
-			}
-		}
-	}
-
-	ft_printf("Total collectibles in the map: %d\n", game->total_collectibles);
-
-	// Find player position
-	int player_found = 0;
-	for (int i = 0; i < game->map_height; i++)
-	{
-		for (int j = 0; j < game->map_width; j++)
-		{
-			if (game->map[i][j] == 'P')
-			{   
-				game->player.x = j;
-				game->player.y = i;
-				ft_printf("Player initial position: x=%d, y=%d\n", j, i);
-				player_found = 1;
-				break;
-			}
-		}
-		if (player_found) break;
-	}
-	if (!player_found)
-	{
-		ft_printf("Error: Player not found in the map\n");
-		exit(EXIT_FAILURE);
-	}
-	mlx_loop_hook(game->mlx_ptr, render_game, game);
-	mlx_key_hook(game->win_ptr, handle_keypress, game);
-	game->should_end = 0;
+	init_window(game, window_width, window_height);
+	setup_game(game);
 }

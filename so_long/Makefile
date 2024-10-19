@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+         #
+#    By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/17 18:43:34 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/10/20 01:18:14 by fabiosilva       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,9 @@ SRCS = ./src/so_long.c\
 	./src/render_game.c\
 	./src/draw_tile.c\
 	./src/count_lines.c\
+	./src/map_dontdraw.c\
+	./src/player_and_collectibles.c\
+	./src/game_setup.c\
 	./libs/get_next_line/get_next_line.c\
 	./libs/get_next_line/get_next_line_utils.c\
 
