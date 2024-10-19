@@ -88,6 +88,7 @@ void	draw_tile(t_game *game, int x, int y);
 void 	cleanup_game(t_game *game);
 void 	initialize_game(t_game *game, char *file);
 void 	handle_input(t_game *game);
+void update_movecount(t_game *game);
 int handle_window_close(t_game *game);
 int render_game_wrapper(void *param);
 

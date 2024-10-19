@@ -15,7 +15,6 @@
 int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 {
 	ft_printf("Key pressed: %d\n", keycode);
-
 	new_x = game->player.x;
 	new_y = game->player.y;
 	if (keycode == KEY_W || keycode == UP_ARROW)
@@ -42,7 +41,7 @@ int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 
 void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 {
-	if (new_x < 0 || new_x >= game->map_width || new_y < 0 ||
+	if (new_x < 0 || new_x >= game->map_width || new_y < 0 || \
 		new_y >= game->map_height)
 	{
 		ft_printf("Error: Attempted move out of map bounds\n");
@@ -61,11 +60,16 @@ void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 		player->y = new_y;
 		if (game->map[new_y][new_x] != 'E')
 			game->map[new_y][new_x] = 'P';
-		game->move_count++;
-		ft_printf("Number of moves: %d\n", game->move_count);
+		update_movecount(game);
 		check_collectible(game, player);
 		check_exit(game, player);
 	}
 	else
 		ft_printf("Blocked by walls\n");
+}
+
+void	update_movecount(t_game *game)
+{
+	game->move_count++;
+	ft_printf("Number of moves: %d\n", game->move_count);
 }
