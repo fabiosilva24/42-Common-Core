@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_lines.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:54:07 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/18 23:43:01 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/20 00:58:55 by fabiosilva       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	count_lines(char *file)
 {
-	int fd;
-	int count;
-	char *line;
+	int		fd;
+	int		count;
+	char	*line;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
