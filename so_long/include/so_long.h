@@ -76,7 +76,7 @@ int		is_closed_by_walls(t_game *game);
 int		is_valid_move(t_game *game, t_player next);
 int		get_map_dimensions(t_game *game, int *width, int *height);
 int		handle_window_close(t_game *game);
-int		render_game_wrapper(t_game *game);
+int		render_game_wrapper(void *param);
 void	check_collectible(t_game *game, t_player *player);
 void	check_exit(t_game *game, t_player *player);
 void	flood_fill(t_game *game, t_player size, t_player cur, char to_fill);
