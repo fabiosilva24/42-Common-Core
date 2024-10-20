@@ -14,8 +14,8 @@
 
 int	is_rectangle(t_game *game)
 {
-	int	i;
-	size_t	row_len;
+	int				i;
+	size_t		row_len;
 
 	i = 1;
 	row_len = ft_strlen(game->map[0]);

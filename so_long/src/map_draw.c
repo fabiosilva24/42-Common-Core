@@ -14,30 +14,30 @@
 
 int	get_map_dimensions(t_game *game, int *width, int *height)
 {
-    int	fd;
-    char	*line;
+    int			fd;
+    char		*line;
 
 	fd = open(game->map_file, O_RDONLY);
 	if (fd < 0)
 	{
 		ft_printf("Error: could not open map file\n");
-        return (0);
-    }
-    *height = 0;
-    *width = 0;
+		return (0);
+	}
+	*height = 0;
+	*width = 0;
 	line = get_next_line(fd);
-    if (line)
+	if (line)
 	{
-    	*width = ft_strlen(line) - 1;
+		*width = ft_strlen(line) - 1;
 	}
 	while (line)
-    {
-        (*height)++;
-        free(line);
-        line = get_next_line(fd);
-    }
-    close(fd);
-    return (1);
+	{
+		(*height)++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (1);
 }
 
 int	allocate_map(t_game *game, int line_count)

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
+/*   Updated: 2024/10/20 01:46:42 by fabiosilva       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game game;
+	t_game	game;
 
 	if (argc != 2)
 	{
@@ -26,15 +38,13 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-int game_loop(t_game *game)
+int	game_loop(t_game *game)
 {
-	render_game(game);
-	
+	render_game(game);	
 	if (game->should_end)
 	{
 		ft_printf("Game is ending\n");
 		mlx_loop_end(game->mlx_ptr);
 	}
-	
 	return (0);
 }

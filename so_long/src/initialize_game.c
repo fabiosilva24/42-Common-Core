@@ -12,7 +12,7 @@
 
 #include "../include/so_long.h"
 
-static void init_mlx(t_game *game)
+static void	init_mlx(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
@@ -22,7 +22,7 @@ static void init_mlx(t_game *game)
 	}
 }
 
-static void init_window(t_game *game, int width, int height)
+static void	init_window(t_game *game, int width, int height)
 {
 	game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "So Long");
 	if (!game->win_ptr)
@@ -32,10 +32,10 @@ static void init_window(t_game *game, int width, int height)
 	}
 }
 
-void initialize_game(t_game *game, char *file)
+void	initialize_game(t_game *game, char *file)
 {
-	int window_width;
-	int window_height;
+	int	window_width;
+	int	window_height;
 
 	init_mlx(game);
 	game->map_file = file;
