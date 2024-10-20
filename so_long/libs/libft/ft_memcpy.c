@@ -25,4 +25,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		*(ptr1++) = *(ptr2++);
 	}
 	return (dest);
-}	
+}

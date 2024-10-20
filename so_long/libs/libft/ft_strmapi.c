@@ -31,4 +31,4 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	result[len] = '\0';
 	return (result);
-}	
+}

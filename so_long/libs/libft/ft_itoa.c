@@ -67,4 +67,4 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	return (str);
-}	
+}
