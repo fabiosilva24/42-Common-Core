@@ -6,7 +6,7 @@
 /*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/10/20 01:46:42 by fabiosilva       ###   ########.fr       */
+/*   Updated: 2024/10/20 22:22:07 by fabiosilva       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 
 int	game_loop(t_game *game)
 {
-	render_game(game);	
+	render_game(game);
 	if (game->should_end)
 	{
 		ft_printf("Game is ending\n");

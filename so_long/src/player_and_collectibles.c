@@ -62,4 +62,3 @@ void find_player_position(t_game *game)
         exit(EXIT_FAILURE);
     }
 }
-
