@@ -15,9 +15,9 @@
 int	render_game(void *param)
 {
 	t_game	*game;
-	static int			frame_count;
-	int							y;
-	int							x;
+	int		y;
+	int		x;
+	static int						frame_count;
 
 	game = (t_game *)param;
 	frame_count = 0;

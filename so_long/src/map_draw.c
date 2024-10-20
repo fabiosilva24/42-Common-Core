@@ -14,8 +14,8 @@
 
 int	get_map_dimensions(t_game *game, int *width, int *height)
 {
-    int			fd;
-    char		*line;
+	int			fd;
+	char		*line;
 
 	fd = open(game->map_file, O_RDONLY);
 	if (fd < 0)
@@ -42,7 +42,7 @@ int	get_map_dimensions(t_game *game, int *width, int *height)
 
 int	allocate_map(t_game *game, int line_count)
 {
-	game->map = malloc((line_count + 1) * sizeof(char*));
+	game->map = malloc((line_count + 1) * sizeof(char *));
 	if (game->map == NULL)
 		return (0);
 	return (1);

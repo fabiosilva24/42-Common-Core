@@ -12,53 +12,48 @@
 
 #include "../include/so_long.h"
 
-void count_collectibles(t_game *game)
+void	count_collectibles(t_game *game)
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    while (y < game->map_height)
-    {
-        x = 0;
-        while (x < game->map_width)
-        {
-            if (game->map[y][x] == 'C')
-                game->total_collectibles++;
-            x++;
-        }
-        y++;
-    }
-    ft_printf("Total collectibles in the map: %d\n", game->total_collectibles);
+	y = 0;
+	while (y < game->map_height)
+	{
+		x = 0;
+		while (x < game->map_width)
+		{
+			if (game->map[y][x] == 'C')
+				game->total_collectibles++;
+			x++;
+		}
+		y++;
+	}
+	ft_printf("Total collectibles in the map: %d\n", game->total_collectibles);
 }
 
-void find_player_position(t_game *game)
+void	find_player_position(t_game *game)
 {
-    int i;
-    int j;
-    int player_found;
+	int	i;
+	int	j;
 
-    i = 0;
-    player_found = 0;
-    while (i < game->map_height && !player_found)
-    {
-        j = 0;
-        while (j < game->map_width)
-        {
-            if (game->map[i][j] == 'P')
-            {
-                game->player.x = j;
-                game->player.y = i;
-                player_found = 1;
-                break;
-            }
-            j++;
-        }
-        i++;
-    }
-    if (!player_found)
-    {
-        ft_printf("Error: Player not found in the map\n");
-        exit(EXIT_FAILURE);
-    }
+	i = 0;
+	game->player_found = 0;
+	while (i < game->map_height && !game->player_found)
+	{
+		j = 0;
+		while (j < game->map_width)
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->player.x = j;
+				game->player.y = i;
+				game->player_found = 1;
+				break ;
+			}
+			j++;
+		}
+		i++;
+	}
+	player_notfound(game);
 }

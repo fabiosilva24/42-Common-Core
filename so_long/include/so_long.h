@@ -62,6 +62,7 @@ typedef struct s_game
 	int	map_width;
     int	map_height;
 	int should_end;
+	int player_found;
 
 } t_game;
 
@@ -95,6 +96,7 @@ void update_movecount(t_game *game);
 void	map_dont_draw(t_game *game);
 int handle_window_close(t_game *game);
 int render_game_wrapper(void *param);
+void	player_notfound(t_game *game);
 
 
 

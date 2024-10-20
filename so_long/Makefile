@@ -36,6 +36,7 @@ SRCS = ./src/so_long.c\
 	./src/map_dontdraw.c\
 	./src/player_and_collectibles.c\
 	./src/game_setup.c\
+	./src/player_notfound.c\
 	./libs/get_next_line/get_next_line.c\
 	./libs/get_next_line/get_next_line_utils.c\
 
