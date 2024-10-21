@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:49:50 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/10/20 02:13:30 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/21 10:38:33 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	render_game(void *param)
 {
-	t_game	*game;
-	int		y;
-	int		x;
-	static int						frame_count;
+	t_game		*game;
+	int			y;
+	int			x;
+	static int	frame_count;
 
 	game = (t_game *)param;
 	frame_count = 0;
