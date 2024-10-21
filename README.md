@@ -36,3 +36,7 @@
 
 ![Ft_Printf](https://github.com/fabiosilva24/42-Common-Core/blob/main/Screenshot%20from%202024-06-20%2019-46-48.png?raw=true)
 
+### My So_long:
+
+![So_long](https://github.com/fabiosilva24/42-Common-Core/blob/main/so_long.png)
+
