@@ -38,5 +38,4 @@
 
 ### My So_long:
 
-![So_long](https://github.com/fabiosilva24/42-Common-Core/blob/main/so_long.png)
-
+![So_long](https://github.com/fabiosilva24/42-Common-Core/blob/main/so_long/score/so_long.png)
