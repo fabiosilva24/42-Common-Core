@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include "../libs/libft/libft.h"
 
-
+char **ft_split()
 
 
 #endif
