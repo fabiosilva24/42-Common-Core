@@ -13,23 +13,25 @@
 NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+LIBFT_PATH = ./libs/libft
+LIBFT = $(LIBFT_PATH)/libft.a
 SRCS = push_swap.c\
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-
-%.o: %.c
-$(CC) $(CFLAGS) -c $< -o $@
-
-re: fclean all
+$(NAME) : $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -c $< -o $@ $(OBJS) $(LIBFT)		
 
 clean:
-rm -f $(OBJS)
+	rm -f $(OBJS)
+	make clean -C $(LIBFT_PATH)
 
 fclean: clean
-rm -f $(NAME)
+	rm -f $(NAME)
+	make fclean -C $(LIBFT_PATH)
+
+re: fclean all
 
 .PHONY: all fclean clean re
