@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include "../libs/libft/libft.h"
 
-char **ft_split()    //fake argv ./push_swap 12 3 4 6. "13 3 4 6"
+char **ft_split()    //fake argv ./push_swap 12 3 4 6 "12 3 4 6"
 
 
 #endif
