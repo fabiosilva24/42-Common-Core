@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 GREEN := \033[0;32m
-CYAN := \[033[0:36m
+CYAN := \[033[0;36m
 NC := \033[0m
 NAME = push_swap.a
 CC = cc
@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
-	@echo "$(CYAN)Making...$(NC)""
+	@echo "$(CYAN)Making...$(NC)"
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)		
 
 clean:
