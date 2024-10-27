@@ -9,8 +9,9 @@
 #    Updated: 2024/10/21 16:16:04 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-GREEN := \[\033[0;32m\]
-NC := \[\033[0m\]
+GREEN := \033[0;32m
+CYAN := \[033[0:36m
+NC := \033[0m
 NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -23,10 +24,11 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
+	@echo "$(CYAN)Making...$(NC)""
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)		
 
 clean:
-	@echo -e "$(GREEN)Cleaning...$(NC)"
+	@echo "$(GREEN)Cleaning...$(NC)"
 	rm -f $(OBJS)
 	make clean -C $(LIBFT_PATH)
 
