@@ -5,7 +5,30 @@
 # include <unistd.h>
 # include "../libs/libft/libft.h"
 
-char **ft_split()    //fake argv ./push_swap 12 3 4 6 "12 3 4 6"
+typedef struct s_stack_nodes
+{
+    int min;
+    int max;
+    int push_cost;
+    bool    cheapest;
+    bool    above_median;
+    struct s_stack *target_node;
+    struct s_stack  *next; // pointer to the next node in the stack
+    struct s_stack  *prev; // pointer to the previous node in the stack
+}			t_stack_nodes;
 
+
+//handle errors
+
+//stack init
+static long ft_atol(const char *str);
+
+//nodes init
+
+//stack utils
+
+//commands
+
+//algorithms
 
 #endif
