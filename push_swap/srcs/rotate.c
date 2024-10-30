@@ -1,7 +1,14 @@
 #include "../include/push_swap.h"
 
-void rotate(t_struct_nodes **head)
+void rotate(t_struct_nodes **stack) //first becomes last       
 {
+    t_struct_nodes **last;
+
+    if (!*stack || !(*stack)->next)
+        return ;
+    last = find_lastnode(*stack);
+    
+
 }
 
 

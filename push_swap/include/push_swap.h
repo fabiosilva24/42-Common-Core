@@ -26,7 +26,7 @@ static long ft_atol(const char *str);
 //nodes init
 
 //stack utils
-
+t_stack_nodes find_lastnode(t_struct_nodes *stack);
 //commands
 
 //algorithms
