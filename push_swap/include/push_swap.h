@@ -30,8 +30,8 @@ static long ft_atol(const char *str); //int to long
 //nodes init
 
 //stack utils
-t_stack_nodes *find_lastnode(t_struct_nodes *stack); searches a stack and return the last node
-t_stack_nodes *find_maxnode(t_struct_nodes *stack); searches a stack and returns the node with the biggest number    
+t_stack_nodes *find_lastnode(t_struct_nodes *stack); //searches a stack and return the last node
+t_stack_nodes *find_maxnode(t_struct_nodes *stack); //searches a stack and returns the node with the biggest number    
 //commands
 static void rotate(t_struct_nodes **stack); //first to last node
 static void reverse(t_struct_node **stack); //last to first node
@@ -48,5 +48,6 @@ void			pa(t_stack_node **a, t_stack_node **b);
 void			pb(t_stack_node **b, t_stack_node **a);
 
 //algorithms
+void sort_three(t_stack_nodes **a);
 
 #endif
