@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void rotate(t_struct_nodes **stack) //first becomes last       
+static void rotate(t_struct_nodes **stack) //first becomes last       
 {
     t_struct_nodes *last;
     t_struct_node *newest_last;
@@ -20,13 +20,11 @@ void rotate(t_struct_nodes **stack) //first becomes last
     last->prev = NULL;
 
     if (*stack)
-        (*stack)->prev = last_>node;  // Set the previous pointer of the current top to the new top
+        (*stack)->prev = last->node;  // Set the previous pointer of the current top to the new top
     
     *stack = last;
 
 }
-
-
 
 void ra(t_struct_nodes **a)
 {
