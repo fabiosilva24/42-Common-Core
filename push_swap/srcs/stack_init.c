@@ -47,15 +47,26 @@ static void	append_node(t_stack_nodes **stack, int n)
         node->prev = last_node;    //nodes->prev is last node since node = next node node->prev last
     }
 }
-void init_stack_a(t_stack nodes **stack)
+void init_stack_a(t_stack_nodes **stack)
 {
+    t_stack_nodes **node;
+
     if (!*stack)
         return ;
+
+    if (*stack)
+    {
+        while (node)
+        {
+            node->next;
+        }
+        node = node->next;
+    }
     
 }
 
 
-t_stack_nodes *get_cheapest(t_stack nodes **stack)
+t_stack_nodes *get_cheapest(t_stack_nodes **stack)
 {
     if  (*stack)
         return ;
@@ -69,12 +80,29 @@ t_stack_nodes *get_cheapest(t_stack nodes **stack)
     return NULL;
 }
 
+void prepare_to_push(t_stack_nodes **stack)
+{
+    t_stack_nodes *top;
+    char stack_name;
 
-
-
-        
-
-
+while (*stack != top)
+{
+    if (stack_name == 'a')
+    {
+        if (top->above_median)
+            ra(stack);
+        else
+            rra(stack);
+    }
+    else if (stack_name == 'b')
+    {
+        if (top->above_median)
+            rb(stack);
+        else
+            rrb(stack);
+    }
+}
+}
 
 /*int main(void)
 {
