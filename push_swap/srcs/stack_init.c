@@ -52,11 +52,11 @@ void init_stack_a(t_stack_nodes **stack, char **argv)
     int i;
     long value;
 
-    i = 1;
-    while (argv[i])
+    i = 1;  //we set to 1 cause we only want the program name not the ./a.out
+    while (argv[i])              
     {
         value = ft_atol(argv[i]);
-        if (value < INT_MAX < INT_MAX || value > INT_MAX)   //check for overflow
+        if (value < INT_MIN|| value > INT_MAX)   //check for overflow
         {
             return ;
         }
