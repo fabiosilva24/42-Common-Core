@@ -47,22 +47,22 @@ static void	append_node(t_stack_nodes **stack, int n)
         node->prev = last_node;    //nodes->prev is last node since node = next node node->prev last
     }
 }
-void init_stack_a(t_stack_nodes **stack)
+void init_stack_a(t_stack_nodes **stack, char **argv)
 {
-    t_stack_nodes **node;
+    int i;
+    long value;
 
-    if (!*stack)
-        return ;
-
-    if (*stack)
+    i = 1;
+    while (argv[i])
     {
-        while (node)
+        value = ft_atol(argv[i]);
+        if (value < INT_MAX < INT_MAX || value > INT_MAX)   //check for overflow
         {
-            node->next;
+            return ;
         }
-        node = node->next;
     }
-    
+    append_node(stack, (int)value);
+    i++;
 }
 
 
