@@ -19,13 +19,13 @@ void sa(t_struct_nodes **a)
     ft_printf("sa\n");
 }
 
-void sb(t_struct_node **b)
+void sb(t_struct_nodes **b)
 {
     swap(b);
     ft_printf("sb\n");
 }
 
-void ss(t_struct_node **a, t_struct_node **b)
+void ss(t_struct_nodes **a, t_struct_nodes **b)
 {
     swap(a);
     swap(b);
