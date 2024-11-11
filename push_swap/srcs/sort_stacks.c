@@ -34,7 +34,7 @@ void sort_stacks(t_stack_nodes **a, t_stack_nodes **b)
     size = stack_size(*a);
 
     if (size > 3 && !is_sorted(*a))
-        pa(*a);
+        pa(a, b);
     
 
     if (size == 3)
