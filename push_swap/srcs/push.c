@@ -1,3 +1,5 @@
+#include "../include/push_swap.h"
+
 void push(t_stack_nodes **from_stack, t_stack_nodes **to_stack)
 {
     if (!from_stack || !*from_stack)
