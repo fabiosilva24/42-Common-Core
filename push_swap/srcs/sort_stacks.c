@@ -36,7 +36,9 @@ void sort_stacks(t_stack_nodes **a, t_stack_nodes **b)
     if (size > 3 && !is_sorted(*a))
         pa(a, b);
     
-
+    if (size == 2)
+        sa(a);
+        
     if (size == 3)
         sort_three(*a);
 }
