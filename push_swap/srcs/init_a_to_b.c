@@ -2,6 +2,9 @@
 
 void set_target(t_stack_nodes *a, t_stack_nodes *b)
 {
+    if (!a || !b)
+      return ;
+
 }
 
 void set_cheapest(t_stack_nodes **stack)
