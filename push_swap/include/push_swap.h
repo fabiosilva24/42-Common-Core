@@ -32,7 +32,11 @@ static long ft_atol(const char *str); //int to long
 //stack utils
 t_stack_nodes *find_lastnode(t_stack_nodes *stack); //searches a stack and return the last node
 t_stack_nodes *find_maxnode(t_stack_nodes *stack); //searches a stack and returns the node with the biggest number   
-bool is_sorted(t_stack_nodes *stack) 
+bool is_sorted(t_stack_nodes *stack)
+int stack_length(t_stack_nodes *stack)
+void init_stack_a(t_stack_nodes **stack, char **argv);
+t_stack_nodes *get_cheapest(t_stack_nodes **stack);
+void prepare_to_push(t_stack_nodes **stack);
 //commands
 static void rotate(t_stack_nodes **stack); //first to last node
 static void reverse(t_stack_nodes **stack); //last to first node
@@ -51,5 +55,6 @@ void			pb(t_stack_nodes **b, t_stack_nodes **a);
 
 //algorithms
 void sort_three(t_stack_nodes **a);
+void sort_stacks(t_stack_nodes **a, t_stack_nodes **b);
 
 #endif

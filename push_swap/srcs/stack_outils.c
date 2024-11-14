@@ -55,5 +55,26 @@ t_stack_nodes find_maxnode(t_struct_nodes *stack)
     }
     return max_node; //returns pointer to the biggest number
 }
+
+t_stack_nodes find_minnode(t_struct_nodes *stack)
+{
+    long    min;  //min stack number
+    t_struct_nodes  *min_node; //pointer that points to the smallest number
+
+    
+    if (!*stack)
+        return (NULL);
+    min = LONG_MAX;
+    while (stack)
+    {
+        if (stack->nbr > min)
+        {     
+            min = stack->nbr;
+            min_node = stack;
+        }
+        stack = stack->next;     // move to the next node
+    }
+    return min_node; //returns pointer to the smallest number
+}
     
     
