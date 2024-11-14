@@ -30,6 +30,7 @@ static long ft_atol(const char *str); //int to long
 //nodes init
 
 //stack utils
+t_stack_nodes *find_minnode(t_stack_nodes *stack);
 t_stack_nodes *find_lastnode(t_stack_nodes *stack); //searches a stack and return the last node
 t_stack_nodes *find_maxnode(t_stack_nodes *stack); //searches a stack and returns the node with the biggest number   
 bool is_sorted(t_stack_nodes *stack)
