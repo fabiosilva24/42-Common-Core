@@ -14,8 +14,28 @@ void free_stack(t_stack_nodes **stack)
         free(temp);
     }
 }
+int syntax_error(const char *str)
+{
+    int i;
 
-int check_forduplicate(t_stack_nodes **stack, int n)
+    i = 0;
+
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    if (!str[i])
+        return (1);
+    
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i])
+            return (1);
+        i++;
+    }
+    return (0);
+}
+        
+
+int error_duplicate(t_stack_nodes **stack, int n)
 {
     if (!stack || *!stack)
         return 0;
@@ -29,11 +49,9 @@ int check_forduplicate(t_stack_nodes **stack, int n)
     return (0);
 }
 
-void is_empty(t_stack_nodes **stack)
+void free_errors(t_stack_nodes **a)
 {
-    if (!stack || *!stack)    
-    {
-        ft_printf("Stack is empty\n");
-        return ;
-    }
+    error_duplicate(a);
+    ft_printf("Error\n");
+    exit(1);
 }

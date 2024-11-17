@@ -80,10 +80,8 @@ t_stack_nodes *get_cheapest(t_stack_nodes **stack)
     return NULL;
 }
 
-void prepare_to_push(t_stack_nodes **stack)
+void prepare_to_push(t_stack_nodes **stack, t_stack_nodes *top, char stack_name)
 {
-    t_stack_nodes *top;
-    char stack_name;
 
 while (*stack != top)
 {

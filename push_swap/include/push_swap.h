@@ -23,21 +23,25 @@ typedef struct s_stack_nodes
 
 
 //handle errors
+int error_duplicate(t_stack_nodes **stack, int n);
+void    free_stack(t_stack_nodes **stack);
+int syntax_error(const char *str);
+void    free_errors(t_stack_nodes **a);
 
 //stack init
 static long ft_atol(const char *str); //int to long
+void    init_stack_a(t_stack_nodes **stack, char **argv);
 
 //nodes init
-
+void    check_median(t_stack **stack);
 //stack utils
-t_stack_nodes *find_minnode(t_stack_nodes *stack);
-t_stack_nodes *find_lastnode(t_stack_nodes *stack); //searches a stack and return the last node
-t_stack_nodes *find_maxnode(t_stack_nodes *stack); //searches a stack and returns the node with the biggest number   
-bool is_sorted(t_stack_nodes *stack)
+t_stack_nodes   *find_minnode(t_stack_nodes *stack);
+t_stack_nodes   *find_lastnode(t_stack_nodes *stack); //searches a stack and return the last node
+t_stack_nodes   *find_maxnode(t_stack_nodes *stack); //searches a stack and returns the node with the biggest number   
+bool    is_sorted(t_stack_nodes *stack)
 int stack_length(t_stack_nodes *stack)
-void init_stack_a(t_stack_nodes **stack, char **argv);
 t_stack_nodes *get_cheapest(t_stack_nodes **stack);
-void prepare_to_push(t_stack_nodes **stack);
+void prepare_to_push(t_stack_nodes **stack, t_stack_nodes *top, char stack_name)
 //commands
 static void rotate(t_stack_nodes **stack); //first to last node
 static void reverse(t_stack_nodes **stack); //last to first node

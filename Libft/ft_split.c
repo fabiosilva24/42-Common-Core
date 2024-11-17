@@ -15,18 +15,27 @@
 static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
+	bool	inside_word;
 
 	if (!*s)
 		return (0);
 	count = 0;
 	while (*s)
 	{
+		inside_word = false;
 		while (*s == c)
 			s++;
 		if (*s)
 			count++;
 		while (*s != c && *s)
+		{
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
 			s++;
+		}
 	}
 	return (count);
 }
