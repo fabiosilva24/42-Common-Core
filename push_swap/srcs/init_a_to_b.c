@@ -61,11 +61,13 @@ else
 
 void set_cheapest(t_stack_nodes *stack)
 {
-    t_stack_nodes **cheapest_value;
+    long    cheapest_value
+    t_stack_nodes *cheapest_node;
 
-    get_cheapest(stack) = cheapest_value;
+    
     if (!stack)
-        return ;  
+        return ;
+    cheapest_value = LONG_MAX;
     while (stack)
     {
         if (stack->push_cost < cheapest_value)
