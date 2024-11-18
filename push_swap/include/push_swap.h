@@ -72,7 +72,7 @@ void			rr(t_stack_nodes **a, t_stack_nodes **b);
 void			rra(t_stack_nodes **a);
 void			rrb(t_stack_nodes **b);
 void			rrr(t_stack_nodes **a, t_stack_nodes **b);
-void            push(t_stack_nodes **from_stack, t_stack_nodes **to_stack)
+void            push(t_stack_nodes **from_stack, t_stack_nodes **to_stack);
 void			pa(t_stack_nodes **a, t_stack_nodes **b);
 void			pb(t_stack_nodes **b, t_stack_nodes **a);
 
