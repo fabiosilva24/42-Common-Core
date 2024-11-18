@@ -26,8 +26,8 @@ static void reverse_rotate_both(t_stack_nodes **a, t_stack_nodes **b, t_stack_no
     while (*b != cheapest_node->target_node
         && *a != cheapest_node)
     rrr(a, b);
-    check_median(a);
-    check_median(b);
+    check_median(*a);
+    check_median(*b);
 }
 
 static void move_a_to_b(t_stack_nodes **a, t_stack_nodes **b)
