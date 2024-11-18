@@ -57,8 +57,8 @@ void prepare_to_push(t_stack_nodes **stack, t_stack_nodes *top, char stack_name)
 t_stack_nodes   *find_minnode(t_stack_nodes *stack);
 t_stack_nodes   *find_lastnode(t_stack_nodes *stack); //searches a stack and return the last node
 t_stack_nodes   *find_maxnode(t_stack_nodes *stack); //searches a stack and returns the node with the biggest number
-int stack_length(t_stack_nodes *stack)
-bool    is_sorted(t_stack_nodes *stack)
+int stack_length(t_stack_nodes *stack);
+bool    is_sorted(t_stack_nodes *stack);
 
 
 
