@@ -49,7 +49,7 @@ static char	*get_next_word(char *s, char separator)
 
 	while (s[cursor] == separator)
 		++cursor;
-	while ((s[cursor + len] != separator) && str[cursor + len])
+	while ((s[cursor + len] != separator) && s[cursor + len])
 		++len;
 	next_s = malloc(len * sizeof(char) + 1);
 	if (NULL == next_s)
