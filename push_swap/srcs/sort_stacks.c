@@ -79,7 +79,7 @@ static void min_ontop(t_stack_nodes **a)
         init_nodes_a(*a, *b);
         move_a_to_b(a, b);
     }
-    sort_three(*a);
+    sort_three(a);
     while (*b)
     {
         init_nodes_b(*a, *b);
