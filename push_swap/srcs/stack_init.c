@@ -53,7 +53,7 @@ static void	append_node(t_stack_nodes **stack, int n)
     }
     else
     {
-        last_node = find_lastnode;
+        last_node = find_lastnode(*stack);
         last_node->next = node;     //seting last_node to next so now the next is the last
         node->prev = last_node;    //nodes->prev is last node since node = next node node->prev last
     }
