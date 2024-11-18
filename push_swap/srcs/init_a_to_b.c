@@ -63,8 +63,7 @@ void set_cheapest(t_stack_nodes *stack)
 {
     t_stack_nodes **cheapest_value;
 
-    cheapest_value = get_cheapest(stack);
-
+    get_cheapest(stack) = cheapest_value;
     if (!stack)
         return ;  
     while (stack)
