@@ -42,7 +42,7 @@ int syntax_error(const char *str)
     
     while (str[i])
     {
-        if (!ft_isdigit(str[i])
+        if (!ft_isdigit(str[i]))
             return (1);
         i++;
     }
