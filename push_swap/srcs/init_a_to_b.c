@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void check_median(t_stack *stack)
+void check_median(t_stack_nodes *stack)
 {
     int median;
     int i;
