@@ -15,16 +15,19 @@
 void free_stack(t_stack_nodes **stack)
 {
     t_stack_nodes *temp;
+    t_stack_nodes *current;
 
-    if (!stack || *!stack)
+    if (!stack)
         return ;
-
-    while (stack)
+    current = *stack;
+    while (current)
     {
-        temp = *stack;
-        *stack = (*stack)->next;
-        free(temp);
+        temp = current->next;
+        current->nbr = 0;
+        free(current);
+        current = temp;
     }
+    *stack = NULL;
 }
 int syntax_error(const char *str)
 {
@@ -49,7 +52,7 @@ int syntax_error(const char *str)
 
 int error_duplicate(t_stack_nodes **stack, int n)
 {
-    if (!stack || *!stack)
+    if (!stack)
         return 0;
     
     while (stack)
