@@ -23,9 +23,9 @@ static int	count_words(char *s, char separator)
 	while (*s)
 	{
 		inside_word = false;
-		while (*s == seperator)
+		while (*s == separator)
 			++s;
-		while (*s != seperator && *s)
+		while (*s != separator && *s)
 		{
 			if (!inside_word)
 			{
@@ -68,7 +68,7 @@ char	**modified_ftsplit(char *s, char separator)
 	int			i;
 	
 	i = 0;
-	words_number = count_words(s, seperator);
+	words_number = count_words(s, separator);
 	vector_strings = malloc(sizeof(char *) * (words_number + 2));  //mimic argument vector
 	if (!s || !result)
 		return (NULL);
@@ -86,7 +86,7 @@ char	**modified_ftsplit(char *s, char separator)
 			vector_strings[i++][0] = '\0';
 			continue ;
 		}
-		vector_strings[i++] = get_next_word(str, seperator);
+		vector_strings[i++] = get_next_word(str, separator);
 	}
 }
 			
