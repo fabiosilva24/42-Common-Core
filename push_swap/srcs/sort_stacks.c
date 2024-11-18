@@ -86,5 +86,5 @@ static void min_ontop(t_stack_nodes **a)
         move_b_to_a(a, b);
     }
     check_median(*a);
-    min_ontop(*a);
+    min_ontop(a);
 }
