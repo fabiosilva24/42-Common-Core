@@ -66,7 +66,7 @@ int error_duplicate(t_stack_nodes **stack, int n)
 
 void free_errors(t_stack_nodes **a)
 {
-    error_duplicate(a);
+    free_stack(a);
     ft_printf("Error\n");
     exit(1);
 }
