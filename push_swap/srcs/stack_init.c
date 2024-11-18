@@ -38,7 +38,7 @@ static void	append_node(t_stack_nodes **stack, int n)
     t_stack_nodes *last_node;
     t_stack_nodes *node;
 
-    if (!*stack)
+    if (!stack)
         return ;
     node = malloc(sizeof(t_stack_nodes));
     if (!node)
@@ -70,10 +70,10 @@ void init_stack_a(t_stack_nodes **stack, char **argv)
             free_errors(stack);
         value = ft_atol(argv[i]);
         if (value < INT_MIN || value > INT_MAX)   //check for overflow
-                free_errors(stack);
+            free_errors(stack);
         if (error_duplicate(*stack, (int)value))
-                free_errors(stack);
-            append_node(stack, (int)value);
+            free_errors(stack);
+        append_node(stack, (int)value);
         i++;
     }
 }
