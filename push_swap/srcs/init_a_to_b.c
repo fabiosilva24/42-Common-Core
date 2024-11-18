@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_a_to_b.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:41:27 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/11/18 16:41:27 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-void check_median(t_stack **stack)
+void check_median(t_stack *stack)
 {
     int median;
     int i;
@@ -47,7 +59,7 @@ else
     a = a->next;
 }
 
-void set_cheapest(t_stack_nodes **stack)
+void set_cheapest(t_stack_nodes *stack)
 {
     t_stack_nodes **cheapest_value;
 
@@ -88,9 +100,6 @@ static void cost_analysis_a(t_stack_nodes *a, t_stack_nodes *b)
         a = a->next;
     }
 }
-        
-
-
 
 void init_nodes_a(t_stack_node *a, t_stack_node *b)
 {

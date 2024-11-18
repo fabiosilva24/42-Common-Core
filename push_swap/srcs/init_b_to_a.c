@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/18 16:41:32 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/11/18 16:41:32 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static void set_target_b(t_stack_nodes *a, t_stack_nodes *b)
@@ -24,4 +36,11 @@ if (closest_bigger_nbr == LONG_MAX)
 else
     b->target_node = target_node;
     b = b->next;
+}
+
+void init_nodes_b(t_stack_node *a, t_stack_node *b)
+{
+    check_median(a);
+    check_median(b);
+    set_target_b(a, b);
 }
