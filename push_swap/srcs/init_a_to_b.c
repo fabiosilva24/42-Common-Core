@@ -20,7 +20,7 @@ void check_median(t_stack_nodes *stack)
     if (!stack)
         return ;
     
-    median = stack_length(stack / 2);
+    median = stack_length(stack) / 2;
     while (stack)
     {
         stack->index = i;
