@@ -90,7 +90,7 @@ t_stack_nodes *get_cheapest(t_stack_nodes **stack)
                 return stack;
         stack = stack->next;
     }
-    return NULL;
+    return (NULL);
 }
 
 void prepare_to_push(t_stack_nodes **stack, t_stack_nodes *top, char stack_name)
