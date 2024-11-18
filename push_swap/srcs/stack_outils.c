@@ -14,7 +14,7 @@
 
 t_stack_nodes *find_lastnode(t_stack_nodes *stack)
 {
-    if (!*stack)
+    if (!stack)
         return (NULL);
     while (stack->next)
         stack = stack->next;
@@ -37,8 +37,8 @@ int stack_length(t_stack_nodes *stack)
     int i;
 
     i = 0;
-    if (!*stack)
-        return NULL;
+    if (!stack)
+        return (NULL);
 
     while (stack)
     {
@@ -54,7 +54,7 @@ t_stack_nodes *find_maxnode(t_stack_nodes *stack)
     t_stack_nodes  *max_node; //pointer that points to the biggest number
 
     max = LONG_MIN;  //long min so we dont need extra conditions or check for negative and positive numbers
-    if (!*stack)
+    if (!stack)
         return (NULL);
     while (stack)
     {
@@ -74,7 +74,7 @@ t_stack_nodes *find_minnode(t_stack_nodes *stack)
     t_stack_nodes  *min_node; //pointer that points to the smallest number
 
     
-    if (!*stack)
+    if (!stack)
         return (NULL);
     min = LONG_MAX;
     while (stack)
