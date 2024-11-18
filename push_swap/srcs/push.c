@@ -14,16 +14,18 @@
 
 static void push(t_stack_nodes **from_stack, t_stack_nodes **to_stack)
 {
+    t_stack_nodes *temp; // Declare temp
+
     if (!from_stack || !*from_stack)
         return ;
 
     temp = *from_stack;
-    *from_stack = from_stack->next;
-    if (from_stack)
-        from_stack->prev = NULL;
+    *from_stack = (*from_stack)->next;
+    if (*from_stack)
+        (*from_stack)->prev = NULL;
     temp->next = *to_stack;
     if (*to_stack)
-        (*to_stack)->prev = NULL;
+        (*to_stack)->prev = temp; // Fix this line to set prev to temp
     *to_stack = temp;
     (*to_stack)->prev = NULL;
 }
