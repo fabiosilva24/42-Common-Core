@@ -47,8 +47,8 @@ char	**modified_ftsplit(char *s, char separator);
 
 //nodes init
 void    check_median(t_stack **stack);
-void init_nodes_b(t_stack_node *a, t_stack_node *b);
-void init_nodes_a(t_stack_node *a, t_stack_node *b);
+void init_nodes_b(t_stack_nodes *a, t_stack_nodes *b);
+void init_nodes_a(t_stack_nodes *a, t_stack_nodes *b);
 t_stack_nodes *get_cheapest(t_stack_nodes **stack);
 t_stack_nodes *set_cheapest(t_stack_nodes *stack);
 void prepare_to_push(t_stack_nodes **stack, t_stack_nodes *top, char stack_name);
