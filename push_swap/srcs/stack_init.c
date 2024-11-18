@@ -19,7 +19,7 @@ static long ft_atol(const char *str)   //ascii to long
 
     result = 0;
     sign = 1;
-    while (*str == ' ' || *str >= 9 && *str <= 13)
+    while (*str == ' ' || (*str >= 9 && *str <= 13))
             str++;
     if (*str == '-')
         sign = -1;
