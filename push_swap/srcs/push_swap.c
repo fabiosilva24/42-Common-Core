@@ -24,7 +24,7 @@ int main(int argc, char **argv)
         return (1);
     else if (argc == 2)
     argv = modified_ftsplit(argv[1], ' ');
-    init_stack_a(&a, argv + 1) //cause we want to start at ex: "19 23 21 42"
+    init_stack_a(&a, argv + 1); //cause we want to start at ex: "19 23 21 42"
     if (!is_sorted(a))
     {
         if (stack_length(a) == 2)
