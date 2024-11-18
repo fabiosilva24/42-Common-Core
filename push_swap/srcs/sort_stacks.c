@@ -58,7 +58,7 @@ static void min_ontop(t_stack_nodes **a)
     while ((*a)->nbr != find_minnode(*a)->nbr)
     {
         if (find_minnode(*a)->above_median)
-        ra(a);
+            ra(a);
         else
             rra(a);
     }
@@ -76,13 +76,13 @@ static void min_ontop(t_stack_nodes **a)
         pa(a, b);
     while (length_a-- > 3 && !is_sorted(*a))
     {
-        init_stack_a(*a, *b);
+        init_nodes_a(*a, *b);
         move_a_to_b(a, b);
     }
     sort_three(*a);
     while (*b)
     {
-        init_stack_b(*a, *b);
+        init_nodes_b(*a, *b);
         move_b_to_a(a, b);
     }
     check_median(*a);
