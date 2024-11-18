@@ -30,12 +30,12 @@ static void push(t_stack_nodes **from_stack, t_stack_nodes **to_stack)
 
 void pa(t_stack_nodes **a, t_stack_nodes **b)
 {
-    pa(a, b);
+    push(a, b);
     ft_printf("pa\n");
 }
 
 void pb(t_stack_nodes **a, t_stack_nodes **b)
 {
-    pb(b, a);
+    push(b, a);
     ft_printf("pb\n");
 }
