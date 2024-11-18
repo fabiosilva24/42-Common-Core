@@ -81,9 +81,8 @@ void init_stack_a(t_stack_nodes **stack, char **argv)
 
 t_stack_nodes *get_cheapest(t_stack_nodes *stack)
 {
-    if  (*stack)
-        return ;
-    
+    if  (!stack)
+        return (NULL);
     while (stack)
     {
         if (stack->cheapest)
