@@ -41,25 +41,26 @@ static void set_target_a(t_stack_nodes *a, t_stack_nodes *b)
     long closest_smaller_nbr;
     
  
-  while (a)
-{
-    closest_smaller_nbr = LONG_MIN;
-    current_b = b;
-    while (current_b)
+    while (a)
     {
-        if (a->nbr > current_b->nbr 
-            && current_b->nbr > closest_smaller_nbr)
+        closest_smaller_nbr = LONG_MIN;
+        current_b = b;
+        while (current_b)
         {
-            closest_smaller_nbr = current_b->nbr;
-            target_node = closest_smaller_nbr;
+            if (a->nbr > current_b->nbr 
+                && current_b->nbr > closest_smaller_nbr)
+            {
+                closest_smaller_nbr = current_b->nbr;
+                target_node = closest_smaller_nbr;
+            }
+        current_b = current_b->next;
         }
-     current_b = current_b->next;
-}
-if (closest_smaller_nbr == LONG_MIN)
-    a->target_node = find_maxnode(b);
-else
-        a->target_node = target_node;
-    a = a->next;
+        if (closest_smaller_nbr == LONG_MIN)
+            a->target_node = find_maxnode(b);
+        else
+            a->target_node = target_node;
+        a = a->next;
+    }
 }
 
 void set_cheapest(t_stack_nodes *stack)
