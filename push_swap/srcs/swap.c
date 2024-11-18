@@ -12,7 +12,7 @@
 
 #include "./include/push_swap.h"
 
-void swap(t_struct_nodes **head)
+void swap(t_stack_nodes **head)
 {
     if (!*head || !(*head)->next)
         return ;
@@ -25,19 +25,19 @@ void swap(t_struct_nodes **head)
     (*head)->prev = NULL;
 }
 
-void sa(t_struct_nodes **a)
+void sa(t_stack_nodes **a)
 {
     swap(a);
     ft_printf("sa\n");
 }
 
-void sb(t_struct_nodes **b)
+void sb(t_stack_nodes **b)
 {
     swap(b);
     ft_printf("sb\n");
 }
 
-void ss(t_struct_nodes **a, t_struct_nodes **b)
+void ss(t_stack_nodes **a, t_stack_nodes **b)
 {
     swap(a);
     swap(b);

@@ -35,7 +35,7 @@ typedef struct s_stack_nodes
 
 
 //handle errors
-int     error_duplicate(t_stack_nodes **stack, int n);
+int     error_duplicate(t_stack_nodes *stack, int n);
 void    free_stack(t_stack_nodes **stack);
 int     syntax_error(const char *str);
 void    free_errors(t_stack_nodes **a);

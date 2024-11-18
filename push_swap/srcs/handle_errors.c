@@ -50,7 +50,7 @@ int syntax_error(const char *str)
 }
         
 
-int error_duplicate(t_stack_nodes **stack, int n)
+int error_duplicate(t_stack_nodes *stack, int n)
 {
     if (!stack)
         return 0;

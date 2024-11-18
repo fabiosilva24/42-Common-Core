@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-static  void reverse(t_struct_nodes **stack) //first becomes last       
+static  void reverse(t_stack_nodes **stack) //first becomes last       
 {
-    t_struct_nodes *last;
-    t_struct_nodes *secound_last;
+    t_stack_nodes *last;
+    t_stack_nodes *secound_last;
 
     if (!*stack || !(*stack)->next)
         return ;
@@ -32,19 +32,19 @@ static  void reverse(t_struct_nodes **stack) //first becomes last
     *stack = last;      //last is now the top node
 }
 
-void rra(t_struct_nodes **a)
+void rra(t_stack_nodes **a)
 {
     reverse(a);
     ft_printf("ra\n");
 }
 
-void rrb(t_struct_nodes **b)
+void rrb(t_stack_nodes **b)
 {
     reverse(b);
     ft_printf("rb\n");
 }
 
-void rrr(t_struct_nodes **a, t_struct_nodes **b)
+void rrr(t_stack_nodes **a, t_stack_nodes **b)
 {
     reverse(a);
     reverse(b);

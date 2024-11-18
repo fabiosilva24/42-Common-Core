@@ -38,7 +38,7 @@ else
     b = b->next;
 }
 
-void init_nodes_b(t_stack_node *a, t_stack_node *b)
+void init_nodes_b(t_stack_nodes *a, t_stack_nodes *b)
 {
     check_median(a);
     check_median(b);

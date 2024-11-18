@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-t_stack_nodes *find_lastnode(t_struct_nodes *stack)
+t_stack_nodes *find_lastnode(t_stack_nodes *stack)
 {
     if (!*stack)
         return (NULL);
@@ -48,10 +48,10 @@ int stack_length(t_stack_nodes *stack)
     return i;
 }
 
-t_stack_nodes *find_maxnode(t_struct_nodes *stack)
+t_stack_nodes *find_maxnode(t_stack_nodes *stack)
 {
     long    max;  //max stack number
-    t_struct_nodes  *max_node; //pointer that points to the biggest number
+    t_stack_nodes  *max_node; //pointer that points to the biggest number
 
     max = LONG_MIN;  //long min so we dont need extra conditions or check for negative and positive numbers
     if (!*stack)
@@ -68,10 +68,10 @@ t_stack_nodes *find_maxnode(t_struct_nodes *stack)
     return max_node; //returns pointer to the biggest number
 }
 
-t_stack_nodes *find_minnode(t_struct_nodes *stack)
+t_stack_nodes *find_minnode(t_stack_nodes *stack)
 {
     long    min;  //min stack number
-    t_struct_nodes  *min_node; //pointer that points to the smallest number
+    t_stack_nodes  *min_node; //pointer that points to the smallest number
 
     
     if (!*stack)
@@ -89,11 +89,9 @@ t_stack_nodes *find_minnode(t_struct_nodes *stack)
     return min_node; //returns pointer to the smallest number
 }
 
-void init_nodes_a(t_stack_node *a, t_stack_node *b)
+void init_nodes_a(t_stack_nodes *a, t_stack_nodes *b)
 {
     check_median(b);
     check_median(a);
     set_target_a(b);
 }
-    
-    

@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-static void rotate(t_struct_nodes **stack) //first becomes last       
+static void rotate(t_stack_nodes **stack) //first becomes last       
 {
-    t_struct_nodes *last;
-    t_struct_node *newest_last;
+    t_stack_nodes *last;
+    t_stack_nodes *newest_last;
 
     if (!*stack || !(*stack)->next)
         return ;
@@ -38,19 +38,19 @@ static void rotate(t_struct_nodes **stack) //first becomes last
 
 }
 
-void ra(t_struct_nodes **a)
+void ra(t_stack_nodes **a)
 {
     rotate(a);
     ft_printf("ra\n");
 }
 
-void rb(t_struct_nodes **b)
+void rb(t_stack_nodes **b)
 {
     rotate(b);
     ft_printf("rb\n");
 }
 
-void rr(t_struct_nodes **a, t_struct_nodes **b)
+void rr(t_stack_nodes **a, t_stack_nodes **b)
 {
     rotate(a);
     rotate(b);
