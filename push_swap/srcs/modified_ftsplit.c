@@ -88,4 +88,6 @@ char	**modified_ftsplit(char *s, char separator)
 		}
 		vector_strings[i++] = get_next_word(s, separator);
 	}
+	vector_strings[i] = NULL;
+	return (vector_strings);
 }
