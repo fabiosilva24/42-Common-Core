@@ -87,10 +87,3 @@ t_stack_nodes *find_minnode(t_stack_nodes *stack)
     }
     return min_node; //returns pointer to the smallest number
 }
-
-void init_nodes_a(t_stack_nodes *a, t_stack_nodes *b)
-{
-    check_median(b);
-    check_median(a);
-    set_target_a(b);
-}
