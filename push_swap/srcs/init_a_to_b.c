@@ -47,11 +47,11 @@ static void set_target_a(t_stack_nodes *a, t_stack_nodes *b)
         current_b = b;
         while (current_b)
         {
-            if (a->nbr > current_b->nbr 
+            if (current_b->nbr < a->nbr
                 && current_b->nbr > closest_smaller_nbr)
             {
                 closest_smaller_nbr = current_b->nbr;
-                target_node = closest_smaller_nbr;
+                target_node = current_b;
             }
         current_b = current_b->next;
         }
