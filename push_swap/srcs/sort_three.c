@@ -15,7 +15,6 @@
 void sort_three(t_stack_nodes **a)  //max number on bottom if need do swap a
 {
     t_stack_nodes *biggest;
-    t_stack_nodes *bottom;
 
     biggest = find_maxnode(*a);
 
