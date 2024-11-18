@@ -17,6 +17,7 @@ void check_median(t_stack_nodes *stack)
     int median;
     int i;
 
+    i = 0;
     if (!stack)
         return ;
     
