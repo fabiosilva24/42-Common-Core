@@ -113,11 +113,3 @@ while (*stack != top)
     }
 }
 }
-
-/*int main(void)
-{
-    const char *str = "1234567891111111111111111";
-    long test = ft_atol(str);
-
-    printf("converted number: %ld\n", test);
-}/*
