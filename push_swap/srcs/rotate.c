@@ -32,7 +32,7 @@ static void rotate(t_stack_nodes **stack) //first becomes last
     last->prev = NULL;
 
     if (*stack)
-        (*stack)->prev = last->node;  // Set the previous pointer of the current top to the new top
+        (*stack)->prev = last;  // Set the previous pointer of the current top to the new top
     
     *stack = last;
 
