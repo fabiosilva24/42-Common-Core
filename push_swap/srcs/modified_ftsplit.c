@@ -69,11 +69,9 @@ char	**modified_ftsplit(char *s, char separator)
 	
 	i = 0;
 	words_number = count_words(s, separator);
+	if (!words_number)
+		exit(1);
 	vector_strings = malloc(sizeof(char *) * (words_number + 2));  //mimic argument vector
-	if (!s || !result)
-		return (NULL);
-	i = 0;
-
 	if (NULL == vector_strings)
 		return (NULL);
 	while (words_number-- >= 0)
