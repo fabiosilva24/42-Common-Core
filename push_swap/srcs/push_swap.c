@@ -20,11 +20,8 @@ int main(int argc, char **argv)
     a = NULL;
     b = NULL;
     
-	if (argc == 1 && (argc == 2 && !argv[1][0]))
-    {
-        ft_printf("Error: No input provided\n");
+	if (argc == 1  || (argc == 2 && !argv[1][0]))
         return (1);
-    }
     else if (argc == 2)
     argv = modified_ftsplit(argv[1], ' ');
     init_stack_a(&a, argv + 1); //cause we want to start at ex: "19 23 21 42"
