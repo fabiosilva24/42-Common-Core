@@ -17,7 +17,19 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
-SRCS = push_swap.c\
+SRCS = handle_errors.c\
+	init_a_to_b.c\
+	init_b_to_a.c\
+	modified_ftsplit.c\
+	push.c\
+	push_swap.c\
+	reverse.c\
+	rotate.c\
+	sort_stacks.c\
+	sort_three.c\
+	stack_init.c\
+	stack_outils.c\
+	swap.c
 
 OBJS = $(SRCS:.c=.o)
 
