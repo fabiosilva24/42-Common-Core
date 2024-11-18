@@ -18,35 +18,36 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 SRCS = srcs/handle_errors.c\
-    srcs/init_a_to_b.c\
-    srcs/init_b_to_a.c\
-    srcs/modified_ftsplit.c\
-    srcs/push.c\
-    srcs/push_swap.c\
-    srcs/reverse.c\
-    srcs/rotate.c\
-    srcs/sort_stacks.c\
-    srcs/sort_three.c\
-    srcs/stack_init.c
+	srcs/init_a_to_b.c\
+	srcs/init_b_to_a.c\
+	srcs/modified_ftsplit.c\
+	srcs/push.c\
+	srcs/push_swap.c\
+	srcs/reverse.c\
+	srcs/rotate.c\
+	srcs/sort_stacks.c\
+	srcs/sort_three.c\
+	srcs/stack_init.c\
+	srcs/stack_outils.c\
+	srcs/swap.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-    @$(MAKE) -C $(LIBFT_PATH)
-    @$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-    @echo "$(GREEN)$(NAME) compiled successfully!$(NC)"
+$(NAME) : $(OBJS) $(LIBFT)
+	@echo "$(CYAN)Making...$(NC)"
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)		
 
 clean:
-    @$(MAKE) -C $(LIBFT_PATH) clean
-    @rm -f $(OBJS)
-    @echo "$(CYAN)Object files cleaned!$(NC)"
+	@echo "$(GREEN)Cleaning...$(NC)"
+	rm -f $(OBJS)
+	make clean -C $(LIBFT_PATH)
 
 fclean: clean
-    @$(MAKE) -C $(LIBFT_PATH) fclean
-    @rm -f $(NAME)
-    @echo "$(CYAN)Executable cleaned!$(NC)"
+	rm -f $(NAME)
+	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all fclean clean re
