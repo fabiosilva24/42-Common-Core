@@ -38,8 +38,7 @@ int stack_length(t_stack_nodes *stack)
 
     i = 0;
     if (!stack)
-        return (NULL);
-
+        return (0);
     while (stack)
     {
         i++;
