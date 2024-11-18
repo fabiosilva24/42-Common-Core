@@ -61,7 +61,7 @@ else
 
 void set_cheapest(t_stack_nodes *stack)
 {
-    long    cheapest_value
+    long    cheapest_value;
     t_stack_nodes *cheapest_node;
 
     
