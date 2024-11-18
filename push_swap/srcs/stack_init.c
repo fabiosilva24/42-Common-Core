@@ -63,17 +63,19 @@ void init_stack_a(t_stack_nodes **stack, char **argv)
     int i;
     long value;
 
-    i = 1;  //we set to 1 cause we only want the program name not the ./a.out
+    i = 0; 
     while (argv[i])              
     {
+        if (syntax_error(argv[1]))
+            free_errors(stack);
         value = ft_atol(argv[i]);
         if (value < INT_MIN|| value > INT_MAX)   //check for overflow
-        {
-            return ;
-        }
+            free_errors(stack);
+        if (error_duplicate(*stack, (int)value))
+            free_errors(stack);
+            append_node(stack, (int)value);
+            i++;
     }
-    append_node(stack, (int)value);
-    i++;
 }
 
 
