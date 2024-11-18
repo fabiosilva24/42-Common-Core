@@ -35,8 +35,8 @@ static long ft_atol(const char *str)   //ascii to long
 
 static void	append_node(t_stack_nodes **stack, int n)
 {
-    t_stack_node *last_nodes;
-    t_stack_node *node;
+    t_stack_nodes *last_nodes;
+    t_stack_nodes *node;
 
     if (!*stack)
         return ;
