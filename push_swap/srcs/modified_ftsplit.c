@@ -74,7 +74,7 @@ char	**modified_ftsplit(char *s, char separator)
 		return (NULL);
 	i = 0;
 
-	if (NULL = vector_strings)
+	if (NULL == vector_strings)
 		return (NULL);
 	while (words_number-- >= 0)
 	{
@@ -86,7 +86,7 @@ char	**modified_ftsplit(char *s, char separator)
 			vector_strings[i++][0] = '\0';
 			continue ;
 		}
-		vector_strings[i++] = get_next_word(str, separator);
+		vector_strings[i++] = get_next_word(s, separator);
 	}
 }
 			
