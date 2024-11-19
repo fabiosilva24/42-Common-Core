@@ -71,9 +71,9 @@ static void min_ontop(t_stack_nodes **a)
     length_a = stack_length(*a);
 
     if (length_a-- > 3 && !is_sorted(*a))
-        pa(a, b);
+        pb(b, a);
     if (length_a-- > 3 && !is_sorted(*a))
-        pa(a, b);
+        pa(b, a);
     while (length_a-- > 3 && !is_sorted(*a))
     {
         init_nodes_a(*a, *b);
