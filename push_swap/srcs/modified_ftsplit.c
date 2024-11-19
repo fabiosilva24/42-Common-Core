@@ -17,8 +17,7 @@ static int	count_words(char *s, char separator)
 	int count;
 	bool	inside_word;
 
-	if (!*s)
-		return (0);
+
 	count = 0;
 	while (*s)
 	{
@@ -32,7 +31,7 @@ static int	count_words(char *s, char separator)
 				++count;
 				inside_word = true;
 			}
-			s++;
+			++s;
 		}
 	}
 	return (count);

@@ -27,7 +27,7 @@ static long ft_atol(const char *str)   //ascii to long
         str++;
     while (*str >= '0' && *str <= '9')
     {
-        result = result * 10 + (*str - '0');
+        result = result * 10 + *str - '0';
         str++;
     }
     return (sign * result);
