@@ -19,7 +19,7 @@ static void set_target_b(t_stack_nodes *a, t_stack_nodes *b)
     long closest_bigger_nbr;
     
  
-    while (a)
+    while (b)
     {
         closest_bigger_nbr = LONG_MAX;
         current_a = a;
