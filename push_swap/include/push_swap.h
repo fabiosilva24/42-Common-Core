@@ -74,7 +74,6 @@ void			rrb(t_stack_nodes **b);
 void			rrr(t_stack_nodes **a, t_stack_nodes **b);
 void			pa(t_stack_nodes **a, t_stack_nodes **b);
 void			pb(t_stack_nodes **b, t_stack_nodes **a);
-void print_stacks(t_stack_nodes *stack);
 
 //algorithms
 void sort_three(t_stack_nodes **a);

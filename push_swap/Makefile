@@ -29,8 +29,7 @@ SRCS = srcs/handle_errors.c\
 	srcs/sort_three.c\
 	srcs/stack_init.c\
 	srcs/stack_outils.c\
-	srcs/swap.c\
-	srcs/print_stacks.c
+	srcs/swap.c
 
 OBJS = $(SRCS:.c=.o)
 
