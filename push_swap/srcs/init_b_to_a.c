@@ -23,19 +23,22 @@ static void set_target_b(t_stack_nodes *a, t_stack_nodes *b)
     {
         closest_bigger_nbr = LONG_MAX;
         current_a = a;
-        if (current_a->nbr > b->nbr
-            && current_a->nbr < closest_bigger_nbr)
+        while (current_a)
         {
-        closest_bigger_nbr = current_a->nbr;
-        target_node = current_a;
+            if (current_a->nbr > b->nbr
+                && current_a->nbr < closest_bigger_nbr)
+            {
+                closest_bigger_nbr = current_a->nbr;
+                target_node = current_a;
+            }
+            current_a = current_a->next;
         }
-        current_a = current_a->next;
+        if (closest_bigger_nbr == LONG_MAX)
+                b->target_node = find_minnode(a);
+        else
+                b->target_node = target_node;
+        b = b->next;
     }
-    if (closest_bigger_nbr == LONG_MAX)
-            b->target_node = find_minnode(b);
-    else
-            b->target_node = target_node;
-    b = b->next;
 }
 
 void init_nodes_b(t_stack_nodes *a, t_stack_nodes *b)

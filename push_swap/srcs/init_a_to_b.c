@@ -26,9 +26,9 @@ void check_median(t_stack_nodes *stack)
     {
         stack->index = i;
         if (i <= median)
-            stack->above_median = true;
+                stack->above_median = true;
         else
-            stack->above_median = false;
+                stack->above_median = false;
         stack = stack->next;
         i++;
     }
@@ -53,12 +53,12 @@ static void set_target_a(t_stack_nodes *a, t_stack_nodes *b)
                 closest_smaller_nbr = current_b->nbr;
                 target_node = current_b;
             }
-        current_b = current_b->next;
+            current_b = current_b->next;
         }
         if (closest_smaller_nbr == LONG_MIN)
-            a->target_node = find_maxnode(b);
+                a->target_node = find_maxnode(b);
         else
-            a->target_node = target_node;
+                a->target_node = target_node;
         a = a->next;
     }
 }
@@ -100,7 +100,7 @@ static void cost_analysis_a(t_stack_nodes *a, t_stack_nodes *b)
         if (a->target_node->above_median)
             a->push_cost += a->target_node->index;
         else // if a node is indeed above the median and its target b node is below median
-            a->push_cost += b_length - (a->target_node->index); // update a node push cost , the sum of  (its current index) + (b stack length - its target b node index)
+                a->push_cost += b_length - (a->target_node->index); // update a node push cost , the sum of  (its current index) + (b stack length - its target b node index)
         a = a->next;
     }
 }
