@@ -23,11 +23,10 @@ static void push(t_stack_nodes **from_stack, t_stack_nodes **to_stack)
     *from_stack = (*from_stack)->next;
     if (*from_stack)
         (*from_stack)->prev = NULL;
-    temp->next = *to_stack;
+    temp->next = *to_stack; 
     if (*to_stack)
         (*to_stack)->prev = temp; // Fix this line to set prev to temp
     *to_stack = temp;
-    (*to_stack)->prev = NULL;
 }
 
 void pa(t_stack_nodes **a, t_stack_nodes **b)
@@ -36,7 +35,7 @@ void pa(t_stack_nodes **a, t_stack_nodes **b)
     ft_printf("pa\n");
 }
 
-void pb(t_stack_nodes **a, t_stack_nodes **b)
+void pb(t_stack_nodes **b, t_stack_nodes **a)
 {
     push(b, a);
     ft_printf("pb\n");
