@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	sort_three(t_stack_nodes	**a)  //max number on bottom if need do swap a
+void	sort_three(t_stack_nodes	**a) //max number on bottom if need do swap a
 {
 	t_stack_nodes	*biggest;
 
@@ -21,6 +21,6 @@ void	sort_three(t_stack_nodes	**a)  //max number on bottom if need do swap a
 		ra(a);
 	else if ((*a)->next == biggest)
 		rra(a);
-	if ((*a)->nbr > (*a)->next->nbr)    //check if the bottom node is the biggest but the top node is higher than the secound node imagine nbr is 12 top node and the scound is 10 so you swap so now its  10 12 50
+	if ((*a)->nbr > (*a)->next->nbr) //check if the bottom node is the biggest but the top node is higher than the secound node imagine nbr is 12 top node and the scound is 10 so you swap so now its  10 12 50
 		sa(a);
 }
