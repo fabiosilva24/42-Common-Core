@@ -12,58 +12,58 @@
 
 #include "../include/push_swap.h"
 
-void free_stack(t_stack_nodes **stack)
+void	free_stack(t_stack_nodes	**stack)
 {
-    t_stack_nodes *temp;
-    t_stack_nodes *current;
+	t_stack_nodes	*temp;
+	t_stack_nodes	*current;
 
-    if (!stack)
-        return ;
-    current = *stack;
-    while (current)
-    {
-        temp = current->next;
-        current->nbr = 0;
-        free(current);
-        current = temp;
-    }
-    *stack = NULL;
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		temp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = temp;
+	}
+	*stack = NULL;
 }
 
-int syntax_error(const char *str)
+int	syntax_error(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (str[i] == '-' || str[i] == '+')
-        i++;
-    if (!str[i])
-        return (1);
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (1);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int error_duplicate(t_stack_nodes *stack, int n)
+int	error_duplicate(t_stack_nodes	*stack, int n)
 {
-    if (!stack)
-        return 0;
-    while (stack)
-    {
-        if (stack->nbr == n)
-            return (1);
-        stack = stack->next;
-    }
-    return (0);
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		if (stack->nbr == n)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }
 
-void free_errors(t_stack_nodes **a)
+void	free_errors(t_stack_nodes	**a)
 {
-    free_stack(a);
-    ft_printf("Error\n");
-    exit(1);
+	free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
 }
