@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static void	rotate_both(t_stack_nodes	**a, t_stack_nodes	**b, t_stack_node	*cheapest_node)
+static void	rotate_both(t_stack_nodes	**a, t_stack_nodes	**b, t_stack_nodes	*cheapest_node)
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node)
