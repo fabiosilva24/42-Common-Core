@@ -60,6 +60,7 @@ static char	*get_next_word(char *s, char separator)
 		next_s[i++] = s[cursor++];
 	next_s[i] = '\0';
 	return (next_s);
+	free(next_s);
 }
 
 
@@ -75,20 +76,14 @@ char	**modified_ftsplit(char *s, char separator)
 		exit(1);
 	vector_strings = malloc(sizeof(char *) * (words_number + 2));  //mimic argument vector
 	if (NULL == vector_strings)
-	{
 		return (NULL);
-		free(vector_strings);
-	}
 	while (words_number-- >= 0)
 	{
 		if (0 == i)
 		{
 			vector_strings[i] = malloc(sizeof(char));
 			if (NULL == vector_strings)
-			{
 				return (NULL);
-				free(vector_strings);
-			}
 			vector_strings[i++][0] = '\0';
 			continue ;
 		}
