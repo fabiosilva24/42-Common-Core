@@ -29,17 +29,16 @@ void free_stack(t_stack_nodes **stack)
     }
     *stack = NULL;
 }
+
 int syntax_error(const char *str)
 {
     int i;
 
     i = 0;
-
     if (str[i] == '-' || str[i] == '+')
         i++;
     if (!str[i])
         return (1);
-    
     while (str[i])
     {
         if (!ft_isdigit(str[i]))
@@ -48,13 +47,11 @@ int syntax_error(const char *str)
     }
     return (0);
 }
-        
 
 int error_duplicate(t_stack_nodes *stack, int n)
 {
     if (!stack)
         return 0;
-    
     while (stack)
     {
         if (stack->nbr == n)
