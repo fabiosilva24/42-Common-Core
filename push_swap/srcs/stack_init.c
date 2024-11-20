@@ -69,7 +69,7 @@ void init_stack_a(t_stack_nodes **stack, char **argv)
         if (syntax_error(argv[i]))
             free_errors(stack);
         value = ft_atol(argv[i]);
-        if (value < INT_MIN || value > INT_MAX)   //check for overflow
+        if (value > INT_MAX || value < INT_MIN)   //check for overflow
             free_errors(stack);
         if (error_duplicate(*stack, (int)value))
             free_errors(stack);

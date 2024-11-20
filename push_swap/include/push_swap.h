@@ -42,7 +42,7 @@ void    free_errors(t_stack_nodes **a);
 
 //stack init
 void    init_stack_a(t_stack_nodes **stack, char **argv);
-char	**modified_ftsplit(char *s, char separator);
+char	**modified_ftsplit(char *s, char c);
 
 
 //nodes init

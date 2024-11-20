@@ -45,22 +45,17 @@ static char	*get_next_word(char *s, char separator)
 
 	len = 0;
 	i = 0;
-
 	while (s[cursor] == separator)
 		++cursor;
 	while ((s[cursor + len] != separator) && s[cursor + len])
 		++len;
-	next_s = malloc(len * sizeof(char) + 1);
+	next_s = malloc((size_t)len * sizeof(char) + 1);
 	if (NULL == next_s)
-	{
 		return (NULL);
-		free(next_s);
-	}
 	while ((s[cursor] != separator) && s[cursor])
 		next_s[i++] = s[cursor++];
 	next_s[i] = '\0';
 	return (next_s);
-	free(next_s);
 }
 
 
@@ -74,7 +69,7 @@ char	**modified_ftsplit(char *s, char separator)
 	words_number = count_words(s, separator);
 	if (!words_number)
 		exit(1);
-	vector_strings = malloc(sizeof(char *) * (words_number + 2));  //mimic argument vector
+	vector_strings = malloc(sizeof(char *) * (size_t)(words_number + 2));  //mimic argument vector
 	if (NULL == vector_strings)
 		return (NULL);
 	while (words_number-- >= 0)
