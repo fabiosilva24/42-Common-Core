@@ -68,8 +68,8 @@ char	**modified_ftsplit(char *s, char separator)
 {
 	int		words_number;
 	char	**vector_strings;
-	int			i;
-	
+	int		i;
+
 	i = 0;
 	words_number = count_words(s, separator);
 	if (!words_number)
