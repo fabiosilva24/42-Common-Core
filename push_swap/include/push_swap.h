@@ -39,6 +39,7 @@ int     error_duplicate(t_stack_nodes *stack, int n);
 void    free_stack(t_stack_nodes **stack);
 int     syntax_error(const char *str);
 void    free_errors(t_stack_nodes **a);
+void    free_argv(char **argv);
 
 //stack init
 void    init_stack_a(t_stack_nodes **stack, char **argv);
