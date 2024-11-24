@@ -35,9 +35,9 @@ void	check_median(t_stack_nodes	*stack)
 
 static void	set_target_a(t_stack_nodes	*a, t_stack_nodes	*b)
 {
-	t_stack_nodes	*current_b;
-	t_stack_nodes	*target_node;
-	long	closest_smaller_nbr;
+	t_stack_nodes			*current_b;
+	t_stack_nodes			*target_node;
+	long					closest_smaller_nbr;
 
 	while (a)
 	{
