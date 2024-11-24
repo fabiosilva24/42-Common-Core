@@ -12,18 +12,17 @@
 
 #include "../include/push_swap.h"
 
-void free_argv(char **argv)
+void	free_argv(char **argv)
 {
-   int i;
+	int	i;
 
-   i = 0;
-   
-   while (argv[i])
-   {
-       free(argv[i]);
-       i++;
-   }
-   free(argv);
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
 }
 
 void	free_stack(t_stack_nodes	**stack)
