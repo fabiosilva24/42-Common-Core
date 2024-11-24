@@ -14,9 +14,8 @@
 
 static int	count_words(char *s, char separator)
 {
-	int count;
+	int		count;
 	bool	inside_word;
-
 
 	count = 0;
 	while (*s)
@@ -36,10 +35,11 @@ static int	count_words(char *s, char separator)
 	}
 	return (count);
 }
+
 static char	*get_next_word(char *s, char separator)
 {
 	static int	cursor = 0;
-	char	*next_s;
+	char		*next_s;
 	int			len;
 	int			i;
 
@@ -57,7 +57,6 @@ static char	*get_next_word(char *s, char separator)
 	next_s[i] = '\0';
 	return (next_s);
 }
-
 
 char	**modified_ftsplit(char *s, char separator)
 {
