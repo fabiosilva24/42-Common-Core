@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-int main(int argc, char **argv)
+int main(int    argc, char  **argv)
 {
-    t_stack_nodes *a;
-    t_stack_nodes *b;
+    t_stack_nodes   *a;
+    t_stack_nodes   *b;
 
     a = NULL;
     b = NULL;
@@ -36,5 +36,5 @@ int main(int argc, char **argv)
     }
     free_stack(&a);
     free_argv(argv);
-    return 0;
+    return (0);
 }

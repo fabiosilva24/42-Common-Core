@@ -20,8 +20,8 @@ void free_argv(char **argv)
    
    while (argv[i])
    {
-       free(argv[i])
-       i++
+       free(argv[i]);
+       i++;
    }
    free(argv);
 }
