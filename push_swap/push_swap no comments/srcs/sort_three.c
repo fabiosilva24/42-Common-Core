@@ -22,4 +22,5 @@ void	sort_three(t_stack_nodes	**a)
 	else if ((*a)->next == biggest)
 		rra(a);
 	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }

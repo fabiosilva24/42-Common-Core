@@ -12,35 +12,35 @@
 
 #include "../include/push_swap.h"
 
-
 static void	reverse(t_stack_nodes **stack)
 {
 	t_stack_nodes	*last;
+
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_lastnode(*stack);
 	last->prev->next = NULL;
 	last->next = *stack;
 	last->prev = NULL;
-	*stack = last; 
+	*stack = last;
 	last->next->prev = last;
 }
 
-void rra(t_stack_nodes **a)
+void	rra(t_stack_nodes **a)
 {
-    reverse(a);
-    ft_printf("rra\n");
+	reverse(a);
+	ft_printf("rra\n");
 }
 
-void rrb(t_stack_nodes **b)
+void	rrb(t_stack_nodes **b)
 {
-    reverse(b);
-    ft_printf("rrb\n");
+	reverse(b);
+	ft_printf("rrb\n");
 }
 
-void rrr(t_stack_nodes **a, t_stack_nodes **b)
+void	rrr(t_stack_nodes **a, t_stack_nodes **b)
 {
-    reverse(a);
-    reverse(b);
-    ft_printf("rrr\n");
+	reverse(a);
+	reverse(b);
+	ft_printf("rrr\n");
 }
