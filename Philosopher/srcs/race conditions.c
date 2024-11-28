@@ -3,14 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mails = 0;
+int aura_points = 0;
+int rizz = 0;
 pthread_mutex_t mutex;
 void *routine()
 {
     for (int i = 0; i < 1000000; i++)
     {
         pthread_mutex_lock(&mutex);
-        mails++;
+        aura_points++;
+        rizz++;
         pthread_mutex_unlock(&mutex);
     }
 }
@@ -45,6 +47,7 @@ int main(int argc, char **argv)
     }
 
     pthread_mutex_destroy(&mutex);
-    printf("Number of Mails: %d\n", mails);
+    printf("Number of Rizz: %d\n", rizz);
+    printf("Number of aura points: %d\n", aura_points); 
     return 0;
 }
