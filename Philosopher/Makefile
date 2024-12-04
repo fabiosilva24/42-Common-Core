@@ -4,25 +4,23 @@ NC := \033[0m
 NAME = philo_one
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_PATH = ./libs/libft
-LIBFT = $(LIBFT_PATH)/libft.a
 SRCS = 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJS) $(LIBFT)
+$(NAME) : $(OBJS)
 	@echo "$(CYAN)Making...$(NC)"
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)		
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 clean:
 	@echo "$(GREEN)Cleaning...$(NC)"
 	rm -f $(OBJS)
-	make clean -C $(LIBFT_PATH)
+	make clean -C
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(LIBFT_PATH)
+	make fclean -C
 
 re: fclean all
 
