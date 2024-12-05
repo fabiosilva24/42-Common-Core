@@ -41,5 +41,9 @@ int		init_simulation(t_simulation *sim, int argc, char **argv);
 void 	*philo_routine(void *arg);
 
 
+//utils
+int ft_atoi(char *str);
+long long get_time_ms(void);
+int ft_usleep(size_t millisecounds);
 
 #endif

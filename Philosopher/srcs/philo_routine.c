@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/philo.h"
+#include "../include/philo.h"
 
 void 	*philo_routine(void *arg)
 {
@@ -39,3 +39,35 @@ void 	*philo_routine(void *arg)
         i++;
     }
 }
+
+void philo_eat(t_philosopher *philo)
+{
+    pthread_mutex_lock(&philo->forks[philo->left_fork]);
+    pthread_mutex_lock(philo->print_mutex);
+    printf("Philosopher %d has taken the left fork\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+
+    pthread_mutex_lock(&philo->forks[philo->right_fork]);
+    pthread_mutex_lock(&philo->print_mutex);
+    printf("Philosopher %d has taken the right fork\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+
+    pthread_mutex_lock(philo->print_mutex);
+    printf("Philosopher %d is eating\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+
+    philo->last_meal_time = get_time_ms();
+    usleep(philo->simulation->time_to_eat * 1000);
+    philo->meals_eaten++;
+    
+    pthread_mutex_unlock(&philo->forks[philo->right_fork]);
+    pthread_mutex_lock(philo->print_mutex);
+    printf("Philosopher %d has put down the right fork\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+
+    pthread_mutex_unlock(&philo->forks[philo->left_fork]);
+    pthread_mutex_lock(philo->print_mutex);
+    printf("Philosopher %d has put down the left fork\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+}
+

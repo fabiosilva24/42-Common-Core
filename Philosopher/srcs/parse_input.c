@@ -20,10 +20,10 @@ int parse_input(t_simulation *sim, int argc, char **argv)
         return (1);
     }
 
-    sim->num_philosophers = atoi(argv[1]);
-    sim->time_to_die = atoi(argv[2]);
-    sim->time_to_eat = atoi(argv[3]);
-    sim->time_to_sleep = atoi(argv[4]);
+    sim->num_philosophers = ft_atoi(argv[1]);
+    sim->time_to_die = ft_atoi(argv[2]);
+    sim->time_to_eat = ft_atoi(argv[3]);
+    sim->time_to_sleep = ft_atoi(argv[4]);
 
     if (sim->num_philosophers <= 0 || sim->time_to_die <= 0 ||
             sim->time_to_eat <= 0 || sim->time_to_sleep <= 0)
