@@ -1,11 +1,11 @@
 #ifndef PHILOSOPHER_H
 # define PHILOSOPHER_H
 
-
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+# include <pthread.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <sys/time.h>
 
 
 
@@ -29,8 +29,8 @@ typedef struct s_philo
 {
 	int					id;
 	int					meals_eaten;
-	int					left_forks_id;
-	int					right_forks_id;
+	int					left_fork;
+	int					right_fork;
 
 	pthread_t			thread;
 	t_simulation		*simulation;
