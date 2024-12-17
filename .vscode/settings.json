@@ -1,8 +1,1 @@
-{
-    "files.associations": {
-        "push_swap.h": "c",
-        "stdio.h": "c",
-        "philo.h": "c",
-        "xlocale": "c"
-    }
-}
+{}

@@ -21,8 +21,9 @@ typedef struct s_simulation
 	pthread_mutex_t 	*forks;
 	pthread_mutex_t		print_mutex;
 	pthread_mutex_t 	death_mutex;
+	t_philo             *philosophers;
 
-	long long			start_time;
+	
 } t_simulation;
 
 typedef struct s_philo
@@ -35,7 +36,8 @@ typedef struct s_philo
 	pthread_t			thread;
 	t_simulation		*simulation;
 	long long			last_meal_time;
-}
+	long long			start_time;
+} t_philo;
 
 int		init_simulation(t_simulation *sim, int argc, char **argv);
 void 	*philo_routine(void *arg);

@@ -33,3 +33,4 @@ int parse_input(t_simulation *sim, int argc, char **argv)
     }
     return  (0);
 }
+

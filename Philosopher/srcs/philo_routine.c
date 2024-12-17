@@ -12,9 +12,22 @@
 
 #include "../include/philo.h"
 
+
+static void initialize_philovalor(t_philo *philo, t_simulation *sim, int i)
+{
+    sim->philosophers[i].id = i + 1;
+    sim->philosophers[i].simulation = sim;
+    sim->philosophers[i].left_fork = i;
+    sim->philosophers[i].right_fork = (i + 1) % sim->philosophers;
+    sim->philosophers[i].meals_eaten = 0;
+    sim->philosophers[i].last_meal_time = get_time_ms();
+}
 void 	*philo_routine(void *arg)
 {
-    int i = 0;
+    t_simulation *sim = (t_simulation *)arg;
+    int i;
+
+    i = 0;
 	sim->philosophers = malloc(sizeof(t_philo) * sim->num_philosophers);
     if (!sim->philosophers)
         return (1);
@@ -24,21 +37,18 @@ void 	*philo_routine(void *arg)
     pthread_mutex_init(&sim->print_mutex, NULL);
     while (i < sim->num_philosophers)
     {
-        pthread_mutex-init(&sim->forks[i], NULL);
+        pthread_mutex_init(&sim->forks[i], NULL);
         i++;
     }
     i = 0;
     while (i < sim->num_philosophers)
     {
-        sim->philosophers[i].id = i + 1;
-        sim->philosophers[i].simulation = sim;
-        sim->philosophers[i].left_fork = i;
-        sim->philosophers[i].right_fork = (i + 1) % sim->philosophers;
-        sim->philosophers[i].meals_eaten = 0;
-        sim->philosophers[i].last_meal_time = get_time_ms();
+        initialize_philovalor(&sim->philosophers[i], sim, i)
         i++;
     }
+    return NULL;
 }
+
 
 void philo_eat(t_philosopher *philo)
 {
@@ -61,13 +71,17 @@ void philo_eat(t_philosopher *philo)
     philo->meals_eaten++;
     
     pthread_mutex_unlock(&philo->forks[philo->right_fork]);
-    pthread_mutex_lock(philo->print_mutex);
-    printf("Philosopher %d has put down the right fork\n", philo->id);
-    pthread_mutex_unlock(philo->print_mutex);
-
     pthread_mutex_unlock(&philo->forks[philo->left_fork]);
     pthread_mutex_lock(philo->print_mutex);
-    printf("Philosopher %d has put down the left fork\n", philo->id);
+    printf("Philosopher %d has put down the forks\n", philo->id);
     pthread_mutex_unlock(philo->print_mutex);
 }
 
+void philo_sleep(t_philosopher *philo)
+{
+    pthread_mutex_lock(philo->print_mutex);
+    printf("Philosopher %d is sleeping\n", philo->id);
+    pthread_mutex_unlock(philo->print_mutex);
+
+    usleep(philo->simulation->time_to_sleep * 100);
+}
