@@ -4,7 +4,9 @@ NC := \033[0m
 NAME = philo_one
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = 
+SRCS = ./srcs/philo_routine.c \
+		./srcs/main.c \
+		./srcs/philo_utils.c \
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:16 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/05 18:46:16 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:00:16 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int ft_atoi(char *str)
     while (*str >= '0' && *str <= '9')
     {
         result = result * 10 + *str - '0';
-        str+++;
+        str++;
     }
     return (sign * result);
 } 

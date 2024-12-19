@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:09 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/05 18:46:09 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:58:23 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,18 @@ int parse_input(t_simulation *sim, int argc, char **argv)
     sim->time_to_eat = ft_atoi(argv[3]);
     sim->time_to_sleep = ft_atoi(argv[4]);
 
-    if (sim->num_philosophers <= 0 || sim->time_to_die <= 0 ||
-            sim->time_to_eat <= 0 || sim->time_to_sleep <= 0)
+    if (sim->num_philosophers <= 0 || sim->num_philosophers > 250 ||
+            sim->time_to_die <= 0 || sim->time_to_eat <= 0 || sim->time_to_sleep <= 0)
     {
         printf("Invalid Input parameters\n");
         return (1);
     }
     return  (0);
+
+    if (argc == 6)
+        sim->max_meals = ft_atoi(argv[5]);
+    else
+        sim->max_meals = -1;
+    return (0);
 }
 
