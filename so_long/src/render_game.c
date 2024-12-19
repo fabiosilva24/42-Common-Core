@@ -22,7 +22,7 @@ int	render_game(void *param)
 	game = (t_game *)param;
 	frame_count = 0;
 	frame_count++;
-	mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	//mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	y = 0;
 	while (y < game->map_height)
 	{
