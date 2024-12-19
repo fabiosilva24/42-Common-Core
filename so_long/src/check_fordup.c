@@ -1,4 +1,4 @@
-void check_fordup(t_game *player)
+void check_fordup(t_player *player)
 {
   if (player->player == 2)
   {
