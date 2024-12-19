@@ -42,6 +42,8 @@ typedef struct s_simulation
 
 int		init_simulation(t_simulation *sim, int argc, char **argv);
 void 	*philo_routine(void *arg);
+void join_threads(t_simulation *sim);
+void create_thread(t_simulation *sim);
 
 
 //utils

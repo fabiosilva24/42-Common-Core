@@ -6,22 +6,14 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/19 20:53:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:15:04 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
 
-static void initialize_philovalor(t_simulation *sim, int i)
-{
-    sim->philosophers[i].id = i + 1;
-    sim->philosophers[i].simulation = sim;
-    sim->philosophers[i].left_fork = i;
-    sim->philosophers[i].right_fork = (i + 1) % sim->num_philosophers;
-    sim->philosophers[i].meals_eaten = 0;
-    sim->philosophers[i].last_meal_time = get_time_ms();
-}
+
 void 	*philo_routine(void *arg)
 {
     t_simulation *sim = (t_simulation *)arg;
@@ -109,13 +101,24 @@ void create_threads(t_simulation *sim)
             printf("Error creating thread for 1 philosopher :( \n");
             exit(EXIT_FAILURE);
         }
-        return ;
-    }
+    philo_sleep(philo);
+}
+
+void philo_sleep(t_philosopher *philo)
+{
+}
+
+void join_threads(t_simulation *sim)
+{
+    int i;
+
+    i = 0;
+
     while (i < sim->num_philosophers)
     {
-        if (pthread_create(&sim->philosophers[i].thread, NULL, philo_routine, (void*)&sim->philosophers[i]) != 0)
+        if (pthread_join(&sim->philosophers[i].thread, NULL) != 0)
         {
-            printf("Error creating thread for philosopher %d :( \n", i + 1);
+            printf("Error joining thread for philosopher %d :( \n", i + 1);
             exit(EXIT_FAILURE);
         }
         i++;
