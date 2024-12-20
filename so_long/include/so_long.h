@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/20 19:09:51 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:48:28 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,5 @@ void 	check_fordup(t_game *game);
 void	find_player_position(t_game *game);
 int 	count_players(t_game *game);
 void 	free_map(t_game *game);
+
 #endif
