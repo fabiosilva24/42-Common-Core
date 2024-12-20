@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/19 00:00:07 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:17:17 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	allocate_map(t_game *game, int line_count)
 {
 	game->map = malloc((line_count + 1) * sizeof(char *));
 	if (game->map == NULL)
+	{
+		free_map(game);
 		return (0);
+	}
 	return (1);
 }
 
