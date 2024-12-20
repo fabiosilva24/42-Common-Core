@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/20 23:24:53 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:09:51 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_game
 	int			map_height;
 	int			should_end;
 	int			player_found;
+	int			player_count;
 }	t_game;
 
 int		render_game(void *param);
@@ -94,5 +95,8 @@ void	update_movecount(t_game *game);
 void	map_dont_draw(t_game *game);
 void	player_notfound(t_game *game);
 void	update_collectibles(t_game *game, int x, int y);
-
+void 	check_fordup(t_game *game);
+void	find_player_position(t_game *game);
+int 	count_players(t_game *game);
+void 	free_map(t_game *game);
 #endif

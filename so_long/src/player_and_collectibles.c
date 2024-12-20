@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:29:35 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/20 01:29:37 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:17:54 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,38 @@ void	count_collectibles(t_game *game)
 	ft_printf("Total collectibles in the map: %d\n", game->total_collectibles);
 }
 
-void	find_player_position(t_game *game)
+int count_players(t_game *game)
 {
-	int	i;
-	int	j;
-
+	int i;
+	int j;
+	
 	i = 0;
-	game->player_found = 0;
-	while (i < game->map_height && !game->player_found)
+	game->player_count = 0;
+	while (i < game->map_height)
 	{
 		j = 0;
 		while (j < game->map_width)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				game->player.x = j;
-				game->player.y = i;
-				game->player_found = 1;
-				break ;
+				if (game->player_count == 0)
+				{
+					game->player.x = j;
+					game->player.y = i;
+					game->player_found = 1;
+				}
+				game->player_count++;
 			}
 			j++;
 		}
 		i++;
 	}
+	return (game->player_count);
+}
+
+void	find_player_position(t_game *game)
+{
+	game->player_count = count_players(game);
 	player_notfound(game);
+	check_fordup(game);
 }

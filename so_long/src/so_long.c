@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/10/20 22:22:07 by fabiosilva       ###   ########.fr       */
+/*   Updated: 2024/12/20 19:22:52 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("Game ended\n");
 	}
+	free_map(&game);
 	cleanup_game(&game);
 	return (0);
 }
