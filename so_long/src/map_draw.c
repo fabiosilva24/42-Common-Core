@@ -55,7 +55,7 @@ void	free_and_close(t_game *game, int fd)
 {
 	if (game->map)
 	{
-		free(game->map);
+		free_map(game);
 		game->map = NULL;
 	}
 	if (fd >= 0)

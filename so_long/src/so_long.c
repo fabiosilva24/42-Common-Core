@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 		ft_printf("Game ended\n");
 	}
 	free_map(&game);
+	free_textures(&game);
 	cleanup_game(&game);
 	return (0);
 }

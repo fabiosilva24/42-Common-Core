@@ -33,7 +33,6 @@ int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 		exit(0);
 	}
 	handle_player_move(game, &game->player, new_x, new_y);
-	render_game(game);
 	if (game->should_end)
 		mlx_loop_end(game->mlx_ptr);
 	return (0);
@@ -41,7 +40,7 @@ int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 
 void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 {
-	if (new_x < 0 || new_x >= game->map_width || new_y < 0 || \
+	if (new_x < 0 || new_x >= game->map_width || new_y < 0 ||
 		new_y >= game->map_height)
 	{
 		ft_printf("Error: Attempted move out of map bounds\n");

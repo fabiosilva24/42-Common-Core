@@ -99,5 +99,6 @@ void 	check_fordup(t_game *game);
 void	find_player_position(t_game *game);
 int 	count_players(t_game *game);
 void 	free_map(t_game *game);
+void	free_textures(t_game *game);
 
 #endif

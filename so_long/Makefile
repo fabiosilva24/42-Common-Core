@@ -41,7 +41,7 @@ SRCS = ./src/so_long.c\
 	./libs/get_next_line/get_next_line_utils.c\
 	./src/check_fordup.c\
 	./src/free_map.c\
-
+	./src/free_textures.c
 	
  
 OBJS = $(SRCS:.c=.o)
