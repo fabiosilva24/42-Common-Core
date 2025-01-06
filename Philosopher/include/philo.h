@@ -7,7 +7,7 @@
 # include <stdio.h>
 # include <sys/time.h>
 
-typedef struct s_simualation t_simulation;
+typedef struct s_simulation t_simulation;
 
 typedef struct s_philosopher
 {
@@ -41,17 +41,21 @@ typedef struct s_simulation
 } t_simulation;
 
 
-void 	*init_simulation(void *arg);
+int 	init_simulation(void *arg);
 void 	*philo_routine(void *arg);
 void join_threads(t_simulation *sim);
 void create_threads(t_simulation *sim);
 void initialize_philovalor(t_simulation *sim, int i);
-
+void *monitor_philos(void *arg);
 
 //utils
 int ft_atoi(char *str);
 long long get_time_ms(void);
 int ft_usleep(size_t millisecounds);
 int parse_input(t_simulation *sim, int argc, char **argv);
+
+void philo_thinking(t_philosopher *philo);
+void philo_sleep(t_philosopher *philo);
+void philo_eat(t_philosopher *philo);
 
 #endif

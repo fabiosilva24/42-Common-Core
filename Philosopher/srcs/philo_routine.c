@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/06 18:50:56 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 20:38:13 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,51 +27,32 @@ void *philo_routine(void *arg)
     return (NULL);
 }
 
-void philo_eat(t_philosopher *philo)
+void *monitor_philos(void *arg)
 {
-    pthread_mutex_lock(&philo->simulation->forks[philo->left_fork]);
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d has taken the left fork\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    pthread_mutex_lock(&philo->simulation->forks[philo->right_fork]);
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d has taken the right fork\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is eating\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    philo->last_meal_time = get_time_ms();
-    ft_usleep((size_t)philo->simulation->time_to_eat * 1000);
-    philo->meals_eaten++;
+    t_simulation *sim = (t_simulation *)arg;
+    int i;
     
-    pthread_mutex_unlock(&philo->simulation->forks[philo->right_fork]);
-    pthread_mutex_unlock(&philo->simulation->forks[philo->left_fork]);
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d has put down the forks\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    philo_sleep(philo);
-}
-
-void philo_sleep(t_philosopher *philo)
-{
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is sleeping\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    ft_usleep((size_t)philo->simulation->time_to_sleep * 1000);
-}
-
-void philo_thinking(t_philosopher *philo)
-{
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is thinking\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    ft_usleep(100);
+    while(1)
+    {
+        i = 0;
+        while (i < sim->num_philosophers)
+        {
+            pthread_mutex_lock(&sim->death_mutex);
+            if (get_time_ms () - sim->philosophers[i].last_meal_time > sim->time_to_die)
+            {
+                pthread_mutex_lock(&sim->print_mutex);
+                printf("Philosopher %d died\n", sim->philosophers[i].id);
+                sim->end_simulation = 1;
+                pthread_mutex_unlock(&sim->print_mutex);
+                pthread_mutex_unlock(&sim->death_mutex);
+                return (NULL);
+            }
+            pthread_mutex_unlock(&sim->death_mutex);
+            i++;
+        }
+        ft_usleep(100);
+    }
+    return (NULL);
 }
 
 void create_threads(t_simulation *sim)
@@ -87,29 +68,22 @@ void create_threads(t_simulation *sim)
             exit(EXIT_FAILURE);
         }
     }
-    else
+    pthread_t monitor_thread;
+    if (pthread_create(&monitor_thread, NULL, monitor_philos, (void *)sim) != 0)
     {
-        while (i < sim->num_philosophers)
-        {
-            if (pthread_create(&sim->philosophers[i].thread, NULL, philo_routine, (void *)&sim->philosophers[i]) != 0)
-            {
-                printf("Error creating thread for philosopher %d :( \n", i + 1);
-                exit(EXIT_FAILURE);
-            }
-            i++;
-        }
+        printf("Error creating monitor thread\n");
+        exit(EXIT_FAILURE);
     }
-    philo_sleep(sim->philosophers);
-}
-
-void philo_sleep(t_philosopher *philo)
-{
-    pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is sleeping\n", philo->id);
-    pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-    ft_usleep((size_t)philo->simulation->time_to_sleep * 1000);
-
+    while (i < sim->num_philosophers)
+    {
+        if (pthread_create(&sim->philosophers[i].thread, NULL, philo_routine, (void *)&sim->philosophers[i]) != 0)
+        {
+            printf("Error creating thread for philosopher %d :( \n", i + 1);
+            exit(EXIT_FAILURE);
+        }
+        i++;
+    }
+    pthread_join(monitor_thread, NULL);
 }
 
 void join_threads(t_simulation *sim)
@@ -120,7 +94,7 @@ void join_threads(t_simulation *sim)
 
     while (i < sim->num_philosophers)
     {
-        if (pthread_join(&sim->philosophers[i].thread, NULL) != 0)
+        if (pthread_join(sim->philosophers[i].thread, NULL) != 0)
         {
             printf("Error joining thread for philosopher %d :( \n", i);
             exit(EXIT_FAILURE);
