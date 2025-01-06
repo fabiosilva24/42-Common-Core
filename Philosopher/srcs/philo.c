@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:19 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/19 21:00:28 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:52:49 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int main(int argc, char **argv)
 
 	create_threads(&sim);
 	join_threads(&sim);
+	return (0);
 }
 

@@ -6,41 +6,26 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/19 21:15:04 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:50:56 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-
-
-void 	*philo_routine(void *arg)
+void *philo_routine(void *arg)
 {
-    t_simulation *sim = (t_simulation *)arg;
-    int i;
+    t_philosopher *philo = (t_philosopher *)arg;
 
-    i = 0;
-	sim->philosophers = malloc(sizeof(t_philosopher) * sim->num_philosophers);
-    if (!sim->philosophers)
-        return (NULL);
-    sim->forks = malloc(sizeof(pthread_mutex_t) * sim->num_philosophers);
-    if (!sim->forks)
-        return (NULL);
-    pthread_mutex_init(&sim->print_mutex, NULL);
-    while (i < sim->num_philosophers)
+    while(1)
     {
-        pthread_mutex_init(&sim->forks[i], NULL);
-        i++;
-    }
-    i = 0;
-    while (i < sim->num_philosophers)
-    {
-        initialize_philovalor(sim, i);
-        i++;
+        if (philo->simulation->end_simulation)
+            break;
+        philo_eat(philo);
+        philo_thinking(philo);
+        philo_sleep(philo);
     }
     return (NULL);
 }
-
 
 void philo_eat(t_philosopher *philo)
 {
@@ -96,16 +81,35 @@ void create_threads(t_simulation *sim)
     i = 0;
     if (sim->num_philosophers == 1)
     {
-        if (pthread_create(&sim->philosopher[0].thread, NULL, philo_routine, (void *)&sim->philosophers[0]) != 0)
+        if (pthread_create(&sim->philosophers[0].thread, NULL, philo_routine, (void *)&sim->philosophers[0]) != 0)
         {
             printf("Error creating thread for 1 philosopher :( \n");
             exit(EXIT_FAILURE);
         }
-    philo_sleep(philo);
+    }
+    else
+    {
+        while (i < sim->num_philosophers)
+        {
+            if (pthread_create(&sim->philosophers[i].thread, NULL, philo_routine, (void *)&sim->philosophers[i]) != 0)
+            {
+                printf("Error creating thread for philosopher %d :( \n", i + 1);
+                exit(EXIT_FAILURE);
+            }
+            i++;
+        }
+    }
+    philo_sleep(sim->philosophers);
 }
 
 void philo_sleep(t_philosopher *philo)
 {
+    pthread_mutex_lock(&philo->simulation->print_mutex);
+    printf("Philosopher %d is sleeping\n", philo->id);
+    pthread_mutex_unlock(&philo->simulation->print_mutex);
+
+    ft_usleep((size_t)philo->simulation->time_to_sleep * 1000);
+
 }
 
 void join_threads(t_simulation *sim)
@@ -118,7 +122,7 @@ void join_threads(t_simulation *sim)
     {
         if (pthread_join(&sim->philosophers[i].thread, NULL) != 0)
         {
-            printf("Error joining thread for philosopher %d :( \n", i + 1);
+            printf("Error joining thread for philosopher %d :( \n", i);
             exit(EXIT_FAILURE);
         }
         i++;

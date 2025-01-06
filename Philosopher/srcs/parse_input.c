@@ -6,11 +6,11 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:09 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/19 20:53:58 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:15:17 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.c"
+#include "../include/philo.h"
 
 int parse_input(t_simulation *sim, int argc, char **argv)
 {
@@ -39,4 +39,3 @@ int parse_input(t_simulation *sim, int argc, char **argv)
         sim->max_meals = -1;
     return (0);
 }
-

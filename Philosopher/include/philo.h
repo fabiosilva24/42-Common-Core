@@ -7,6 +7,7 @@
 # include <stdio.h>
 # include <sys/time.h>
 
+typedef struct s_simualation t_simulation;
 
 typedef struct s_philosopher
 {
@@ -16,7 +17,7 @@ typedef struct s_philosopher
 	int					right_fork;
 
 	pthread_t			thread;
-	struct t_simulation		*simulation;
+	t_simulation		*simulation;
 	long long			last_meal_time;
 	long long			start_time;
 } t_philosopher;
@@ -40,10 +41,11 @@ typedef struct s_simulation
 } t_simulation;
 
 
-int		init_simulation(t_simulation *sim, int argc, char **argv);
+void 	*init_simulation(void *arg);
 void 	*philo_routine(void *arg);
 void join_threads(t_simulation *sim);
-void create_thread(t_simulation *sim);
+void create_threads(t_simulation *sim);
+void initialize_philovalor(t_simulation *sim, int i);
 
 
 //utils
