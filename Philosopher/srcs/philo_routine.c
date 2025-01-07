@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/06 20:45:35 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:28:29 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@ void *philo_routine(void *arg)
 
     while(1)
     {
+        pthread_mutex_lock(&philo->simulation->death_mutex);
         if (philo->simulation->end_simulation)
+        {
+            pthread_mutex_unlock(&philo->simulation->death_mutex);
             break;
+        }
+        pthread_mutex_unlock(&philo->simulation->death_mutex);
+        
         philo_eat(philo);
         philo_thinking(philo);
         philo_sleep(philo);
@@ -50,7 +56,7 @@ void *monitor_philos(void *arg)
             pthread_mutex_unlock(&sim->death_mutex);
             i++;
         }
-        ft_usleep(100);
+        ft_usleep(1000);
     }
     return (NULL);
 }
@@ -58,22 +64,10 @@ void *monitor_philos(void *arg)
 void create_threads(t_simulation *sim)
 {
     int i;
-
-    i = 0;
-    if (sim->num_philosophers == 1)
-    {
-        if (pthread_create(&sim->philosophers[0].thread, NULL, philo_routine, (void *)&sim->philosophers[0]) != 0)
-        {
-            printf("Error creating thread for 1 philosopher :( \n");
-            exit(EXIT_FAILURE);
-        }
-    }
     pthread_t monitor_thread;
-    if (pthread_create(&monitor_thread, NULL, monitor_philos, (void *)sim) != 0)
-    {
-        printf("Error creating monitor thread\n");
-        exit(EXIT_FAILURE);
-    }
+    
+    i = 0;
+    
     while (i < sim->num_philosophers)
     {
         if (pthread_create(&sim->philosophers[i].thread, NULL, philo_routine, (void *)&sim->philosophers[i]) != 0)
@@ -82,6 +76,11 @@ void create_threads(t_simulation *sim)
             exit(EXIT_FAILURE);
         }
         i++;
+    }
+    if (pthread_create(&monitor_thread, NULL, monitor_philos, (void *)sim) != 0)
+    {
+        printf("Error creating monitor thread\n");
+        exit(EXIT_FAILURE);
     }
     pthread_join(monitor_thread, NULL);
 }
