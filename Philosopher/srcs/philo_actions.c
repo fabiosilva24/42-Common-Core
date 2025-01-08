@@ -15,29 +15,16 @@
 
 void philo_eat(t_philosopher *philo)
 {
-    if (philo->id % 2 == 0)
+    if (philo->left_fork < philo->right_fork)
     {
-        pthread_mutex_lock(&philo->simulation->forks[philo->left_fork]);
-        pthread_mutex_lock(&philo->simulation->print_mutex);
-        printf("Philosopher %d has taken the left fork\n", philo->id);
-        pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-        pthread_mutex_lock(&philo->simulation->forks[philo->right_fork]);
-        pthread_mutex_lock(&philo->simulation->print_mutex);
-        printf("Philosopher %d has taken the right fork\n", philo->id);
-        pthread_mutex_unlock(&philo->simulation->print_mutex);
+        take_leftfork(philo);
+        take_rightfork(philo);
     }
     else
     {
-         pthread_mutex_lock(&philo->simulation->forks[philo->left_fork]);
-        pthread_mutex_lock(&philo->simulation->print_mutex);
-        printf("Philosopher %d has taken the left fork\n", philo->id);
-        pthread_mutex_unlock(&philo->simulation->print_mutex);
-
-        pthread_mutex_lock(&philo->simulation->forks[philo->right_fork]);
-        pthread_mutex_lock(&philo->simulation->print_mutex);
-        printf("Philosopher %d has taken the right fork\n", philo->id);
-        pthread_mutex_unlock(&philo->simulation->print_mutex);
+        ft_usleep(1000);
+        take_leftfork(philo);
+        take_rightfork(philo);
     }
 
     pthread_mutex_lock(&philo->simulation->print_mutex);
@@ -48,12 +35,11 @@ void philo_eat(t_philosopher *philo)
     ft_usleep((size_t)philo->simulation->time_to_eat * 1000);
     philo->meals_eaten++;
     
-    pthread_mutex_unlock(&philo->simulation->forks[philo->right_fork]);
-    pthread_mutex_unlock(&philo->simulation->forks[philo->left_fork]);
-    
+    drop_forks(philo);
     pthread_mutex_lock(&philo->simulation->print_mutex);
     printf("Philosopher %d has put down the forks\n", philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
+    check_if_full(philo);    
 }
 
 void philo_sleep(t_philosopher *philo)
@@ -71,4 +57,14 @@ void philo_thinking(t_philosopher *philo)
     printf("Philosopher %d is thinking\n", philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
     ft_usleep(1000);
+}
+
+void check_if_full(t_philosopher *philo)
+{
+    if (philo->meals_eaten >= philo->simulation->meals_required)
+    {
+        pthread_mutex_lock(&philo->simulation->death_mutex);
+        philo->simulation->end_simulation = 1;
+        pthread_mutex_unlock(&philo->simulation->death_mutex);
+    }
 }

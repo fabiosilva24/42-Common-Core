@@ -12,6 +12,32 @@
 
 #include "../include/so_long.h"
 
+
+void check_if_c_is_reachable(t_game *game)
+{
+	int x;
+	int y;
+	char **temp;
+
+	temp = ft_calloc(game->map_height + 1, sizeof(char *))
+	y = -1;
+	while (++y < game->map_height)
+		temp[y] = ft_strdup(game->map[y]);
+	flood_fill(temp, game->player.y, game->player.x);
+	y = -1;
+	while (++y < game->map_height)
+	{
+		x = - 1;
+		while (++x < game->map_width)
+			if (temp[y][x] == 'C')
+			{
+				ft_printf("Error\nCollectible not reachable\n");
+				free_temp(temp, game->map_height);
+				exit(EXIT_FAILURE);
+			}
+	}
+	free_temp(temp, game->map_height);
+}
 void	count_collectibles(t_game *game)
 {
 	int	x;

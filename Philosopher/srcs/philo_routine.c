@@ -15,7 +15,6 @@
 void *philo_routine(void *arg)
 {
     t_philosopher *philo = (t_philosopher *)arg;
-
     while(1)
     {
         pthread_mutex_lock(&philo->simulation->death_mutex);
@@ -25,10 +24,10 @@ void *philo_routine(void *arg)
             break;
         }
         pthread_mutex_unlock(&philo->simulation->death_mutex);
-        
+
         philo_eat(philo);
-        philo_thinking(philo);
         philo_sleep(philo);
+        philo_thinking(philo);
     }
     return (NULL);
 }

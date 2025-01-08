@@ -31,10 +31,12 @@ typedef struct s_simulation
 	int					time_to_eat;
 	int					max_meals;
 	int					end_simulation;
+	int 				meals_required;
 
 	pthread_mutex_t 	*forks;
 	pthread_mutex_t		print_mutex;
 	pthread_mutex_t 	death_mutex;
+
 	t_philosopher             *philosophers;
 
 	
@@ -57,5 +59,10 @@ int parse_input(t_simulation *sim, int argc, char **argv);
 void philo_thinking(t_philosopher *philo);
 void philo_sleep(t_philosopher *philo);
 void philo_eat(t_philosopher *philo);
+void take_leftfork(t_philosopher    *philo);
+void take_rightfork(t_philosopher	*philo);
+void drop_forks(t_philosopher	*philo);
+void check_if_full(t_philosopher *philo);
+void cleanup_simulation(t_simulation *sim);
 
 #endif

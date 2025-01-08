@@ -100,5 +100,7 @@ void	find_player_position(t_game *game);
 int 	count_players(t_game *game);
 void 	free_map(t_game *game);
 void	free_textures(t_game *game);
+void check_if_c_is_reachable(t_game *game);
+void free_temp(char **temp, int height);
 
 #endif

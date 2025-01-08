@@ -23,6 +23,8 @@ int main(int argc, char **argv)
 
 	create_threads(&sim);
 	join_threads(&sim);
+
+	cleanup_simulation(&sim);
 	return (0);
 }
 
