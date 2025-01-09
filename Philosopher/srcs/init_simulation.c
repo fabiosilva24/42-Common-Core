@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:26 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 18:49:35 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:53:56 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,14 @@ int 	init_simulation(void *arg)
     }
     pthread_mutex_init(&sim->print_mutex, NULL);
     pthread_mutex_init(&sim->death_mutex, NULL);
-    while (i < sim->num_philosophers)
-    {
-        pthread_mutex_init(&sim->forks[i], NULL);
-        i++;
-    }
     i = 0;
     while (i < sim->num_philosophers)
     {
+        pthread_mutex_init(&sim->forks[i], NULL);
         initialize_philovalor(sim, i);
         i++;
     }
+    sim->start_time = get_time_ms();
+    sim->end_simulation = 0;
     return (0);
 }
