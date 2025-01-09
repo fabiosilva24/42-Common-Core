@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 20:56:22 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 21:16:59 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void philo_eat(t_philosopher *philo)
         take_leftfork(philo);
     }
 
-    philo->last_meal_time = get_time_ms();
 
     pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is eating\n", philo->id);
+    philo->last_meal_time = get_time_ms();
+    printf("%lld Philosopher %d is eating\n", get_time_ms() - philo->simulation->start_time, philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
     
     ft_usleep((size_t)philo->simulation->time_to_eat * 1000);
@@ -54,8 +54,8 @@ void philo_eat(t_philosopher *philo)
     
     drop_forks(philo);
     pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d has put down the forks\n", philo->id);
-    printf("Philosopher %d has finished eating\n", philo->id);
+    printf("%lld Philosopher %d has put down the forks\n", get_time_ms() - philo->simulation->start_time, philo->id);
+    printf("%lld Philosopher %d has finished eating\n", get_time_ms() - philo->simulation->start_time, philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
     check_if_full(philo);    
 }
@@ -63,7 +63,7 @@ void philo_eat(t_philosopher *philo)
 void philo_sleep(t_philosopher *philo)
 {
     pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is sleeping\n", philo->id);
+    printf("%lld Philosopher %d is sleeping\n", get_time_ms() - philo->simulation->start_time , philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
     ft_usleep((size_t)philo->simulation->time_to_sleep * 1000);
 }
@@ -71,7 +71,7 @@ void philo_sleep(t_philosopher *philo)
 void philo_thinking(t_philosopher *philo)
 {
     pthread_mutex_lock(&philo->simulation->print_mutex);
-    printf("Philosopher %d is thinking\n", philo->id);
+    printf("%lld Philosopher %d is thinking\n", get_time_ms() - philo->simulation->start_time, philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
     ft_usleep(1000);
 }
