@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 17:13:13 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:45:20 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,13 @@
 
 void philo_eat(t_philosopher *philo)
 {
-    if (check_end_simulation(philo->simulation))
-        return;
     if (philo->id % 2 == 0)
     {
-        if (check_end_simulation(philo->simulation))
-            return;
         take_leftfork(philo);
         take_rightfork(philo);
     }
     else
     {
-        if (check_end_simulation(philo->simulation))
-            return;
         ft_usleep(1000);
         take_leftfork(philo);
         take_rightfork(philo);

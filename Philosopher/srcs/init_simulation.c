@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:26 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 16:40:19 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:49:35 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void initialize_philovalor(t_simulation *sim, int i)
     sim->philosophers[i].right_fork = (i + 1) % sim->num_philosophers;
     sim->philosophers[i].meals_eaten = 0;
     sim->philosophers[i].last_meal_time = get_time_ms();
+    sim->end_simulation = 0;
 }
 
 

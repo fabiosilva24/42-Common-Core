@@ -26,11 +26,9 @@ $(NAME) : $(OBJS)
 clean:
 	@echo "$(GREEN)Cleaning...$(NC)"
 	rm -f $(OBJS)
-	make clean -C
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C
 
 re: fclean all
 
