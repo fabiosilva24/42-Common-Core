@@ -3,7 +3,8 @@
 void cleanup_simulation(t_simulation *sim)
 {
     int i;
-
+    
+    i = 0;
     while (i++ < sim->num_philosophers)
     {
         pthread_mutex_destroy(&sim->forks[i]);

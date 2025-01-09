@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/07 15:47:06 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:13:13 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,19 @@
 
 void philo_eat(t_philosopher *philo)
 {
-    if (philo->left_fork < philo->right_fork)
+    if (check_end_simulation(philo->simulation))
+        return;
+    if (philo->id % 2 == 0)
     {
+        if (check_end_simulation(philo->simulation))
+            return;
         take_leftfork(philo);
         take_rightfork(philo);
     }
     else
     {
+        if (check_end_simulation(philo->simulation))
+            return;
         ft_usleep(1000);
         take_leftfork(philo);
         take_rightfork(philo);
@@ -47,7 +53,6 @@ void philo_sleep(t_philosopher *philo)
     pthread_mutex_lock(&philo->simulation->print_mutex);
     printf("Philosopher %d is sleeping\n", philo->id);
     pthread_mutex_unlock(&philo->simulation->print_mutex);
-
     ft_usleep((size_t)philo->simulation->time_to_sleep * 1000);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:16 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/06 19:14:17 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:36:08 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ long long get_time_ms(void)
     return (tv.tv_sec * 1000LL) + (tv.tv_usec / 1000);
     //tv_sec * 1000: Converts seconds to milliseconds
     //tv_usec / 1000: Converts microseconds to milliseconds
+}
+
+long long get_elapsed_time(t_simulation *sim)
+{
+    return (get_time_ms() - sim->start_time);
 }
 
 int ft_usleep(size_t millisecounds)

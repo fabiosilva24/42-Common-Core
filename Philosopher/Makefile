@@ -13,6 +13,7 @@ SRCS = ./srcs/philo_routine.c\
 		./srcs/init_simulation.c\
 		./srcs/take_forks.c\
 		./srcs/cleanup_simulation.c\
+		./srcs/check_end_simulation.c
 
 OBJS = $(SRCS:.c=.o)
 

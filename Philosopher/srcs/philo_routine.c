@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/07 15:28:29 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:15:16 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,14 @@
 void *philo_routine(void *arg)
 {
     t_philosopher *philo = (t_philosopher *)arg;
-    while(1)
+    while(!check_end_simulation(philo->simulation))
     {
-        pthread_mutex_lock(&philo->simulation->death_mutex);
-        if (philo->simulation->end_simulation)
-        {
-            pthread_mutex_unlock(&philo->simulation->death_mutex);
-            break;
-        }
-        pthread_mutex_unlock(&philo->simulation->death_mutex);
-
         philo_eat(philo);
+        if (check_end_simulation(philo->simulation))
+            break;
         philo_sleep(philo);
+        if (check_end_simulation(philo->simulation))
+            break;
         philo_thinking(philo);
     }
     return (NULL);
@@ -55,6 +51,8 @@ void *monitor_philos(void *arg)
             pthread_mutex_unlock(&sim->death_mutex);
             i++;
         }
+        if (check_end_simulation(sim))
+            break;
         ft_usleep(1000);
     }
     return (NULL);
