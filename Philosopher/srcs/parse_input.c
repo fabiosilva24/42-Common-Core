@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:09 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 16:36:02 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:46:19 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int parse_input(t_simulation *sim, int argc, char **argv)
             return 1;
         }
     }
+    else
+        sim->meals_required = -1;
     return  (0);
 }

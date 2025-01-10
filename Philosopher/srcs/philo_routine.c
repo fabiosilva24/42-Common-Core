@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/09 21:13:51 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:34:10 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void *philo_routine(void *arg)
     t_philosopher *philo = (t_philosopher *)arg;
     while(1)
     {
-        if (check_end_simulation(philo->simulation))
-            break;
         philo_eat(philo);
         if (check_end_simulation(philo->simulation))
             break;
@@ -26,6 +24,8 @@ void *philo_routine(void *arg)
         if (check_end_simulation(philo->simulation))
             break;
         philo_thinking(philo);
+        if (check_end_simulation(philo->simulation))
+            break;
     }
     return (NULL);
 }
@@ -82,7 +82,7 @@ void create_threads(t_simulation *sim)
         printf("Error creating monitor thread\n");
         exit(EXIT_FAILURE);
     }
-    //pthread_join(monitor_thread, NULL);
+    pthread_join(monitor_thread, NULL);
 }
 
 void join_threads(t_simulation *sim)
