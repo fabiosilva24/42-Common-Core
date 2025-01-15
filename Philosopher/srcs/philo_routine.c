@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/10 20:34:10 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:14:46 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void *monitor_philos(void *arg)
                 sim->end_simulation = 1;
                 pthread_mutex_unlock(&sim->print_mutex);
                 pthread_mutex_unlock(&sim->death_mutex);
-                exit(0);
+                //exit(0);
                 return (NULL);
             }
             pthread_mutex_unlock(&sim->death_mutex);
@@ -56,7 +56,7 @@ void *monitor_philos(void *arg)
         }
         if (check_end_simulation(sim))
             break;
-        ft_usleep(1000);
+        ft_usleep(200);
     }
     return (NULL);
 }
