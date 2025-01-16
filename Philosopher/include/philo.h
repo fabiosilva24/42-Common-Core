@@ -34,6 +34,7 @@ typedef struct s_simulation
 	int					end_simulation;
 	int 				meals_required;
 	long long 			start_time;
+	int					philos_full;
 
 	pthread_mutex_t 	*forks;
 	pthread_mutex_t		print_mutex;

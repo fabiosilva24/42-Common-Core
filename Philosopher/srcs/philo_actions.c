@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/15 17:51:54 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:08:43 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ printf("%lld Philosopher %d has put down the forks\n",
 printf("%lld Philosopher %d has finished eating\n",
        get_time_ms() - philo->simulation->start_time, philo->id);
 pthread_mutex_unlock(&philo->simulation->print_mutex);
-    // check_if_full(philo);    
+    check_if_full(philo);    
 }
 
 void philo_sleep(t_philosopher *philo)
@@ -93,10 +93,14 @@ void philo_thinking(t_philosopher *philo)
 
 void check_if_full(t_philosopher *philo)
 {
-    if (philo->meals_eaten >= philo->simulation->meals_required)
+    if (philo->simulation->meals_required != -1 && philo->meals_eaten >= philo->simulation->meals_required)
     {
         pthread_mutex_lock(&philo->simulation->death_mutex);
-        philo->simulation->end_simulation = 1;
+        philo->simulation->philos_full++;
+        if (philo->simulation->philos_full == philo->simulation->num_philosophers)
+        {
+            philo->simulation->end_simulation = 1;
+        }
         pthread_mutex_unlock(&philo->simulation->death_mutex);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/15 17:14:46 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/16 20:24:00 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void *philo_routine(void *arg)
 {
     t_philosopher *philo = (t_philosopher *)arg;
-    while(1)
+    while(!check_end_simulation(philo->simulation))
     {
         philo_eat(philo);
+        check_if_full(philo);
         if (check_end_simulation(philo->simulation))
             break;
         philo_sleep(philo);
@@ -34,21 +35,25 @@ void *monitor_philos(void *arg)
 {
     t_simulation *sim = (t_simulation *)arg;
     int i;
-    
+    long long now;
+
     while(1)
     {
         i = 0;
         while (i < sim->num_philosophers)
         {
             pthread_mutex_lock(&sim->death_mutex);
-            if (get_time_ms() - sim->philosophers[i].last_meal_time > sim->time_to_die)
+            now = get_time_ms();
+            if (now - sim->philosophers[i].last_meal_time > sim->time_to_die)
             {
+                // Mark death, print once, then end
                 pthread_mutex_lock(&sim->print_mutex);
-                printf("%lld Philosopher %d died\n", get_time_ms() - sim->start_time, sim->philosophers[i].id);
+                printf("%lld Philosopher %d died\n",
+                       now - sim->start_time, sim->philosophers[i].id);
                 sim->end_simulation = 1;
                 pthread_mutex_unlock(&sim->print_mutex);
                 pthread_mutex_unlock(&sim->death_mutex);
-                //exit(0);
+                exit(0);
                 return (NULL);
             }
             pthread_mutex_unlock(&sim->death_mutex);
