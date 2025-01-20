@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/17 19:59:49 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:58:14 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void philo_eat(t_philosopher *philo)
     if (philo->simulation->num_philosophers == 1)
     {
         take_leftfork(philo);
-        ft_usleep(philo->simulation->time_to_die * 1000);
+        ft_usleep(philo->simulation->time_to_die * 2);
         pthread_mutex_lock(&philo->simulation->death_mutex);
         philo->simulation->end_simulation = 1;
         pthread_mutex_unlock(&philo->simulation->death_mutex);

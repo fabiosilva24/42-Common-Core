@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:46:13 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/17 21:02:51 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:54:49 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,12 @@ void *monitor_philos(void *arg)
             now = get_time_ms();
             if (now - sim->philosophers[i].last_meal_time > sim->time_to_die)
             {
-                // Mark death, print once, then end
                 pthread_mutex_lock(&sim->print_mutex);
                 printf("%lld Philosopher %d died\n",
                        now - sim->start_time, sim->philosophers[i].id);
                 sim->end_simulation = 1;
                 pthread_mutex_unlock(&sim->print_mutex);
                 pthread_mutex_unlock(&sim->death_mutex);
-                exit(0);
                 return (NULL);
             }
             pthread_mutex_unlock(&sim->death_mutex);

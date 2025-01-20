@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:28:26 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/15 17:09:24 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:55:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int 	init_simulation(void *arg)
         return (1);
     sim->forks = malloc(sizeof(pthread_mutex_t) * sim->num_philosophers);
     if (!sim->forks)
-    {
-        free(sim->philosophers);
         return (1);
-    }
     pthread_mutex_init(&sim->print_mutex, NULL);
     pthread_mutex_init(&sim->death_mutex, NULL);
     i = 0;
