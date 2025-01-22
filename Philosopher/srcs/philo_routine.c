@@ -18,7 +18,6 @@ void *philo_routine(void *arg)
     while(!check_end_simulation(philo->simulation))
     {
         philo_eat(philo);
-        check_if_full(philo);
         if (check_end_simulation(philo->simulation))
             break;
         philo_sleep(philo);
