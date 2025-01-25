@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/25 22:40:25 by fsilva-p          #+#    #+#              #
+#    Updated: 2025/01/25 22:40:25 by fsilva-p         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 GREEN := \033[0;32m
 CYAN := \033[0;36m
 NC := \033[0m
@@ -13,7 +25,10 @@ SRCS = ./srcs/philo_routine.c\
 		./srcs/init_simulation.c\
 		./srcs/take_forks.c\
 		./srcs/cleanup_simulation.c\
-		./srcs/check_end_simulation.c
+		./srcs/check_end_simulation.c\
+		./srcs/threads.c\
+		./srcs/handle_errors.c\
+		./srcs/philo_eat_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
