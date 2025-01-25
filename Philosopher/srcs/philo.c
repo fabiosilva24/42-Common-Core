@@ -24,11 +24,6 @@ int main(int argc, char **argv)
 
 	create_threads(&sim);
 	join_threads(&sim);
-	
-	for (i = 0; i < sim.num_philosophers; i++)
-    {
-        printf("Philosopher %d ate %d times\n", sim.philosophers[i].id, sim.philosophers[i].meals_eaten);
-    }
 	cleanup_simulation(&sim);
 	return (0);
 }

@@ -45,19 +45,19 @@ void *monitor_philos(void *arg)
             now = get_time_ms();
             if (now - sim->philosophers[i].last_meal_time > sim->time_to_die)
             {
+                sim->end_simulation = 1;
+                pthread_mutex_unlock(&sim->death_mutex);
                 pthread_mutex_lock(&sim->print_mutex);
                 printf("%lld Philosopher %d died\n",
                        now - sim->start_time, sim->philosophers[i].id);
-                sim->end_simulation = 1;
                 pthread_mutex_unlock(&sim->print_mutex);
-                pthread_mutex_unlock(&sim->death_mutex);
                 return (NULL);
             }
             pthread_mutex_unlock(&sim->death_mutex);
             i++;
         }
         if (check_end_simulation(sim))
-            break;
+            return (NULL);
         ft_usleep(150);
     }
     return (NULL);
