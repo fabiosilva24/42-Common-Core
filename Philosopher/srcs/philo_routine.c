@@ -58,7 +58,7 @@ void *monitor_philos(void *arg)
         }
         if (check_end_simulation(sim))
             break;
-        ft_usleep(200);
+        ft_usleep(150);
     }
     return (NULL);
 }
