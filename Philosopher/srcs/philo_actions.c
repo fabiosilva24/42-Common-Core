@@ -26,6 +26,15 @@ void philo_eat(t_philosopher *philo)
         pthread_mutex_unlock(&philo->simulation->death_mutex);
         return ;
     }
+
+    pthread_mutex_lock(&philo->simulation->death_mutex);
+    if (philo->simulation->meals_required != -1 &&
+            philo->meals_eaten >= philo->simulation->meals_required)
+    {
+        pthread_mutex_unlock(&philo->simulation->death_mutex);
+        return ;
+    }
+    pthread_mutex_unlock(&philo->simulation->death_mutex);
     
     if (philo->id % 2 == 0)
     {

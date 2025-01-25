@@ -27,6 +27,8 @@ int 	init_simulation(void *arg)
 {
     t_simulation *sim = (t_simulation *)arg;
     int i;
+    sim->philos_full = 0;
+    sim->end_simulation = 0;
 
     i = 0;
 	sim->philosophers = malloc(sizeof(t_philosopher) * sim->num_philosophers);
