@@ -8,15 +8,20 @@ static void display_prompt()
 }
 int main(int argc, char **argv)
 {
-    char *line = NULL;
-    size_t len = 0;
+    char *line;
+    size_t len;
     ssize_t stringread;
+
+    line = NULL;
+    len = 0;
+    
     (void)argv;
     if (argc != 1)
     {
         printf("Usage: ./minishell argument\n");
         return (1);
     }
+    print_banner();
     while (1)
     {
         display_prompt();
@@ -25,6 +30,15 @@ int main(int argc, char **argv)
         {
             free(line);
             break;
+        }
+
+        if (strchr(line, '\"'))
+        {
+            double_quotes(line);
+        }
+        else
+        {
+            printf("%s", line);
         }
     }
     return 0;

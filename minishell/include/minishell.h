@@ -23,5 +23,9 @@ typedef struct s_minishell
 
 }t_minishell;
 
+void	print_banner();
+void    double_quotes(char *symbol);
+
+
 
 #endif

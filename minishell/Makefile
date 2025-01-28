@@ -17,7 +17,9 @@ NC := \033[0m
 NAME = minishell
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ./srcs/minishell.c
+SRCS = ./srcs/minishell.c\
+		./srcs/print_banner.c\
+		./builtins/handle_quotes.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
