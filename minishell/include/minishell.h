@@ -22,6 +22,7 @@ extern char **environ;
 typedef struct s_minishell
 {
     char **environment;
+    //char *token;
 
 }t_minishell;
 
@@ -29,6 +30,11 @@ void	print_banner();
 void    double_quotes(char *symbol);
 char    **get_environment(void);
 void    single_quotes(char *symbol);
+
+
+
+//built ins
+void my_echo(int argc, char **argv);
 
 
 

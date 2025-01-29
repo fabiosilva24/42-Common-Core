@@ -20,7 +20,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ./srcs/minishell.c\
 		./srcs/print_banner.c\
 		./srcs/handle_quotes.c\
-		./srcs/get_env.c
+		./srcs/get_env.c\
+		./builtins/echo.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

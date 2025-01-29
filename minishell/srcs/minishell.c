@@ -28,6 +28,7 @@ int main(int argc, char **argv, char **envp)
     while (1)
     {
         display_prompt();
+        my_echo(argc, argv);
         stringread = getline(&line, &len, stdin);
         if (stringread == -1)
         {
