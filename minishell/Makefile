@@ -6,7 +6,7 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 14:37:09 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/01/28 14:37:09 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/01/29 16:41:30 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ./srcs/minishell.c\
 		./srcs/print_banner.c\
-		./builtins/handle_quotes.c
+		./srcs/handle_quotes.c\
+		./srcs/get_env.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

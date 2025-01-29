@@ -17,14 +17,18 @@
 # include <sys/ioctl.h>             // ioctl
 # include <errno.h>                 // strerror (alternative for error strings)
 
+extern char **environ;
+
 typedef struct s_minishell
 {
-    char *environment;
+    char **environment;
 
 }t_minishell;
 
 void	print_banner();
 void    double_quotes(char *symbol);
+char    **get_environment(void);
+void    single_quotes(char *symbol);
 
 
 
