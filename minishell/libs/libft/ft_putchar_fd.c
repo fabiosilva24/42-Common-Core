@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/03/05 16:29:00 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/03/06 14:36:28 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+void	ft_putchar_fd(char c, int fd)
 {
-    char **env = environ;
-    return (env);
+	write(fd, &c, 1);
 }

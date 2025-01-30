@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/03/06 16:12:59 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/03/06 18:04:11 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    char **env = environ;
-    return (env);
+	unsigned int	i;
+
+	i = 0;
+	if (s == NULL || f == NULL)
+		return ;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

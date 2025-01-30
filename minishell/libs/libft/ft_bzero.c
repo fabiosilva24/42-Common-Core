@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/02/26 14:39:13 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/02/26 15:07:19 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+void	ft_bzero(void *s, size_t n)
 {
-    char **env = environ;
-    return (env);
+	while (n--)
+	{
+		*(unsigned char *)s++ = 0;
+	}
 }

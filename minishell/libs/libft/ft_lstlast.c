@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/03/08 12:21:50 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/03/08 12:28:33 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-    char **env = environ;
-    return (env);
+	if (lst == NULL)
+	{
+		return (NULL);
+	}
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

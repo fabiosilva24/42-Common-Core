@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/03/08 19:14:08 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/03/08 19:20:46 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    char **env = environ;
-    return (env);
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst ->next;
+	}
 }

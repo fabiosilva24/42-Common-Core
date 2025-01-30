@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_env.c                                          :+:      :+:    :+:   */
+/*   ft_deci_to_hexa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:56:57 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:11 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/04/24 15:53:11 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/10/14 15:08:32 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "libft.h"
 
-char **get_environment(void)
+int	ft_deci_to_hexa(unsigned long n)
 {
-    char **env = environ;
-    return (env);
+	char			hexa;
+	int				count;
+
+	count = 0;
+	if (n >= 16)
+	{
+		count += ft_deci_to_hexa(n / 16);
+	}
+	hexa = "0123456789abcdef"[n % 16];
+	write (1, &hexa, 1);
+	count++;
+	return (count);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   token.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/30 17:56:31 by fsilva-p          #+#    #+#             */
+/*   Updated: 2025/01/30 19:22:51 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/minishell.h"
 
 static e_token_type token_determinator(char *token, int is_first)
@@ -35,7 +47,7 @@ t_token *tokenize_input(char *line)
 
     while (*line && isspace(*line))
         line++;
-    token = strtok(line, " \t");
+    token = ft_strtok(line, " \t");
     while (token)
     {
         e_token_type type = token_determinator(token, is_first);
@@ -45,7 +57,7 @@ t_token *tokenize_input(char *line)
         else
             current->next = new_token;
         current = new_token;
-        token = strtok(NULL, " \t");
+        token = ft_strtok(NULL, " \t");
         is_first = 0;
     }
     return (head);

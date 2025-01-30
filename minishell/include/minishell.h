@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/30 17:56:36 by fsilva-p          #+#    #+#             */
+/*   Updated: 2025/01/30 19:10:42 by fsilva-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 #define MINISHELL_H
 
@@ -53,6 +65,7 @@ void    single_quotes(char *symbol);
 t_token *create_token(char *value, e_token_type type);
 void    *free_tokens(t_token *tokens);
 t_token *tokenize_input(char *line);
+char    *ft_strtok(char *str, const char *delimeter);
 
 
 

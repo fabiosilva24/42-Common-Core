@@ -6,7 +6,7 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 14:37:09 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/01/30 17:41:40 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/01/30 19:04:43 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,27 +17,38 @@ NC := \033[0m
 NAME = minishell
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
+LIBFT_PATH = ./libs/libft
+LIBFT = $(LIBFT_PATH)/libft.a
+
 SRCS = ./srcs/minishell.c\
 		./srcs/print_banner.c\
 		./srcs/handle_quotes.c\
 		./srcs/get_env.c\
 		./builtins/echo.c\
-		./tokens/token.c
+		./tokens/token.c\
+		./srcs/ft_strtok.c
 
 OBJS = $(SRCS:.c=.o)
 
+
 all: $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(LIBFT)
 	@echo "$(CYAN)Making...$(NC)"
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
+
+$(LIBFT):
+	make -C $(LIBFT_PATH)
 
 clean:
 	@echo "$(GREEN)Cleaning...$(NC)"
 	rm -f $(OBJS)
+	make clean -C $(LIBFT_PATH)
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
 
