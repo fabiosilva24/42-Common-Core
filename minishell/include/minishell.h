@@ -22,7 +22,7 @@ extern char **environ;
 typedef struct s_minishell
 {
     char **environment;
-    //char *token;
+    char *token;
 
 }t_minishell;
 
