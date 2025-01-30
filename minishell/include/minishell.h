@@ -19,12 +19,18 @@
 
 extern char **environ;
 
+typedef enum e_token_type
+{
+  
+}
 typedef struct s_minishell
 {
     char **environment;
     char *token;
 
 }t_minishell;
+
+
 
 void	print_banner();
 void    double_quotes(char *symbol);
