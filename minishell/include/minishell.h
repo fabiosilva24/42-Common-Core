@@ -21,13 +21,24 @@ extern char **environ;
 
 typedef enum e_token_type
 {
+    TOKEN_COMMAND,
+    TOKEN_ARGUMENT,
+    TOKEN_PIPE,
+    TOKEN_REDIRECT,
   
-}
+}e_token_type;
+
+typedef struct s_token
+{
+    char            *value;
+    e_token_type    type;
+    struct s_token  *next;
+}t_token;
+
 typedef struct s_minishell
 {
-    char **environment;
-    char *token;
-
+    char            **environment;
+    t_token         *token_list;
 }t_minishell;
 
 
@@ -37,10 +48,17 @@ void    double_quotes(char *symbol);
 char    **get_environment(void);
 void    single_quotes(char *symbol);
 
+//tokens
+
+t_token *create_token(char *value, e_token_type type);
+void    *free_tokens(t_token *tokens);
+t_token *tokenize_input(char *line);
+
 
 
 //built ins
-void my_echo(int argc, char **argv);
+void    my_echo(int argc, char **argv);
+void    execute_echo(t_token *tokens);
 
 
 

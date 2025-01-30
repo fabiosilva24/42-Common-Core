@@ -36,19 +36,22 @@ int main(int argc, char **argv, char **envp)
             break;
         }
 
+        line[strcspn(line, "\n")] = 0;
+
+        t_token *tokens = tokenize_input(line);
+
+        if (tokens && strcmp(tokens->value, "echo") == 0)
+        {
+            execute_echo(tokens);
+        }
+
         if (strchr(line, '\"'))
-        {
             double_quotes(line);
-        }
         if (strchr(line, '\''))
-        {
             single_quotes(line);
-        }
-        else
-        {
-            printf("%s", line);
-        }
+        //else
+            //printf("%s", line);
+        free_tokens(tokens);
     }
-    return 0;
-    
+    return 0;   
 }
