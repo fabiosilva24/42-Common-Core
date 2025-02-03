@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:36 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 14:34:20 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:26:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ t_token *create_token(char *value, e_token_type type);
 void    *free_tokens(t_token *tokens);
 t_token *tokenize_input(char *line);
 char    *ft_strtok(char *str, const char *delimeter);
+
+//handle ctrl c
+void    handle_sigint(int sig);
 
 
 

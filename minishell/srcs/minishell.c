@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:43 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 19:22:38 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:44:54 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,22 @@ static void display_prompt()
     printf("minishell$ ");
     fflush(stdout);
 }
+
+void    handle_sigint(int sig)
+{
+    (void)sig;
+    write(STDOUT_FILENO, "\n", 1);
+    display_prompt();
+}
 int main(int argc, char **argv)
 {
     t_minishell shell;
     char *line;
     size_t len;
     ssize_t stringread;
+
+    signal(SIGINT, handle_sigint);
+    signal(SIGQUIT, SIG_IGN);
 
     line = NULL;
     len = 0;
