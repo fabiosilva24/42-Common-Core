@@ -1,16 +1,5 @@
 #include "../include/minishell.h"
 
-bool find_delimeters(char str, const char *delimeters)
-{
-    while (*delimeters)
-    {
-        if (str == *delimeters)
-            return (true);
-        delimeters++;
-    }
-    return (false);
-}
-
 char *ft_strtok(char *str, const char *delimeter)
 {
     char *token_start;
@@ -22,16 +11,16 @@ char *ft_strtok(char *str, const char *delimeter)
     if (!next_token)
         return NULL;
     
-    while (*next_token == delimeter)
+    while (*next_token == *delimeter)
     {
         next_token++;
     }
     if (*next_token == '\0')
         return (NULL);
     token_start = next_token;
-    while (*next_token != delimeter && *next_token != '\0')
+    while (*next_token != *delimeter && *next_token != '\0')
     next_token++;
-    if (*next_token == delimeter)
+    if (*next_token == *delimeter)
     {
         *next_token = '\0';
         next_token++;
