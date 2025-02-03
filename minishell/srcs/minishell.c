@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:43 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 16:44:54 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:17:39 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int main(int argc, char **argv)
         t_token *tokens = tokenize_input(line);
         if (tokens && strcmp(tokens->value, "echo") == 0)
             execute_echo(tokens);
-        if (strchr(line, '\"'))
+        /*if (strchr(line, '\"'))
             double_quotes(line);
         if (strchr(line, '\''))
-            single_quotes(line);
+            single_quotes(line);*/
         free_tokens(tokens);
     }
     return 0;   

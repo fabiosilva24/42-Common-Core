@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:57:01 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 18:47:26 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:22:43 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void execute_echo(t_token *tokens)
     char **args;
     int i;
 
+    i = 1;
     arg_count = 0;
     current = tokens->next;
     args = malloc(sizeof(char *) * (arg_count + 1));
@@ -31,8 +32,6 @@ void execute_echo(t_token *tokens)
         current = current->next;
     }
     args[arg_count] = NULL;
-
-    i = 1;
     while (i < arg_count)
     {
         parse_input(args[1]);
@@ -42,11 +41,13 @@ void execute_echo(t_token *tokens)
     }
     free(args);
 }
-
 void my_echo(int argc, char **argv)
 {
-    int newline = 1; // print a newline default
-    int i = 1;
+    int newline; // print a newline default
+    int i;
+
+    newline = 1;
+    i = 1;
 
     if (argc > 1 && strcmp(argv[1], "-n")== 0)
     {
