@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:57:01 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/01/30 17:57:02 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:47:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void execute_echo(t_token *tokens)
     int arg_count;
     t_token *current;
     char **args;
+    int i;
 
     arg_count = 0;
     current = tokens->next;
@@ -31,7 +32,14 @@ void execute_echo(t_token *tokens)
     }
     args[arg_count] = NULL;
 
-    my_echo(arg_count, args);
+    i = 1;
+    while (i < arg_count)
+    {
+        parse_input(args[1]);
+        if (i < arg_count - 1)
+            printf(" ");
+        i++;
+    }
     free(args);
 }
 

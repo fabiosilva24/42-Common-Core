@@ -6,7 +6,7 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 14:37:09 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/02/03 14:35:01 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/02/03 18:46:41 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS = ./srcs/minishell.c\
 		./srcs/get_env.c\
 		./builtins/echo.c\
 		./tokens/token.c\
-		./srcs/ft_strtok.c
+		./srcs/ft_strtok.c\
+		./srcs/parse_input.c
 
 OBJS = $(SRCS:.c=.o)
 

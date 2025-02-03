@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:36 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 16:26:26 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:46:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	print_banner();
 void    double_quotes(char *symbol);
 char    **get_environment(void);
 void    single_quotes(char *symbol);
+void	parse_input(char *input);
 
 //tokens
 
