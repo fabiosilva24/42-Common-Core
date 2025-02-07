@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/08 12:08:35 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/16 20:26:58 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/02/07 12:24:22 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ ft_putchar.c\
 ft_putnbr.c\
 ft_putptr.c\
 ft_putstr.c\
-ft_putunsigned.c
+ft_putunsigned.c\
+ft_isspace.c
 
 BONUS_SRCS = ft_lstnew.c\
 		ft_lstadd_front.c\

@@ -9,21 +9,21 @@ void	parse_input(char *input)
 	{
 		if (*arg == '\"')
 		{
-			double_quotes(input);
+			double_quotes(arg);
 			handled = 1;
 			break;
 		}
 		else if (*arg == '\'')
 		{
-			single_quotes(input);
+			single_quotes(arg);
 			handled = 1;
 			break;
 		}
 		arg++;
+	}
 
-		if (!handled)
-		{
-			printf("%s", input);
-		}
+	if (!handled)
+	{
+		printf("%s", input);
 	}
 }

@@ -6,13 +6,14 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:36 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 18:46:26 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:03:59 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 #define MINISHELL_H
 
+# include <readline/history.h>       // add_history
 # include <readline/readline.h>     // readline, rl_clear_history, rl_on_new_line, rl_replace_line, rl_redisplay, add_history
 # include <stdio.h>                 // printf, perror
 # include <stdlib.h>                // malloc, free, exit
@@ -28,6 +29,7 @@
 # include <curses.h>   // tgetent, tgetflag, tgetnum, tgetstr, tgoto, tputs
 # include <sys/ioctl.h>             // ioctl
 # include <errno.h>                 // strerror (alternative for error strings)
+# include "../libs/libft/libft.h"
 
 extern char **environ;
 
@@ -76,7 +78,5 @@ void    handle_sigint(int sig);
 //built ins
 void    my_echo(int argc, char **argv);
 void    execute_echo(t_token *tokens);
-
-
 
 #endif

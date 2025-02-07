@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:54 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/03 18:52:31 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:12:01 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,13 @@ void double_quotes(char *symbol)
 	{
 		while (i < len && symbol[i] != '\"')
 		{
-			if (symbol[i] == '\n')
-				printf("\\n");
-			else if (symbol[i] == '\t')
-				printf("\\t");
-			else if (symbol[i] == '$')
+			if (symbol[i] == '$')
 				handle_dollarsign(symbol, &i, len);
-			else if (isprint(symbol[i]))
-				printf("%c", symbol[i]);
 			else
-				printf("\\x%02x", symbol[i]);
+				printf("%c", symbol[i]);
 			i++;
 		}
 	}
-	printf("\n");
 }
 
 void single_quotes(char *symbol)
@@ -89,16 +82,8 @@ void single_quotes(char *symbol)
 	{
 		while (i < len && symbol[i] != '\'')
 		{
-			if (symbol[i] == '\n')
-				printf("\\n");
-			else if (symbol[i] == '\t')
-				printf("\\t");
-			else if (isprint(symbol[i]))
-				printf("%c", symbol[i]);
-			else
-				printf("\\x%02x", symbol[i]);
+			printf("%c", symbol[i]);
 			i++;
 		}
 	}
-	printf("\n");
 }

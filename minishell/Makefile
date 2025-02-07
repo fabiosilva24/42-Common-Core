@@ -6,7 +6,7 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 14:37:09 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/02/03 18:46:41 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/02/06 16:07:32 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NC := \033[0m
 NAME = minishell
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+READLINEFLAG = -lreadline
 
 LIBFT_PATH = ./libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
@@ -37,7 +38,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
 	@echo "$(CYAN)Making...$(NC)"
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT) $(READLINEFLAG)
 
 $(LIBFT):
 	make -C $(LIBFT_PATH)
