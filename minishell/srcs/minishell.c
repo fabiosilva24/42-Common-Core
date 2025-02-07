@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:56:43 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/07 12:29:09 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:20:57 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void    handle_sigint(int sig)
 {
     (void)sig;
     write(STDOUT_FILENO, "\n", 1);
+    rl_on_new_line();
     rl_redisplay();
 }
 
@@ -24,6 +25,7 @@ int main(int argc, char **argv)
     t_minishell shell;
     char *line;
     int i;
+    int token_count;
 
     signal(SIGINT, handle_sigint);
     signal(SIGQUIT, SIG_IGN);
@@ -47,7 +49,7 @@ int main(int argc, char **argv)
         if (tokens && strcmp(tokens->value, "echo") == 0)
         {
             // Convert tokens to argc and argv format
-            int token_count = 0;
+            token_count = 0;
             t_token *temp = tokens;
             while (temp)
             {

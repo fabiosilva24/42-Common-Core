@@ -6,13 +6,17 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/08 12:08:35 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/02/07 12:24:22 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/02/07 16:29:06 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -fPIC
 NAME = libft.a
+
+PASTEL_PURPLE := \033[38;5;183m
+NC := \033[0m
+
 SRCS = ft_isalpha.c\
 ft_isdigit.c\
 ft_isalnum.c\
@@ -66,7 +70,7 @@ BONUS_SRCS = ft_lstnew.c\
 		ft_lstdelone.c\
 		ft_lstclear.c\
 		ft_lstiter.c\
-		ft_lstmap.c\
+		ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -74,22 +78,28 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@echo "$(PASTEL_PURPLE)Compiling main library...$(NC)"
+	@ar rcs $(NAME) $(OBJS)
 
-	
-%.o: %.c libft.h
+%.o: %.c
+	@file_count=$(shell echo "$(SRCS)" | tr ' ' '\n' | wc -l); \
+	remaining_count=$$((file_count - $$(echo "$(OBJS)" | tr ' ' '\n' | wc -l))); \
+	echo "$(PASTEL_PURPLE)Compiling $< ... [$$remaining_count files remaining]$(NC)"; \
 	$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
 
 clean:
-	rm -f $(OBJS)
-	rm -f $(BONUS_OBJS)
+	@echo "$(PASTEL_PURPLE)Cleaning object files...$(NC)"
+	@rm -f $(OBJS)
+	@rm -f $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
-	
+	@echo "$(PASTEL_PURPLE)Removing library...$(NC)"
+	@rm -f $(NAME)
+
 bonus: $(BONUS_OBJS)
-		ar rcs $(NAME) $(BONUS_OBJS)
+	@echo "$(PASTEL_PURPLE)Compiling bonus files...$(NC)"
+	@ar rcs $(NAME) $(BONUS_OBJS)
 
 .PHONY: all fclean clean re bonus
