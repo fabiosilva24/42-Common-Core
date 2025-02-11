@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_dontdraw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:11:34 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/10/20 01:15:23 by fabiosilva       ###   ########.fr       */
+/*   Updated: 2025/02/11 15:28:54 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	map_dont_draw(t_game *game)
 {
 	if (!map_draw(game))
 	{
+		cleanup_game(game);
 		ft_printf("Error: Failed to load the map\n");
 		exit(EXIT_FAILURE);
 	}

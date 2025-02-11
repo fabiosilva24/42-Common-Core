@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 23:50:48 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/19 00:21:47 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:02:14 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 	{
 		ft_printf("ESC key pressed, exiting game\n");
 		mlx_loop_end(game->mlx_ptr);
-		cleanup_game(game);
-		exit(0);
+		return (0);
 	}
 	handle_player_move(game, &game->player, new_x, new_y);
 	if (game->should_end)

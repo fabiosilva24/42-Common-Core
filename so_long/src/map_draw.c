@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:37:46 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/20 20:17:17 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:33:18 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	allocate_map(t_game *game, int line_count)
 	game->map = malloc((line_count + 1) * sizeof(char *));
 	if (game->map == NULL)
 	{
-		free_map(game);
+		ft_printf("Error: could not allocate memory for map\n");
+		cleanup_game(game);
 		return (0);
 	}
 	return (1);
@@ -55,7 +56,7 @@ void	free_and_close(t_game *game, int fd)
 {
 	if (game->map)
 	{
-		free_map(game);
+		cleanup_game(game);
 		game->map = NULL;
 	}
 	if (fd >= 0)
@@ -73,10 +74,14 @@ int	map_draw(t_game *game)
 	if (line_count <= 0)
 		return (0);
 	if (!allocate_map(game, line_count))
+	{
+		cleanup_game(game);
 		return (0);
+	}
 	fd = open(game->map_file, O_RDONLY);
 	if (fd < 0 || !read_map_lines(game, fd, line_count))
 	{
+		cleanup_game(game);
 		ft_printf("Error: Failed to open or read map file\n");
 		free_and_close(game, fd);
 		return (0);
