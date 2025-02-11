@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/12/20 20:00:55 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:08:31 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	initialize_game(&game, argv[1]);
 	if (!map_draw(&game) || !is_rectangle(&game) || !is_closed_by_walls(&game))
 	{
+		free_map(&game);
+		free_textures(&game);
 		cleanup_game(&game);
 		ft_printf("Invalid map\n");
 		return (0);

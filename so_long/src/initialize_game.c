@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:04:23 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/12/20 20:12:53 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:07:32 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	initialize_game(t_game *game, char *file)
 	if (!get_map_dimensions(game, &game->map_width, &game->map_height))
 	{
 		ft_printf("Error: failed to get the map dimensions\n");
+		cleanup_game(game);
+		free_textures(game);
 		free_map(game);
 		exit(EXIT_FAILURE);
 	}
