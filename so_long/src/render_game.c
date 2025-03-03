@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:49:50 by fabiosilva        #+#    #+#             */
-/*   Updated: 2024/12/20 19:51:35 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/03 03:56:50 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	render_game(void *param)
 {
-	t_game		*game;
-	int			y;
-	int			x;
-	static int	frame_count;
+	t_game	*game;
+	int		y;
+	int		x;
+	static int						frame_count;
 
 	game = (t_game *)param;
 	frame_count = 0;
 	frame_count++;
-	//mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -34,6 +34,7 @@ int	render_game(void *param)
 		}
 		y++;
 	}
+	draw_move_count(game);
 	return (0);
 }
 

@@ -6,12 +6,11 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:49:08 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/12/20 19:50:07 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:47:48 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
 
 void	draw_tile(t_game *game, int x, int y)
 {
@@ -19,10 +18,10 @@ void	draw_tile(t_game *game, int x, int y)
 
 	tile = game->map[y][x];
 	if (x < 0 || x >= game->map_width || y < 0 || y >= game->map_height)
-    {
-        ft_printf("Error: Attempted to draw tile out of bounds");
-        return ;
-    }
+	{
+		ft_printf("Error: Attempted to draw tile out of bounds");
+		return ;
+	}
 	if (tile == '0')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->floor_img, x * 24, y * 24);

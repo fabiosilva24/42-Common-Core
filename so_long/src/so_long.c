@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
-/*   Updated: 2025/02/11 16:05:27 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/20 22:22:07 by fabiosilva       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,16 @@ int	main(int argc, char **argv)
 	initialize_game(&game, argv[1]);
 	if (!map_draw(&game) || !is_rectangle(&game) || !is_closed_by_walls(&game))
 	{
-		ft_printf("Invalid map\n");
 		cleanup_game(&game);
+		ft_printf("Invalid map\n");
 		return (0);
 	}
 	handle_input(&game);
 	mlx_loop(game.mlx_ptr);
-
 	if (game.should_end)
+	{
 		ft_printf("Game ended\n");
+	}
 	cleanup_game(&game);
 	return (0);
 }

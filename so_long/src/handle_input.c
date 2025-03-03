@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 23:49:58 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/02/11 15:45:33 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/20 01:03:30 by fabiosilva       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	handle_window_close(t_game *game)
 {
 	ft_printf("Window close button clicked, exiting game\n");
-	cleanup_game(game);
 	game->should_end = 1;
 	mlx_loop_end(game->mlx_ptr);
 	return (0);

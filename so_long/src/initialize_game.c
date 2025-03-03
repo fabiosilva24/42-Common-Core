@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:04:23 by fabiosilva        #+#    #+#             */
-/*   Updated: 2025/02/11 15:29:48 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/10/20 01:32:06 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	init_mlx(t_game *game)
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
 	{
-		cleanup_game(game);
 		ft_printf("Error initializing MLX\n");
 		exit(EXIT_FAILURE);
 	}
@@ -28,10 +27,7 @@ static void	init_window(t_game *game, int width, int height)
 	game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "So Long");
 	if (!game->win_ptr)
 	{
-		cleanup_game(game);
 		ft_printf("Error creating the window\n");
-		mlx_destroy_display(game->mlx_ptr);
-		free(game->mlx_ptr);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -46,11 +42,10 @@ void	initialize_game(t_game *game, char *file)
 	if (!get_map_dimensions(game, &game->map_width, &game->map_height))
 	{
 		ft_printf("Error: failed to get the map dimensions\n");
-		cleanup_game(game);
 		exit(EXIT_FAILURE);
 	}
-	window_width = game->map_width *24;
-	window_height = game->map_height *24;
+	window_width = game->map_width * 24;
+	window_height = game->map_height * 24;
 	init_window(game, window_width, window_height);
 	setup_game(game);
 }

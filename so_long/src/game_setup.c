@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_setup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabiosilva <fabiosilva@student.42.fr>      +#+  +:+       +#+        */
+/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:29:02 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/10/20 22:46:31 by fabiosilva       ###   ########.fr       */
+/*   Updated: 2025/03/03 04:03:38 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ static void	init_game_state(t_game *game)
 
 static void	setup_mlx_hooks(t_game *game)
 {
-	mlx_loop_hook(game->mlx_ptr, render_game, game);
-	mlx_key_hook(game->win_ptr, handle_keypress, game);
+    mlx_loop_hook(game->mlx_ptr, render_game, game);
+    
+    // Use mlx_hook instead of mlx_key_hook for more control
+    // 2 is the KeyPress event code, 1L<<0 is the KeyPressMask
+    mlx_hook(game->win_ptr, 2, 1L<<0, handle_keypress, game);
+    
+    // Optional: Add hook for window close event (X button)
+    mlx_hook(game->win_ptr, 17, 0, handle_window_close, game);
 }
 
 void	setup_game(t_game *game)
