@@ -1,0 +1,49 @@
+/* XPM */
+static char *bde03b99e0db4399d502a5b2656da655bn44kyjgGbwgLjAI[] = {
+/* columns rows colors chars-per-pixel */
+"24 24 19 1 ",
+"  c #8B0000",  // Dark red
+". c #FF0000",  // Bright red
+"X c #B22222",  // Firebrick red
+"o c #CD5C5C",  // Indian red
+"O c #FF6347",  // Tomato
+"+ c #FF4500",  // Orange red
+"@ c #D2691E",  // Chocolate red
+"# c #8B4513",  // Saddle brown
+"$ c #A52A2A",  // Brown
+"% c #DC143C",  // Crimson
+"& c #C71585",  // Medium violet red
+"* c #FF1493",  // Deep pink
+"= c #FF69B4",  // Hot pink
+"- c #FF8C00",  // Dark orange
+"; c #FF6347",  // Tomato (repeated for variety)
+": c #FFB6C1",  // Light pink
+"> c #FF00FF",  // Magenta
+", c #FFFFFF",  // White
+"< c white",     // White (for background or borders)
+/* pixels */
+"+#X...%++$+O+%.OXX.+.++%",
+"++%XXX..%..++&%.X+X+.+oo",
+"+.#$%%.+oOO+.@+%+o.%+o..",
+"...O%.%+.Oo+.O+%X.+#%...",
+"o..X.%            #+.%O.",
+"%%OX.  ;;;;::::::: +o.X%",
+".X%+ * ;;;;;::;;;: Xo.+.",
+".OXo * ;< <;: :::  $+.+X",
+"$++X   ;< <;:::::: .+#$#",
+"X+#+X * <<<;:::::: .XX..",
+"O+#+$ * ;;;;:::::: ..X+O",
+"+%..%   ;;;;;:     oXoXX",
+"-XX%++.  ;;:::: +O+%..XX",
+"+.XX$#%. ;>,,,, ++XX++O.",
+"o.%%.%   ;>,,,, #+oo..X+",
+"$$+OXX ::;>,,,, +%.+%%.X",
+"$%OO$$  ;;;:>>: X+...%.+",
+"%$$-%+O  ;::::: #%..%+o%",
+"X.X++o$$ ;:  ;: ++o#%#+O",
+".$+%+oX. ; % ; +%..X#=#.",
+"-#+%..X.  =+  X.+XoX+.+#",
+"X+.o%%.X.+%+%X%.+.o+X.X+",
+"O.#+.%o.%X+%++%%o.%%+X..",
+"...+X+%+#.%.O+.o%%+XXo.#"
+};
