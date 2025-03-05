@@ -34,7 +34,7 @@ int	render_game(void *param)
 		}
 		y++;
 	}
-	draw_move_count(game);
+	
 	return (0);
 }
 

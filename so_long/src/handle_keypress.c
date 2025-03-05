@@ -61,6 +61,7 @@ void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 		if (game->map[new_y][new_x] != 'E')
 			game->map[new_y][new_x] = 'P';
 		update_movecount(game);
+  draw_move_count(game);
 		check_collectible(game, player);
 		check_exit(game, player);
 	}
