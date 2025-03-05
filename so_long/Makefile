@@ -6,7 +6,7 @@
 #    By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 16:41:48 by fsilva-p          #+#    #+#              #
-#    Updated: 2025/03/03 03:57:51 by fsilva-p         ###   ########.fr        #
+#    Updated: 2025/03/04 19:29:19 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRCS = ./src/so_long.c\
 	./src/player_notfound.c\
 	./libs/get_next_line/get_next_line.c\
 	./libs/get_next_line/get_next_line_utils.c\
-	./src/draw_move.c
+	./src/draw_move.c\
+	./src/is_mapber.c
 	
  
 OBJS = $(SRCS:.c=.o)

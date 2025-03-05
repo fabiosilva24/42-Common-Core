@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 16:40:49 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/03/03 03:57:29 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:35:31 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ int check_top(t_game *game);
 int check_bottom(t_game *game);
 int check_sides(t_game *game);
 int count_lines(char *file);
-int     read_map_lines(t_game *game, int fd, int line_count);
-int is_closed_by_walls(t_game *game);
+int	is_mapber(char *filename);
+int	read_map_lines(t_game *game, int fd, int line_count);
+int	is_closed_by_walls_and_is_ber(t_game *game, char *filename);
 int	is_valid_move(t_game *game, t_player next);
 int	get_map_dimensions(t_game *game, int *width, int *height);
 void	check_collectible(t_game *game, t_player *player);
@@ -98,7 +99,7 @@ int 	handle_window_close(t_game *game);
 int 	render_game_wrapper(void *param);
 void	player_notfound(t_game *game);
 void 	draw_move_count(t_game *game);
-
+void	free_map(t_game *game);
 
 
 
