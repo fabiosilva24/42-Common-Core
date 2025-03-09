@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 23:50:48 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/03/09 05:48:18 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:34:38 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 void	update_movecount(t_game *game)
 {
 	game->move_count++;
-	ft_printf("Number of moves: %d\n", game->move_count);
+	//ft_printf("Number of moves: %d\n", game->move_count);
 }
