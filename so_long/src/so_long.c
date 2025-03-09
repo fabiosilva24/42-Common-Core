@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:46:41 by fabiosilva        #+#    #+#             */
-/*   Updated: 2025/03/04 19:44:17 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:46:26 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	initialize_game(&game, argv[1]);
-	if (!map_draw(&game) || !is_rectangle(&game) || !is_closed_by_walls_and_is_ber(&game, argv[1]))
+	if (!map_draw(&game))
 	{
 		cleanup_game(&game);
 		ft_printf("Invalid map\n");

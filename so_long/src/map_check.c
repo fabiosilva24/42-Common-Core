@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:51 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/03/04 19:50:58 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 04:08:04 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,8 @@ int	check_sides(t_game *game)
 	return (1);
 }
 
-int	is_closed_by_walls_and_is_ber(t_game *game, char *filename)
+int	is_closed_by_walls(t_game *game)
 {
-    ft_printf("Checking map file: %s\n", filename);
-	if (!is_mapber(filename))
-	{
-		ft_printf("Error: Invalid map extension\n");
-		return (0);
-	}
 	if (!check_top(game))
 	{
 		ft_printf("Top\n");

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:29:02 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/03/03 04:03:38 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 06:08:40 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	setup_mlx_hooks(t_game *game)
 void	setup_game(t_game *game)
 {
 	load_images(game);
+	load_images2(game);
 	map_dont_draw(game);
 	map_draw(game);
 	init_game_state(game);

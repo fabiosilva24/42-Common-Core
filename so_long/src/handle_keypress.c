@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 23:50:48 by fsilva-p          #+#    #+#             */
-/*   Updated: 2025/03/03 03:50:29 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:48:18 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,31 @@ int	handle_keypress(int keycode, t_game *game, int new_x, int new_y)
 	new_x = game->player.x;
 	new_y = game->player.y;
 	if (keycode == KEY_W || keycode == UP_ARROW)
+	{
 		new_y -= 1;
+		game->player_img = game->up_img;
+	}
 	else if (keycode == KEY_A || keycode == LEFT_ARROW)
+	{
 		new_x -= 1;
+		game->player_img = game->left_img;
+	}
 	else if (keycode == KEY_S || keycode == DOWN_ARROW)
+	{
 		new_y += 1;
+		game->player_img = game->down_img;
+	}
 	else if (keycode == KEY_D || keycode == RIGHT_ARROW)
+	{
 		new_x += 1;
+		game->player_img = game->right_img;
+	}
 	else if (keycode == KEY_ESC)
 	{
 		ft_printf("ESC key pressed, exiting game\n");
+		game->should_end = 1;
 		mlx_loop_end(game->mlx_ptr);
-		cleanup_game(game);
-		exit(0);
+		return(0);
 	}
 	handle_player_move(game, &game->player, new_x, new_y);
 	render_game(game);
@@ -61,7 +73,6 @@ void	handle_player_move(t_game *game, t_player *player, int new_x, int new_y)
 		if (game->map[new_y][new_x] != 'E')
 			game->map[new_y][new_x] = 'P';
 		update_movecount(game);
-  draw_move_count(game);
 		check_collectible(game, player);
 		check_exit(game, player);
 	}

@@ -32,6 +32,13 @@
 # include "../libs/minilibx-linux/mlx.h"
 # include "../libs/get_next_line/get_next_line.h"
 
+typedef struct s_monster
+{
+	int direction;
+	int new_x;
+	int new_y;
+	int monster_count;
+} t_monster;
 typedef struct s_player
 {
 	int x;
@@ -49,7 +56,12 @@ typedef struct s_game
 	void *floor_img;
 	void *wall_img;
 	void *exit_img;
+	void *up_img;
 	void *collectible_img;
+	void *right_img;
+	void *left_img;
+	void *down_img;
+	void *monster_img;
 	t_player player;
 	char  **map;
 	int collectible;
@@ -78,7 +90,7 @@ int check_sides(t_game *game);
 int count_lines(char *file);
 int	is_mapber(char *filename);
 int	read_map_lines(t_game *game, int fd, int line_count);
-int	is_closed_by_walls_and_is_ber(t_game *game, char *filename);
+int	is_closed_by_walls(t_game *game);
 int	is_valid_move(t_game *game, t_player next);
 int	get_map_dimensions(t_game *game, int *width, int *height);
 void	check_collectible(t_game *game, t_player *player);
@@ -100,6 +112,8 @@ int 	render_game_wrapper(void *param);
 void	player_notfound(t_game *game);
 void 	draw_move_count(t_game *game);
 void	free_map(t_game *game);
+void	load_images2(t_game *game);
+void	cleanup_textures(t_game *game);
 
 
 

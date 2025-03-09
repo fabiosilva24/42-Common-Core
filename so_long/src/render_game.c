@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 01:49:50 by fabiosilva        #+#    #+#             */
-/*   Updated: 2025/03/04 19:01:44 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2025/03/09 05:40:32 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	render_game(void *param)
 	game = (t_game *)param;
 	frame_count = 0;
 	frame_count++;
-	//mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -34,7 +34,7 @@ int	render_game(void *param)
 		}
 		y++;
 	}
-	
+	draw_move_count(game);
 	return (0);
 }
 
@@ -64,6 +64,22 @@ void	load_images(t_game *game)
 		ft_printf("Error: failed to load exit image\n");
 	if (!game->collectible_img)
 		ft_printf("Error: failed to load collectible image\n");
+}
+
+void load_images2(t_game *game)
+{
+	int height;
+	int width;
+	game->up_img = mlx_xpm_file_to_image(game->mlx_ptr,
+		"./assets/up.xpm", &width, &height);
+	game->right_img = mlx_xpm_file_to_image(game->mlx_ptr,
+		"./assets/right_player.xpm", &width, &height);
+	game->left_img = mlx_xpm_file_to_image(game->mlx_ptr,
+		"./assets/left.xpm", &width, &height);
+	game->down_img = mlx_xpm_file_to_image(game->mlx_ptr,
+		"./assets/down.xpm", &width, &height);
+	//game->monster_img = mlx_xpm_file_to_image(game->mlx_ptr,
+		//"./assets/monster.xpm", &width, &height);
 }
 
 int	render_game_wrapper(void *param)
