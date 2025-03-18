@@ -1,0 +1,7 @@
+{
+mlx_xpm_file_to_image_leak
+Memcheck:Leak
+fun:mlx_xpm_file_to_image
+fun:mlx_int_parse_xpm
+fun:mlx_int_new_xshm_image
+}

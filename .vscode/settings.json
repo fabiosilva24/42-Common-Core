@@ -3,6 +3,7 @@
         "philo.h": "c",
         "minishell.h": "c",
         "stdio.h": "c",
-        "readline.h": "c"
+        "readline.h": "c",
+        "so_long.h": "c"
     }
 }

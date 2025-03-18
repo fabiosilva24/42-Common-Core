@@ -111,7 +111,6 @@ int 	handle_window_close(t_game *game);
 int 	render_game_wrapper(void *param);
 void	player_notfound(t_game *game);
 void 	draw_move_count(t_game *game);
-void	free_map(t_game *game);
 void	load_images2(t_game *game);
 void	cleanup_textures(t_game *game);
 
