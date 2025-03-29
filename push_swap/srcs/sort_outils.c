@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*   sort_outils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 17:57:31 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/11/25 15:50:37 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/11/25 15:39:57 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/11/25 15:41:48 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ static void	move_a_to_b(t_stack_nodes	**a, t_stack_nodes	**b)
 	pb(b, a);
 }
 
+static void	move_b_to_a(t_stack_nodes	**a, t_stack_nodes	**b)
+{
+	prepare_to_push(a, (*b)->target_node, 'a');
+	pa(a, b);
+}
+
 static void	min_ontop(t_stack_nodes	**a)
 {
 	while ((*a)->nbr != find_minnode(*a)->nbr)
@@ -56,28 +62,4 @@ static void	min_ontop(t_stack_nodes	**a)
 		else
 			rra(a);
 	}
-}
-
-void	sort_stacks(t_stack_nodes	**a, t_stack_nodes	**b)
-{
-	int	length_a;
-
-	length_a = stack_length(*a);
-	if (length_a-- > 3 && !is_sorted(*a))
-		pb(b, a);
-	if (length_a-- > 3 && !is_sorted(*a))
-		pb(b, a);
-	while (length_a-- > 3 && !is_sorted(*a))
-	{
-		init_nodes_a(*a, *b);
-		move_a_to_b(a, b);
-	}
-	sort_three(a);
-	while (*b)
-	{
-		init_nodes_b(*a, *b);
-		move_b_to_a(a, b);
-	}
-	check_median(*a);
-	min_ontop(a);
 }

@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:58:10 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/11/20 17:58:10 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:38:34 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,29 @@ int	stack_length(t_stack_nodes	*stack)
 
 t_stack_nodes	*find_maxnode(t_stack_nodes	*stack)
 {
-	long	max; //max stack number
-	t_stack_nodes	*max_node; //pointer that points to the biggest number
+	long			max;
+	t_stack_nodes	*max_node;
 
-	max = LONG_MIN;  //long min so we dont need extra conditions or check for negative and positive numbers
+	max = LONG_MIN;
 	if (!stack)
 		return (NULL);
 	while (stack)
 	{
-		if (stack->nbr > max)     //nbr > long_min  imagine nbr is -2 > long_min so -2 is the max so far
+		if (stack->nbr > max)
 		{
-			max = stack->nbr;   //ex:max = -2
-			max_node = stack;  //biggest number = node
+			max = stack->nbr;
+			max_node = stack;
 		}
-		stack = stack->next;     // move to the next node
+		stack = stack->next;
 	}
-    return (max_node); //returns pointer to the biggest number
+	return (max_node);
 }
 
 t_stack_nodes	*find_minnode(t_stack_nodes	*stack)
 {
-	long			min;  //min stack number
-	t_stack_nodes	*min_node; //pointer that points to the smallest number
+	long			min;
+	t_stack_nodes	*min_node;
+
 	if (!stack)
 		return (NULL);
 	min = LONG_MAX;
@@ -81,7 +82,7 @@ t_stack_nodes	*find_minnode(t_stack_nodes	*stack)
 			min = stack->nbr;
 			min_node = stack;
 		}
-		stack = stack->next; // move to the next node
+		stack = stack->next;
 	}
-	return (min_node); //returns pointer to the smallest number
+	return (min_node);
 }

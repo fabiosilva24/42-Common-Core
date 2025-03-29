@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   move_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 15:50:27 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/03/08 19:18:33 by fsilva-p         ###   ########.fr       */
+/*   Created: 2024/11/25 15:48:36 by fsilva-p          #+#    #+#             */
+/*   Updated: 2024/11/25 15:50:47 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	move_b_to_a(t_stack_nodes	**a, t_stack_nodes	**b)
 {
-	if (lst == NULL || del == NULL)
-	{
-		return ;
-	}
-	del(lst->content);
-	free (lst);
+	prepare_to_push(a, (*b)->target_node, 'a');
+	pa(a, b);
 }

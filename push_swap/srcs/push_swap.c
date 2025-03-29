@@ -6,7 +6,7 @@
 /*   By: fsilva-p <fsilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:56:32 by fsilva-p          #+#    #+#             */
-/*   Updated: 2024/11/20 17:56:32 by fsilva-p         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:39:22 by fsilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = modified_ftsplit(argv[1], ' ');
-	init_stack_a(&a, argv + 1); //cause we want to start at ex: "19 23 21 42"
+	init_stack_a(&a, argv + 1);
 	if (!is_sorted(a))
 	{
 		if (stack_length(a) == 2)
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);
-	free_argv(argv);
+	if (argc == 2)
+		free_argv(argv);
 	return (0);
 }

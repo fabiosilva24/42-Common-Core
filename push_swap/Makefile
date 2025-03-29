@@ -6,9 +6,10 @@
 #    By: fsilva-p <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/21 16:16:01 by fsilva-p          #+#    #+#              #
-#    Updated: 2024/10/21 16:16:04 by fsilva-p         ###   ########.fr        #
+#    Updated: 2024/11/25 15:57:36 by fsilva-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 GREEN := \033[0;32m
 CYAN := \033[0;36m
 NC := \033[0m
@@ -29,7 +30,8 @@ SRCS = srcs/handle_errors.c\
 	srcs/sort_three.c\
 	srcs/stack_init.c\
 	srcs/stack_outils.c\
-	srcs/swap.c
+	srcs/swap.c\
+	srcs/move_b_to_a.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -37,8 +39,10 @@ all: $(NAME)
 
 $(NAME) : $(OBJS) $(LIBFT)
 	@echo "$(CYAN)Making...$(NC)"
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)		
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
 
+$(LIBFT):
+	make -C $(LIBFT_PATH)
 clean:
 	@echo "$(GREEN)Cleaning...$(NC)"
 	rm -f $(OBJS)

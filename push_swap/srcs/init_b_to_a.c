@@ -16,7 +16,7 @@ static void	set_target_b(t_stack_nodes	*a, t_stack_nodes	*b)
 {
 	t_stack_nodes				*current_a;
 	t_stack_nodes				*target_node;
-	long					closest_bigger_nbr;
+	long						closest_bigger_nbr;
 
 	while (b)
 	{
