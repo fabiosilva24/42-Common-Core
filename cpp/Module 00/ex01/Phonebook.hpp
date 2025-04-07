@@ -6,6 +6,9 @@
 class Phonebook{
     private:
         Contact contacts[8];
+        int index;
+        
+
 
     public:
             void addContact();

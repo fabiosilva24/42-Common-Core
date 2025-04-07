@@ -5,9 +5,10 @@
 
 
 class Contact{
-    private:
+    public:
             std::string firstname;
             std::string nickname;
             std::string phonenumber;
             std::string darkestsecrect;
+            std::string lastname;
 };
