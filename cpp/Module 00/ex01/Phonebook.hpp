@@ -11,7 +11,7 @@ class Phonebook{
         int index;
     public:
             void addContact(const Contact& contacts);
-            void searchContact();
+            void searchContact(const Contact& contact);
 };
 
 #endif

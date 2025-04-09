@@ -7,6 +7,10 @@ void Phonebook::addContact(const Contact& contact)
     contacts[index] = contact;
     index = (index + 1) % 8;    
 }
+void Phonebook::searchContact(const Contact& contact)
+{
+    
+}
 
 
 
