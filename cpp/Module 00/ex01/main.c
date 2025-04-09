@@ -1,8 +1,13 @@
-#include "Contact.hpp"
 #include "Phonebook.hpp"
 
 
-int main(int argc, char **argv)
+void addContact()
 {
-    
+    std::string input;
+    std::cout << "Enter the firstname\n";
+    std::getline(std::cin, firstname);
+}
+int main()
+{
+
 }
