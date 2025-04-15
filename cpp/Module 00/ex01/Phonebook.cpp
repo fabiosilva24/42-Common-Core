@@ -4,7 +4,6 @@ Phonebook::Phonebook() : index(0)
 {}
 void Phonebook::addContact(const Contact& contact)
 {
-<<<<<<< HEAD
     Contact new_contact;
     std::cout << "Enter first name";
     std::getline(std::cin, contact.firstname);
@@ -19,14 +18,9 @@ void Phonebook::addContact(const Contact& contact)
 
     contacts[index] = new_contact; //overwrite oldest if full
     index = (index + 1) % 8;
-=======
-    contacts[index] = contact;
-    index = (index + 1) % 8;    
->>>>>>> b72cbfd62cd279a438e007f0f6504db19cbc3257
 }
 void Phonebook::searchContact(const Contact& contact)
 {
-<<<<<<< HEAD
     if (contacts_tosearch == 0 && contacts[0].get_firstname().empty())
     {
         std::cout << "No Contacts to search\n";
@@ -41,9 +35,6 @@ void Phonebook::searchContact(const Contact& contact)
                 << std::setw(10) << contacts[i].get_lastname() << " | "
                 << std::setw(10) << contacts[i].get_nickname() << std::endl;
     }
-=======
-    
->>>>>>> b72cbfd62cd279a438e007f0f6504db19cbc3257
 }
 
 
