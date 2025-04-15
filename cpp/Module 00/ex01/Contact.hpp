@@ -5,21 +5,38 @@
 
 
 class Contact{
-    public:
+    private:
             std::string firstname;
+            std::string lastname;
             std::string nickname;
             std::string phonenumber;
+<<<<<<< HEAD
             std::string darkestsecrect;
             std::string lastname;
+=======
+            std::string darkestsecret;
+>>>>>>> b72cbfd62cd279a438e007f0f6504db19cbc3257
     public:
         void set_firstname(const std::string& firstname);
         void set_lastname(const std::string& lastname);
         void set_nickname(const std::string& nickname);
         void set_phonenumber(const std::string& phonenumber);
         void set_darkestsecret(const std::string& darkestsecret);
+<<<<<<< HEAD
         std::string get_firstname() const;
         std::string get_lastname() const;
         std::string get_nickname() const;
         std::string get_phonenumber() const;
         std::string get_darkestsecret() const;
 };
+=======
+        std::string Contact::get_firstname() const;
+        std::string Contact::get_lastname() const;
+        std::string Contact::get_nickname() const;
+        std::string Contact::get_phonenumber() const;
+        std::string Contact::get_darkestsecret() const;
+
+};
+
+#endif
+>>>>>>> b72cbfd62cd279a438e007f0f6504db19cbc3257
