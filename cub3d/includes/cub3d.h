@@ -5,11 +5,19 @@
 #include "../libs/get_next_line/get_next_line.h"
 
 
-typedef struct s_map
+typedef struct s_game
+{
+    char	**map;
+    int	player;
+    void	*mlx_ptr;
+    void	*win_ptr;
+}t_game;
+
+typedef struct s_minimap
 {
 
+}t_minimap;
 
-}t_map;
 
 int is_mapber(char *filename);
 
