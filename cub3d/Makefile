@@ -28,11 +28,15 @@ $(LIBFT):
 	@echo "$(CYAN)Building Libft...$(NC)"
 	$(MAKE) -C $(LIBFT_PATH)
 
-$(MLX_LIB):
+$(MLX_LIB): clone_mlx
+	@echo "$(CYAN)Building MiniLibX...$(NC)"
+	$(MAKE) -C $(MLX_PATH)
+
+
+clone_mlx:
 	@mkdir -p $(LIBS_DIR)
-	@if [ ! -d $(MLX_PATH) ] || [ ! -e $(MLX_LIB) ]; then \
+	@if [ ! -d $(MLX_PATH) ]; then \
 		echo "$(CYAN)Cloning MiniLibX...$(NC)"; \
-		rm -rf $(MLX_PATH); \
 		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_PATH); \
 	fi
 	@echo "$(CYAN)Building MiniLibX...$(NC)"
@@ -50,4 +54,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re clone_mlx
